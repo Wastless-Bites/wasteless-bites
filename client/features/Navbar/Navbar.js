@@ -1,17 +1,16 @@
 import React from "react";
 
 const Navbar = () => {
-  return;
-  <>
+  return (
     <nav>
-      <div class="logo">
+      <div className="logo">
         <img src="somelogo" alt="Wasteless Bites" />
       </div>
-      <div class="login">
+      <div className="login">
         <a href="#">Login</a>
       </div>
     </nav>
-  </>;
+  );
 };
 
 export default Navbar;

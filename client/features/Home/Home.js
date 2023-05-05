@@ -1,12 +1,11 @@
 import React from "react";
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
 
 const Home = () => {
   return (
     <>
-      <Navbar />
-      <Footer />
+      <div>Here is the gif</div>
+      <div>Here is the individual/org card</div>
+      <div>Here is some brief about info</div>
     </>
   );
 };

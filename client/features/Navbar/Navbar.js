@@ -6,8 +6,14 @@ const Navbar = () => {
       <div className="logo">
         <img src="somelogo" alt="Wasteless Bites" />
       </div>
+      <div className="home">
+        <a href="/">Home</a>
+      </div>
       <div className="login">
-        <a href="#">Login</a>
+        <a href="/login">Login</a>
+      </div>
+      <div className="signup">
+        <a href="/signup">Sign Up</a>
       </div>
     </nav>
   );

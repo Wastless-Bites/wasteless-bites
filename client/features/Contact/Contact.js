@@ -1,10 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer.js";
+import Navbar from "../Navbar/Navbar.js";
 
 const Contact = () => {
   return (
     <>
+      <Navbar />
       <h1>Contact Us</h1>
       <p>Please fill out the form below to contact us.</p>
       <form>

@@ -1,10 +1,11 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Footer from "../Footer/Footer.js";
+import Navbar from "../Navbar/Navbar.js";
 
 const AboutUs = () => {
   return (
     <>
+      <Navbar />
       <h1>About Us</h1>
       <p>
         Food waste is an ever-increasing problem that contributes significantly

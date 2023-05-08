@@ -1,141 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================== */
+/*      GENERAL SELECTORS      */
+/* =========================== */
+
 body {
-  background-color: gray;
+    background-color: slategray;
+    margin: 0;
 }
 
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px;
-  background-color: #f8f8f8;
-  border-radius: 20px;
+a:visited,
+a:link {
+    color: #fff;
+    text-decoration: none;
 }
 
-.logo img {
-  height: 50px;
+/* =============================== */
+/*      NAV BAR LANDING PAGE       */
+/* =============================== */
+
+.navbar-container-landing-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
 }
 
-.home {
-  margin-left: auto;
+.nav-right-container-landing-page {
+    margin: 0 15px 0 auto;
+    padding: 20px 0;
 }
 
-.home a {
-  display: inline-block;
-  padding: 10px 15px;
-  background-color: transparent;
-  color: gray;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
+/* ========================= */
+/*      NAV BAR GENERAL      */
+/* ========================= */
+
+.navbar-container {
+    width: 100%;
+    padding: 20px 0;
 }
 
-.home a:hover {
-  background-color: #a9ba9d;
+.nav-right-container {
+    margin: 0 30px 0 auto;
 }
 
-.login a {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: transparent;
-  color: gray;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
+/* ============================ */
+/*      NAV BAR COMBINATORS     */
+/* ============================ */
+
+.navbar-container,
+.navbar-container-landing-page {
+    font-size: 1.75rem;
+    display: flex;
+    align-items: center;
 }
 
-.login a:hover {
-  background-color: #a9ba9d;
+.nav-right-container > a,
+.nav-right-container-landing-page > a {
+    margin: 0 15px;
+    padding: 15px;
+}
+.nav-right-container > a:hover,
+.nav-right-container-landing-page > a:hover {
+    background-color: #a9ba9d;
+    transition: background-color 0.9s;
 }
 
-.signup a {
-  display: inline-block;
-  padding: 10px 15px;
-  background-color: transparent;
-  color: gray;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s;
+/* ========================= */
+/*      HOME SECTION TWO     */
+/* ========================= */
+
+.home-section-two {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding: 14rem;
+    background-color: #f8f8f8aa;
 }
 
-.signup a:hover {
-  background-color: #a9ba9d;
+.individual-box,
+.organization-box {
+    width: 31%;
+    padding: 115px 44px;
+    margin: 0 20px 0 0;
+    background-color: whitesmoke;
 }
 
-.box-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  margin: 50px;
+/* =========================== */
+/*      HOME SECTION THREE     */
+/* =========================== */
+
+.home-section-three {
+    display: flex;
+    background-color: #fff;
+    padding: 300px;
 }
 
-.box {
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  position: relative;
-  justify-content: center;
-  width: 92%;
-  padding: 8rem;
-  background-color: #f8f8f8;
-  border: 1px solid white;
-  border-radius: 50px;
-  margin: 5px;
+/* =========================== */
+/*      HOME SECTION FOUR      */
+/* =========================== */
+
+.home-section-four {
+    background-color: salmon;
+    display: flex;
 }
 
-.innerleft-box,
-.innerright-box {
-  display: inline-block;
-  border: 2px solid black;
-  border-radius: 30px;
-  padding: 20px;
-  margin: 50px;
-  box-sizing: border-box;
-  width: 15%;
-  height: 175px;
+.section-four-gif {
+    background-image: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzlkZjQ0OTkxYWM2YzFlNDM0MjRiZjI0MDQ1NTk2NTY3MzhjNTgyZCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/AauZyD5f2pnamJ3Zj0/giphy.gif');
+    background-repeat: no-repeat;
+    width: 750px;
+    height: 650px;
+    margin: 0;
+    background-size: contain;
 }
 
-.innerleft-box2,
-.innerright-box2 {
-  display: inline-block;
-  border: 2px solid black;
-  border-radius: 30px;
-  padding: 20px;
-  margin: 10px;
-  box-sizing: border-box;
-  width: 100%;
-  height: 190px;
+/* ======================= */
+/*         FOOTER          */
+/* ======================= */
+
+.section-footer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background-color: darkgoldenrod;
 }
 
-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: absolute;
-  font-size: 2rem;
-  margin-left: 40%;
-}
-
-/* Login Page */
+/* ========================== */
+/*      LOGIN/SIGNUP PAGE     */
+/* ========================== */
 
 form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
-  padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    padding: 20px;
 }
 
 label {
-  margin: 5px 0;
+    margin: 5px 0;
 }
 
 input {
-  padding: 5px;
-  margin: 5px 0;
+    padding: 5px;
+    margin: 5px 0;
 }
 
 button {
-  margin-top: 10px;
+    margin-top: 10px;
 }

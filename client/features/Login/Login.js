@@ -1,31 +1,42 @@
-import React from 'react'
-import Navbar from '../Navbar/Navbar.js'
+import React from "react";
+import Navbar from "../Navbar/Navbar.js";
+import { authenticate } from "../auth/authSlice.js";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
-    return (
-        <>
-            <Navbar />
-            <h1>Login</h1>
-            <form>
-                <label htmlFor="username">Username:</label>
-                <input type="text" id="name" name="name" required />
+  const dispatch = useDispatch();
 
-                <label htmlFor="password">Password:</label>
-                <input type="password" id="password" name="password" required />
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const username = e.target.name.value;
+    const password = e.target.password.value;
+    await dispatch(authenticate({ username, password, method: "login" }));
+  };
 
-                <button type="submit">Login</button>
+  return (
+    <>
+      <Navbar />
+      <h1>Login</h1>
+      <form onSubmit={handleLogin}>
+        <label htmlFor="username">Username:</label>
+        <input type="text" id="name" name="name" required />
 
-                <p>New here? Sign up here!</p>
-                <button
-                    type="submit"
-                    formNoValidate
-                    onClick={() => (window.location.href = '/signup')}
-                >
-                    Sign Up
-                </button>
-            </form>
-        </>
-    )
-}
+        <label htmlFor="password">Password:</label>
+        <input type="password" id="password" name="password" required />
 
-export default Login
+        <button type="submit">Login</button>
+
+        <p>New here? Sign up here!</p>
+        <button
+          type="submit"
+          formNoValidate
+          onClick={() => (window.location.href = "/signup")}
+        >
+          Sign Up
+        </button>
+      </form>
+    </>
+  );
+};
+
+export default Login;

@@ -17,11 +17,11 @@ const Home = () => {
                         loop
                     >
                         <source
-                            src="https://vod-progressive.akamaized.net/exp=1683416363~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F3301%2F28%2F716506977%2F3322312678.mp4~hmac=234460b081a3166e7b2be44d9a8536f1af20234e68bc96e29d474c463bdde1fb/vimeo-prod-skyfire-std-us/01/3301/28/716506977/3322312678.mp4?filename=file.mp4"
+                            src="../../../Vid.mp4"
                             type="video/mp4"
                         ></source>
                         <source
-                            src="https://vod-progressive.akamaized.net/exp=1683416363~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F3301%2F28%2F716506977%2F3322312678.mp4~hmac=234460b081a3166e7b2be44d9a8536f1af20234e68bc96e29d474c463bdde1fb/vimeo-prod-skyfire-std-us/01/3301/28/716506977/3322312678.mp4?filename=file.mp4"
+                            src="../../../Vid.mp4"
                             type="video/ogg"
                         ></source>
                     </video>

@@ -25,13 +25,8 @@ const Login = () => {
         <input type="password" id="password" name="password" required />
 
         <button type="submit">Login</button>
-
         <p>New here? Sign up here!</p>
-        <button
-          type="submit"
-          formNoValidate
-          onClick={() => (window.location.href = "/signup")}
-        >
+        <button onClick={() => (window.location.href = "/signup")}>
           Sign Up
         </button>
       </form>

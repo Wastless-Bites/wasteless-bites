@@ -6,18 +6,20 @@ const Footer = () => {
             <div className="footer-links">
                 <a href="/contact">Contact | </a>
                 <a href="/aboutus">About Us | </a>
-                <a href="#">
-                    <i className="fa-brands fa-instagram"></i>
-                </a>
-                <a href="#">
-                    <i className="fa-brands fa-facebook"></i>
-                </a>
-                <a href="#">
-                    <i className="fa-brands fa-twitter"></i>
-                </a>
-                <a href="#">
-                    <i className="fa-brands fa-linkedin"></i>
-                </a>
+                <div>
+                    <a href="#">
+                        <i className="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#">
+                        <i className="fa-brands fa-facebook"></i>
+                    </a>
+                    <a href="#">
+                        <i className="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="#">
+                        <i className="fa-brands fa-linkedin"></i>
+                    </a>
+                </div>
             </div>
             <p>WASTELESS BITES © 2023 · All Rights Reserved</p>
         </footer>

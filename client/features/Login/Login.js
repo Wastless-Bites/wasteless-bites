@@ -18,7 +18,7 @@ const Login = () => {
                 <p>New here? Sign up here!</p>
                 <button
                     type="submit"
-                    formNovalidate
+                    formNoValidate
                     onClick={() => (window.location.href = '/signup')}
                 >
                     Sign Up

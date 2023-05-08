@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* =========================== */
+/*      GENERAL SELECTORS      */
+/* =========================== */
+
 body {
     background-color: slategray;
     margin: 0;
@@ -18,29 +22,16 @@ a:link {
 /* =============================== */
 
 .navbar-container-landing-page {
-    display: flex;
-    align-items: center;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     z-index: 1;
-    font-size: 1.75rem;
 }
 
 .nav-right-container-landing-page {
-    margin: 0 30px 0 auto;
+    margin: 0 15px 0 auto;
     padding: 20px 0;
-}
-
-.nav-right-container-landing-page > a {
-    margin: 0 15px;
-    padding: 15px;
-}
-
-.nav-right-container-landing-page > a:hover {
-    background-color: #a9ba9d;
-    transition: background-color 0.9s;
 }
 
 /* ========================= */
@@ -48,15 +39,34 @@ a:link {
 /* ========================= */
 
 .navbar-container {
-    display: flex;
-    align-items: center;
     width: 100%;
     padding: 20px 0;
 }
 
 .nav-right-container {
-    margin-left: auto;
-    margin-right: 30px;
+    margin: 0 30px 0 auto;
+}
+
+/* ============================ */
+/*      NAV BAR COMBINATORS     */
+/* ============================ */
+
+.navbar-container,
+.navbar-container-landing-page {
+    font-size: 1.75rem;
+    display: flex;
+    align-items: center;
+}
+
+.nav-right-container > a,
+.nav-right-container-landing-page > a {
+    margin: 0 15px;
+    padding: 15px;
+}
+.nav-right-container > a:hover,
+.nav-right-container-landing-page > a:hover {
+    background-color: #a9ba9d;
+    transition: background-color 0.9s;
 }
 
 /* ========================= */
@@ -84,13 +94,24 @@ a:link {
 /* =========================== */
 
 .home-section-three {
+    display: flex;
+    background-color: #fff;
+    padding: 300px;
+}
+
+/* =========================== */
+/*      HOME SECTION FOUR      */
+/* =========================== */
+
+.home-section-four {
     background-color: salmon;
     display: flex;
 }
 
-.section-three-gif {
+.section-four-gif {
     background-image: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzlkZjQ0OTkxYWM2YzFlNDM0MjRiZjI0MDQ1NTk2NTY3MzhjNTgyZCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/AauZyD5f2pnamJ3Zj0/giphy.gif');
-    width: 650px;
+    background-repeat: no-repeat;
+    width: 750px;
     height: 650px;
     margin: 0;
     background-size: contain;
@@ -107,22 +128,11 @@ a:link {
     background-color: darkgoldenrod;
 }
 
+/* ========================== */
+/*      LOGIN/SIGNUP PAGE     */
+/* ========================== */
 
-
-/* 
-
-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    font-size: 2rem;
-    margin-left: 40%;
-} */
-
-/* Login Page */
-
-/* form {
+form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -142,62 +152,4 @@ input {
 
 button {
     margin-top: 10px;
-} */
-
-/* --=-=-=-=-=-=-=-=-=-=-=- */
-
-/* 
-
-.testing2 {
-    background-image: url('https://vod-progressive.akamaized.net/exp=1683361043~acl=%2Fvimeo-prod-skyfire-std-us%2F01%2F3301%2F28%2F716506977%2F3322312678.mp4~hmac=4682e5067fd9677cd1ecbe6e4d0aff056f5724ae07dd8c8614775778c600ff28/vimeo-prod-skyfire-std-us/01/3301/28/716506977/3322312678.mp4?filename=file.mp4');
-    width: 500px;
-    height: 500px;
-    background-size: contain;
 }
-
-.box1 {
-    width: 100%;
-    height: 100%;
-} */
-
-/* Steven CSS */
-
-/* .home a {
-    
-    background-color: transparent;
-    text-decoration: none;
-    border-radius: 5px;
-    color: #fff;
-    padding: 10px 15px;
-    transition: background-color 0.3s;
-}
-
-.home a:hover {
-    background-color: #a9ba9d;
-}
-
-.login a {
-    padding: 10px 20px;
-    background-color: transparent;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.login a:hover {
-    background-color: #a9ba9d;
-}
-
-.signup a {
-    padding: 10px 15px;
-    background-color: transparent;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.signup a:hover {
-    background-color: #a9ba9d;
-} */

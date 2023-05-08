@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 const Home = () => {
     return (
         <>
+            {/* ---SECTION ONE--- */}
+
             <div className="home-container">
                 <div className="home-section-one">
                     <video
@@ -38,6 +40,8 @@ const Home = () => {
                     </div>
                 </div>
 
+                {/* --- SECTION TWO --- */}
+
                 <div className="home-section-two">
                     <div className="individual-box">
                         <h2>An individual</h2>
@@ -60,11 +64,24 @@ const Home = () => {
                     </div>
                 </div>
 
+                {/* --- SECTION THREE --- */}
+
                 <div className="home-section-three">
-                    <div className="section-three-left-container">
-                        <p className="section-three-gif"></p>
+                    <div className="home-section-three-left-container">
+                        testing
                     </div>
-                    <div className="section-three-right-container">
+                    <div className="home-section-three-right-container">
+                        testing2
+                    </div>
+                </div>
+
+                {/* ---SECTION FOUR--- */}
+
+                <div className="home-section-four">
+                    <div className="section-four-left-container">
+                        <p className="section-four-gif"></p>
+                    </div>
+                    <div className="section-four-right-container">
                         <h3>Our mission</h3>
                         <h2>
                             Seeking solutions to eliminate waste of any

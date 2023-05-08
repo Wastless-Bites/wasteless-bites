@@ -34,8 +34,8 @@ const Home = () => {
                         />
                         <div className="nav-right-container-landing-page">
                             <Link to="/">Home</Link>
-                            <Link href="/login">Login</Link>
-                            <Link href="/signup">Sign Up</Link>
+                            <Link to="/login">Login</Link>
+                            <Link to="/signup">Sign Up</Link>
                         </div>
                     </div>
                 </div>

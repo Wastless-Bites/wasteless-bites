@@ -6,15 +6,18 @@ const seed = async () => {
 
   // Create users
   const adminUser = await User.create({
-    name: "Admin User",
+    username: "Admin",
+    password: "123",
     email: "admin@example.com",
     address: "123 Admin St",
     description: "I am the admin user",
-    userType: "admin",
+    userType: "individual",
+    isAdmin: true,
   });
 
   const individualUser = await User.create({
-    name: "Individual User",
+    username: "Individual",
+    password: "123",
     email: "individual@example.com",
     address: "456 Individual St",
     description: "I am the individual user",
@@ -22,7 +25,8 @@ const seed = async () => {
   });
 
   const organizationUser = await User.create({
-    name: "Organization User",
+    username: "Organization",
+    password: "123",
     email: "organization@example.com",
     address: "789 Organization St",
     description: "I am the organization user",

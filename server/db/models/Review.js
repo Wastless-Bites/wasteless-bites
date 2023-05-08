@@ -1,31 +1,29 @@
-const Sequelize = require('sequelize')
-const db = require('../db')
+const Sequelize = require("sequelize");
+const db = require("../db");
 
-const Review = db.define('Review', {
-    individual_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        validate: {
-            notNull: true,
-        },
+const Review = db.define("Review", {
+  comment: {
+    type: Sequelize.TEXT,
+    allowNull: false,
+    validate: {
+      max: 100,
+      min: 10,
+      notEmpty: true,
+      notNull: true,
     },
-    organization_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        validate: {
-            notNull: true,
-        },
+  },
+  userId: {
+    type: Sequelize.INTEGER,
+    allowNull: false,
+  },
+  organizationId: {
+    type: Sequelize.INTEGER,
+    allowNull: true,
+    references: {
+      model: "Users",
+      key: "id",
     },
-    comment: {
-        type: Sequelize.TEXT,
-        allowNull: false,
-        validate: {
-            max: 100,
-            min: 10,
-            notEmpty: true,
-            notNull: true,
-        },
-    },
-})
+  },
+});
 
-module.exports = Review
+module.exports = Review;

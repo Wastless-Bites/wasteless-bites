@@ -7,6 +7,20 @@ const Home = () => {
             {/* ---SECTION ONE--- */}
 
             <div className="home-container">
+                <div className="section-one-text-container">
+                    <h1 className="section-one-header-text">
+                        At Wasteless Bites, we're passionate about fighting food
+                        waste and are proud to work alongside partners across
+                        the food industry.
+                    </h1>
+                    <p className="section-one-text">
+                        We do our best to reduce food loss and waste. Together,
+                        we're making a positive impact on the planet, one bite
+                        at a time.
+                    </p>
+                    <button>About Us</button>
+                    <button>Find Solutions</button>
+                </div>
                 <div className="home-section-one">
                     <video
                         className="home-section-one-video"

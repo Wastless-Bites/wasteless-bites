@@ -20,4 +20,14 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.post("/", async (req, res, next) => {
+  try {
+    console.log(req.body);
+    const newAd = await Ad.create(req.body);
+    res.json(newAd);
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

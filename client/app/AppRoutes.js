@@ -7,6 +7,7 @@ import Login from "../features/Login/Login.js";
 import SignUp from "../features/SignUp/SignUp.js";
 import AfterSignUp from "../features/SignUp/AfterSignUp.js";
 import UserProfile from "../features/UserProfile/UserProfile.js";
+import Feed from "../features/Feed/Feed";
 
 const AppRoutes = () => {
   return (
@@ -18,6 +19,7 @@ const AppRoutes = () => {
       <Route path="/signup" element={<SignUp />}></Route>
       <Route path="/createdaccount" element={<AfterSignUp />}></Route>
       <Route path="/profile" element={<UserProfile />}></Route>
+      <Route path="/feed" element={<Feed />}></Route>
     </Routes>
   );
 };

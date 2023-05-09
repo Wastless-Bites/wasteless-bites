@@ -20,7 +20,11 @@ const Home = () => {
           </video>
 
           <div className="navbar-container-landing-page">
-            <img className="logo" src="somelogo" alt="Wasteless Bites" />
+            <img
+              className="logo"
+              src="/assets/logo-no-background.png"
+              alt="Wasteless Bites"
+            />
             <div className="nav-right-container-landing-page">
               <Link to="/">Home</Link>
               <Link to="/login">Login</Link>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "../Navbar/Navbar.js";
 import { authenticate } from "../auth/authSlice.js";
 import { useDispatch } from "react-redux";

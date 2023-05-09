@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../Navbar/Navbar.js";
 import { useDispatch } from "react-redux";
 import { authenticate } from "../auth/authSlice.js";
+import Footer from "../Footer/Footer";
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -50,8 +51,14 @@ const SignUp = () => {
           <option value="organization">Organization</option>
         </select>
 
-        <button type="submit">Sign Up</button>
+        <button
+          type="submit"
+          onClick={() => (window.location.href = "/createdaccount")}
+        >
+          Sign Up
+        </button>
       </form>
+      <Footer />
     </>
   );
 };

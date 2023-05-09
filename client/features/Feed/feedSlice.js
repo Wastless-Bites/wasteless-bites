@@ -6,12 +6,20 @@ export const fetchAds = createAsyncThunk("ads/fetch", async () => {
   return data;
 });
 
+export const createAd = createAsyncThunk("ads/create", async (adData) => {
+  const { data } = await axios.post("/api/ads", adData);
+  return data;
+});
+
 const adsSlice = createSlice({
   name: "ads",
   initialState: [],
   extraReducers: (builder) => {
     builder.addCase(fetchAds.fulfilled, (state, action) => {
       return action.payload;
+    });
+    builder.addCase(createAd.fulfilled, (state, action) => {
+      state.push(action.payload);
     });
   },
 });

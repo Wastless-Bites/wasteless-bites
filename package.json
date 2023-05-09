@@ -30,6 +30,7 @@
     "leaflet": "^1.9.3",
     "morgan": "^1.10.0",
     "pg": "^8.8.0",
+    "prop-types": "^15.8.1",
     "sequelize": "^6.25.3"
   },
   "devDependencies": {

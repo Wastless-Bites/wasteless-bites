@@ -17,6 +17,11 @@ a:link {
     text-decoration: none;
 }
 
+.logo {
+    height: 90px;
+    margin: 10px;
+}
+
 /* =============================== */
 /*      NAV BAR LANDING PAGE       */
 /* =============================== */

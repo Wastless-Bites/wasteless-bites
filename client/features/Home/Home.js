@@ -51,7 +51,14 @@ const Home = () => {
                                 free food or food for a very minimal price. Help
                                 our planet today.
                             </p>
-                            <button>Learn more</button>
+                            <button
+                                type="submit"
+                                onClick={() =>
+                                    (window.location.href = '/learnindividual')
+                                }
+                            >
+                                Learn More
+                            </button>
                         </div>
 
                         <div className="individual-box-image-container">
@@ -70,7 +77,14 @@ const Home = () => {
                                 and don't know what to do with your surplus of
                                 food? Discover our solutions to help you
                             </p>
-                            <button>Learn more</button>
+                            <button
+                                type="submit"
+                                onClick={() =>
+                                    (window.location.href = '/learnorg')
+                                }
+                            >
+                                Learn more
+                            </button>
                         </div>
                         <div className="organization-box-image-container">
                             <img

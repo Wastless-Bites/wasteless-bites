@@ -32,6 +32,7 @@ a:link {
 .nav-right-container-landing-page {
     margin: 0 15px 0 auto;
     padding: 20px 0;
+    color: #fff;
 }
 
 /* ========================= */
@@ -41,6 +42,7 @@ a:link {
 .navbar-container {
     width: 100%;
     padding: 20px 0;
+    background-color: #fff;
 }
 
 .nav-right-container {
@@ -70,23 +72,55 @@ a:link {
 }
 
 /* ========================= */
+/*      HOME SECTION ONE     */
+/* ========================= */
+
+/* ========================= */
 /*      HOME SECTION TWO     */
 /* ========================= */
 
 .home-section-two {
     display: flex;
+    flex-direction: row;
     text-align: center;
-    justify-content: center;
-    padding: 14rem;
+    padding: 16rem;
     background-color: #f8f8f8aa;
+    margin-top: -5px;
 }
 
 .individual-box,
-.organization-box {
-    width: 31%;
-    padding: 115px 44px;
+.organization-box,
+.individual-box-image-container,
+.organization-box-image-container {
+    width: 40%;
+    padding: 110px 135px;
     margin: 0 20px 0 0;
     background-color: whitesmoke;
+}
+
+.individual-box-image-container,
+.organization-box-image-container {
+    padding-bottom: 55%;
+    position: relative;
+}
+
+.individual-box-image,
+.organization-box-image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.individual-box {
+    padding: 115px 135px;
+}
+
+.organization-box-image-container {
+    padding: 105px 135px;
+    height: 21%;
 }
 
 /* =========================== */
@@ -152,4 +186,26 @@ input {
 
 button {
     margin-top: 10px;
+}
+
+/* ========================== */
+/*      SINGLEPOST PAGE       */
+/* ========================== */
+
+.single-post-container {
+    display: flex;
+}
+
+.map-container {
+    height: 100vh;
+    width: 50%;
+}
+
+.cards-containers {
+    background-color: #fff;
+    width: 20%;
+    height: 100px;
+    margin: 20px;
+    border-radius: 10px;
+    padding: 20px;
 }

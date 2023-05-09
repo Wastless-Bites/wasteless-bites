@@ -48,10 +48,10 @@ const seed = async () => {
 
   // Create ad
   const organizationAd = await Ad.create({
-    food_description: "Delicious food available",
+    description: "Delicious food available",
     location: "New York",
-    available_from: new Date(),
-    available_until: new Date(),
+    availableFrom: new Date(),
+    availableUntil: new Date(),
     isExpired: false,
     coming: 10,
     organizationId: organizationUser.id,

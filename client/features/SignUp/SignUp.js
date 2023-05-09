@@ -27,7 +27,6 @@ const SignUp = () => {
       })
     );
 
-    // Navigate to /createdaccount after form is submitted
     window.location.href = "/createdaccount";
   };
 

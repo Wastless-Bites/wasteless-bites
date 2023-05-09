@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../Navbar/Navbar.js";
 import { authenticate } from "../auth/authSlice.js";
 import { useDispatch } from "react-redux";
+import Footer from "../Footer/Footer";
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -25,11 +26,16 @@ const Login = () => {
         <input type="password" id="password" name="password" required />
 
         <button type="submit">Login</button>
+
         <p>New here? Sign up here!</p>
-        <button onClick={() => (window.location.href = "/signup")}>
+        <button
+          type="submit"
+          onClick={() => (window.location.href = "/signup")}
+        >
           Sign Up
         </button>
       </form>
+      <Footer />
     </>
   );
 };

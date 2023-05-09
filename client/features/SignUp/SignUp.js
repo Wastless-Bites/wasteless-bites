@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../Navbar/Navbar.js";
 import { useDispatch } from "react-redux";
 import { authenticate } from "../auth/authSlice.js";
+import Footer from "../Footer/Footer";
 
 const SignUp = () => {
   const dispatch = useDispatch();
@@ -9,7 +10,7 @@ const SignUp = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
 
-    const username = e.target.name.value;
+    const username = e.target.username.value;
     const password = e.target.password.value;
     const email = e.target.email.value;
     const address = e.target.address.value;
@@ -25,6 +26,8 @@ const SignUp = () => {
         method: "signup",
       })
     );
+
+    window.location.href = "/createdaccount";
   };
 
   return (
@@ -33,25 +36,27 @@ const SignUp = () => {
       <h1>Sign Up</h1>
       <form onSubmit={handleSignUp}>
         <label htmlFor="username">Username:</label>
-        <input type="text" id="name" name="name" required />
+        <input type="text" name="username" required />
 
         <label htmlFor="password">Password:</label>
-        <input type="password" id="password" name="password" required />
+        <input type="password" name="password" required />
 
         <label htmlFor="email">E-Mail:</label>
-        <input type="email" id="email" name="email" required />
+        <input type="email" name="email" required />
 
         <label htmlFor="address">Address:</label>
-        <input type="address" id="address" name="address" required />
+        <input type="address" name="address" required />
 
         <label htmlFor="userType">Account Type:</label>
-        <select id="userType" name="userType">
+        <select name="userType" required>
+          <option value="">Select an option</option>
           <option value="individual">Individual</option>
           <option value="organization">Organization</option>
         </select>
 
         <button type="submit">Sign Up</button>
       </form>
+      <Footer />
     </>
   );
 };

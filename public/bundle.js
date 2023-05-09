@@ -6663,7 +6663,7 @@ var Home = function Home() {
     className: "navbar-container-landing-page"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
     className: "logo",
-    src: "somelogo",
+    src: "/assets/logo-no-background.png",
     alt: "Wasteless Bites"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "nav-right-container-landing-page"
@@ -6826,7 +6826,7 @@ var Navbar = function Navbar() {
     className: "navbar-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
     className: "logo",
-    src: "somelogo",
+    src: "/assets/logo-no-background.png",
     alt: "Wasteless Bites"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "nav-right-container"

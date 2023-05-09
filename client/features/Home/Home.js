@@ -42,7 +42,12 @@ const Home = () => {
               Uncover organizations in your area giving away free food or food
               for a very minimal price. Help our planet today.
             </p>
-            <button>Learn more</button>
+            <button
+              type="submit"
+              onClick={() => (window.location.href = "/learnindividual")}
+            >
+              Learn More
+            </button>
           </div>
 
           <div className="organization-box">
@@ -52,7 +57,12 @@ const Home = () => {
               to do with your surplus of food? Discover our solutions to help
               you
             </p>
-            <button>Learn more</button>
+            <button
+              type="submit"
+              onClick={() => (window.location.href = "/learnorg")}
+            >
+              Learn more
+            </button>
           </div>
         </div>
 
@@ -80,7 +90,12 @@ const Home = () => {
               resource, including diverting waste towards animal food and other
               eco-friendly methods.
             </p>
-            <button>I'm interested!</button>
+            <button
+              type="submit"
+              onClick={() => (window.location.href = "/login")}
+            >
+              I'm interested!
+            </button>
           </div>
         </div>
       </div>

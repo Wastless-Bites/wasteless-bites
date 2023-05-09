@@ -5,6 +5,7 @@ import Contact from "../features/Contact/Contact.js";
 import AboutUs from "../features/AboutUs/AboutUs.js";
 import Login from "../features/Login/Login.js";
 import SignUp from "../features/SignUp/SignUp.js";
+import Feed from "../features/Feed/Feed";
 
 const AppRoutes = () => {
   return (
@@ -14,6 +15,7 @@ const AppRoutes = () => {
       <Route path="/aboutus" element={<AboutUs />}></Route>
       <Route path="/login" element={<Login />}></Route>
       <Route path="/signup" element={<SignUp />}></Route>
+      <Route path="/feed" element={<Feed />}></Route>
     </Routes>
   );
 };

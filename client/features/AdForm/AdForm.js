@@ -1,59 +1,83 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createAd } from "../Feed/feedSlice";
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
 
 const AdForm = () => {
   const dispatch = useDispatch();
-  const userId = useSelector((state) => state.auth.me.userId);
+  const userId = useSelector((state) => state.auth.me.id);
 
   const [formData, setFormData] = useState({
     description: "",
     location: "",
     availableFrom: "",
     availableUntil: "",
+    organizationId: userId,
   });
+
+  useEffect(() => {
+    setFormData((prevState) => ({
+      ...prevState,
+      organizationId: userId,
+    }));
+  }, [userId]);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const form = e.target;
 
-    const adData = {
-      description: form.description.value,
-      location: form.location.value,
-      availableFrom: form.availableFrom.value,
-      availableUntil: form.availableUntil.value,
+    console.log(formData.organizationId);
+    await dispatch(createAd(formData));
+
+    setFormData({
+      description: "",
+      location: "",
+      availableFrom: "",
+      availableUntil: "",
       organizationId: userId,
-    };
-
-    await dispatch(createAd(adData));
-    form.reset();
+    });
   };
 
   return (
     <>
-      <Navbar />
       <form onSubmit={handleSubmit}>
         <label>
           Description:
-          <input type="text" name="description" required />
-        </label>
-        <label>
-          Location:
-          <input type="text" name="location" required />
+          <input
+            type="text"
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            required
+          />
         </label>
         <label>
           Available From:
-          <input type="datetime-local" name="availableFrom" required />
+          <input
+            type="datetime-local"
+            name="availableFrom"
+            value={formData.availableFrom}
+            onChange={handleChange}
+            required
+          />
         </label>
         <label>
           Available Until:
-          <input type="datetime-local" name="availableUntil" required />
+          <input
+            type="datetime-local"
+            name="availableUntil"
+            value={formData.availableUntil}
+            onChange={handleChange}
+            required
+          />
         </label>
         <button type="submit">Create Ad</button>
       </form>
-      <Footer />
     </>
   );
 };

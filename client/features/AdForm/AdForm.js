@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createAd } from "../Feed/feedSlice";
+import { fetchAds } from "../Feed/feedSlice";
 
 const AdForm = () => {
   const dispatch = useDispatch();
@@ -33,6 +34,8 @@ const AdForm = () => {
 
     console.log(formData.organizationId);
     await dispatch(createAd(formData));
+
+    dispatch(fetchAds());
 
     setFormData({
       description: "",

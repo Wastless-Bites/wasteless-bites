@@ -6631,10 +6631,9 @@ var AdForm = function AdForm() {
         while (1) switch (_context.prev = _context.next) {
           case 0:
             e.preventDefault();
-            console.log(formData.organizationId);
-            _context.next = 4;
+            _context.next = 3;
             return dispatch((0,_Feed_feedSlice__WEBPACK_IMPORTED_MODULE_2__.createAd)(formData));
-          case 4:
+          case 3:
             dispatch((0,_Feed_feedSlice__WEBPACK_IMPORTED_MODULE_2__.fetchAds)());
             setFormData({
               description: "",
@@ -6643,7 +6642,7 @@ var AdForm = function AdForm() {
               availableUntil: "",
               organizationId: userId
             });
-          case 6:
+          case 5:
           case "end":
             return _context.stop();
         }
@@ -6746,6 +6745,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AdForm_AdForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../AdForm/AdForm */ "./client/features/AdForm/AdForm.js");
 /* harmony import */ var _Navbar_Navbar__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Navbar/Navbar */ "./client/features/Navbar/Navbar.js");
 /* harmony import */ var _Footer_Footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Footer/Footer */ "./client/features/Footer/Footer.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
+
 
 
 
@@ -6763,13 +6764,25 @@ var Feed = function Feed() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     dispatch((0,_feedSlice__WEBPACK_IMPORTED_MODULE_2__.fetchAds)());
   }, [dispatch]);
+  var handleDelete = function handleDelete(adId) {
+    dispatch((0,_feedSlice__WEBPACK_IMPORTED_MODULE_2__.deleteAd)(adId));
+  };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Navbar_Navbar__WEBPACK_IMPORTED_MODULE_4__["default"], null), userType === "organization" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_AdForm_AdForm__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "ad-container"
   }, ads.map(function (ad) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
       className: "ads",
       key: ad.id
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, ad.organization && ad.organization.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h5", null, ad.organization && ad.organization.address), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, ad.description));
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+      to: "/singlepost/".concat(ad.id)
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, ad.organization && ad.organization.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h5", null, ad.organization && ad.organization.address), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, ad.description)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+      className: "delete-ad-button",
+      onClick: function onClick() {
+        return handleDelete(ad.id);
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("i", {
+      className: "fa-solid fa-trash-can"
+    })));
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Footer_Footer__WEBPACK_IMPORTED_MODULE_5__["default"], null));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Feed);
@@ -6787,6 +6800,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "createAd": () => (/* binding */ createAd),
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   "deleteAd": () => (/* binding */ deleteAd),
 /* harmony export */   "fetchAds": () => (/* binding */ fetchAds)
 /* harmony export */ });
 /* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
@@ -6836,6 +6850,32 @@ var createAd = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createAsyncThunk
     return _ref2.apply(this, arguments);
   };
 }());
+var deleteAd = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createAsyncThunk)("ads/deleteAd", /*#__PURE__*/function () {
+  var _ref4 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee3(adId, _ref3) {
+    var rejectWithValue;
+    return _regeneratorRuntime().wrap(function _callee3$(_context3) {
+      while (1) switch (_context3.prev = _context3.next) {
+        case 0:
+          rejectWithValue = _ref3.rejectWithValue;
+          _context3.prev = 1;
+          _context3.next = 4;
+          return axios__WEBPACK_IMPORTED_MODULE_1__["default"]["delete"]("/api/ads/".concat(adId));
+        case 4:
+          return _context3.abrupt("return", adId);
+        case 7:
+          _context3.prev = 7;
+          _context3.t0 = _context3["catch"](1);
+          return _context3.abrupt("return", rejectWithValue(_context3.t0.response.data));
+        case 10:
+        case "end":
+          return _context3.stop();
+      }
+    }, _callee3, null, [[1, 7]]);
+  }));
+  return function (_x2, _x3) {
+    return _ref4.apply(this, arguments);
+  };
+}());
 var adsSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createSlice)({
   name: "ads",
   initialState: [],
@@ -6845,6 +6885,11 @@ var adsSlice = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createSlice)({
     });
     builder.addCase(createAd.fulfilled, function (state, action) {
       state.push(action.payload);
+    });
+    builder.addCase(deleteAd.fulfilled, function (state, action) {
+      return state.filter(function (ad) {
+        return ad.id !== action.payload;
+      });
     });
   }
 });

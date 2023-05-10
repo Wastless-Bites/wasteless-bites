@@ -13,9 +13,9 @@ body {
 
 a:visited,
 a:link {
-    color: #fff;
-    text-decoration: none;
-    text-shadow: 1px 1px 8px black;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 1px 1px 8px black;
 }
 
 /* =================== */
@@ -23,14 +23,14 @@ a:link {
 /* =================== */
 
 .logo {
-    height: 95px;
-    margin: 10px;
-    cursor: pointer;
+  height: 95px;
+  margin: 10px;
+  cursor: pointer;
 }
 
 .logo:hover {
-    border-left: 1px solid #fff;
-    border-bottom: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
 }
 
 /* =============================== */
@@ -38,22 +38,22 @@ a:link {
 /* =============================== */
 
 .navbar-container-landing-page {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .nav-right-container-landing-page {
-    margin: 0 15px 0 auto;
+  margin: 0 15px 0 auto;
 }
 
 .nav-right-container-landing-page > a:visited,
 .nav-right-container-landing-page > a:link {
-    color: #fff;
-    text-shadow: 1px 1px 10px black;
+  color: #fff;
+  text-shadow: 1px 1px 10px black;
 }
 
 /* ========================= */
@@ -61,9 +61,9 @@ a:link {
 /* ========================= */
 
 .navbar-container {
-    width: 100%;
+  width: 100%;
 
-    background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .nav-right-container {
@@ -88,8 +88,8 @@ a:link {
 }
 .nav-right-container > a:hover,
 .nav-right-container-landing-page > a:hover {
-    border: 1px solid #fff;
-    padding: 10px 22px;
+  border: 1px solid #fff;
+  padding: 10px 22px;
 }
 
 /* ========================= */
@@ -97,47 +97,47 @@ a:link {
 /* ========================= */
 
 .home-section-one {
-    position: relative;
+  position: relative;
 }
 
 .section-one-text-container {
-    position: absolute;
-    width: 40%;
-    top: 35%;
-    left: 34%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
+  position: absolute;
+  width: 40%;
+  top: 35%;
+  left: 34%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
 .section-one-header-text {
-    color: #fff;
-    font-size: 2.75rem;
-    letter-spacing: 1px;
-    text-shadow: 1px 1px 10px black;
+  color: #fff;
+  font-size: 2.75rem;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 10px black;
 }
 
 .section-one-text {
-    color: #fff;
-    font-size: 2rem;
-    text-shadow: 1px 1px 10px black;
+  color: #fff;
+  font-size: 2rem;
+  text-shadow: 1px 1px 10px black;
 }
 
 .section-one-btn-about-food-waste,
 .section-one-btn-about-us {
-    cursor: pointer;
-    color: #fff;
-    padding: 25px 40px;
-    background-color: transparent;
-    border: solid 1px #fff;
-    font-size: 1.35rem;
-    margin: 10px 20px 0 0;
-    border-radius: 5px;
-    text-shadow: 1px 1px 10px black;
+  cursor: pointer;
+  color: #fff;
+  padding: 25px 40px;
+  background-color: transparent;
+  border: solid 1px #fff;
+  font-size: 1.35rem;
+  margin: 10px 20px 0 0;
+  border-radius: 5px;
+  text-shadow: 1px 1px 10px black;
 }
 
 .section-one-btn-about-food-waste:hover,
 .section-one-btn-about-us:hover {
-    background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 /* ========================= */
@@ -145,12 +145,12 @@ a:link {
 /* ========================= */
 
 .home-section-two {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    padding: 5rem;
-    background-color: #f8f8f8aa;
-    margin-top: -5px;
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  padding: 5rem;
+  background-color: #f8f8f8aa;
+  margin-top: -5px;
 }
 
 .individual-box,
@@ -217,13 +217,13 @@ a:link {
 /* ======================= */
 
 .section-footer {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    background-color: darkgoldenrod;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  background-color: darkgoldenrod;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
 
 /* ========================== */
@@ -272,4 +272,21 @@ button {
   margin: 20px;
   border-radius: 10px;
   padding: 20px;
+}
+
+/* ========================== */
+/*      FEED PAGE             */
+/* ========================== */
+
+.ad-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.ads {
+  width: 200px;
+  padding: 10px;
+  margin: 20px;
+  border: 1px solid black;
 }

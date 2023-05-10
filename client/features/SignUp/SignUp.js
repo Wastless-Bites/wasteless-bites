@@ -9,14 +9,12 @@ const SignUp = () => {
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-
     const username = e.target.username.value;
     const password = e.target.password.value;
     const email = e.target.email.value;
     const address = e.target.address.value;
     const userType = e.target.userType.value;
 
-    console.log(username, password, email, address, userType);
     await dispatch(
       authenticate({
         username,
@@ -49,7 +47,7 @@ const SignUp = () => {
         <input type="address" name="address" required />
 
         <label htmlFor="userType">Account Type:</label>
-        <select name="userType" required>
+        <select type="userType" name="userType" required>
           <option value="">Select an option</option>
           <option value="individual">Individual</option>
           <option value="organization">Organization</option>

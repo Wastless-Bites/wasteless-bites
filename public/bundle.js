@@ -6599,6 +6599,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var AdForm = function AdForm() {
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   var userId = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
@@ -6634,6 +6635,7 @@ var AdForm = function AdForm() {
             _context.next = 4;
             return dispatch((0,_Feed_feedSlice__WEBPACK_IMPORTED_MODULE_2__.createAd)(formData));
           case 4:
+            dispatch((0,_Feed_feedSlice__WEBPACK_IMPORTED_MODULE_2__.fetchAds)());
             setFormData({
               description: "",
               location: "",
@@ -6641,7 +6643,7 @@ var AdForm = function AdForm() {
               availableUntil: "",
               organizationId: userId
             });
-          case 5:
+          case 6:
           case "end":
             return _context.stop();
         }
@@ -6761,7 +6763,7 @@ var Feed = function Feed() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     dispatch((0,_feedSlice__WEBPACK_IMPORTED_MODULE_2__.fetchAds)());
   }, [dispatch]);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Navbar_Navbar__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_AdForm_AdForm__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Navbar_Navbar__WEBPACK_IMPORTED_MODULE_4__["default"], null), userType === "organization" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_AdForm_AdForm__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "ad-container"
   }, ads.map(function (ad) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {

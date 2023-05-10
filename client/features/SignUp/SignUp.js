@@ -16,6 +16,7 @@ const SignUp = () => {
     const address = e.target.address.value;
     const userType = e.target.userType.value;
 
+    console.log(username, password, email, address, userType);
     await dispatch(
       authenticate({
         username,

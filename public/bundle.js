@@ -7288,7 +7288,8 @@ var SignUp = function SignUp() {
             email = e.target.email.value;
             address = e.target.address.value;
             userType = e.target.userType.value;
-            _context.next = 8;
+            console.log(username, password, email, address, userType);
+            _context.next = 9;
             return dispatch((0,_auth_authSlice_js__WEBPACK_IMPORTED_MODULE_3__.authenticate)({
               username: username,
               password: password,
@@ -7297,9 +7298,9 @@ var SignUp = function SignUp() {
               userType: userType,
               method: "signup"
             }));
-          case 8:
-            window.location.href = "/createdaccount";
           case 9:
+            window.location.href = "/createdaccount";
+          case 10:
           case "end":
             return _context.stop();
         }

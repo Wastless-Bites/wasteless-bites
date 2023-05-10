@@ -1,33 +1,39 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchAds } from "./feedSlice";
-import AdForm from "../AdForm/AdForm";
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchAds } from './feedSlice'
+import AdForm from '../AdForm/AdForm'
+import Navbar from '../Navbar/Navbar'
 
 const Feed = () => {
-  const dispatch = useDispatch();
-  const userType = useSelector((state) => state.auth.me.userType);
-  const ads = useSelector((state) => state.ads);
+    const dispatch = useDispatch()
+    const userType = useSelector((state) => state.auth.me.userType)
+    const ads = useSelector((state) => state.ads)
 
-  useEffect(() => {
-    dispatch(fetchAds());
-  }, [dispatch]);
+    useEffect(() => {
+        dispatch(fetchAds())
+    }, [dispatch])
 
-  return (
-    <>
-      <AdForm />
-      <div className="ad-container">
-        {ads.map((ad) => {
-          return (
-            <div className="ads" key={ad.id}>
-              <h4>{ad.organization && ad.organization.username}</h4>
-              <h5>{ad.organization && ad.organization.address}</h5>
-              <p>{ad.description}</p>
+    return (
+        <>
+            <Navbar />
+            <AdForm />
+            <div className="ad-container">
+                {ads.map((ad) => {
+                    return (
+                        <div className="ads" key={ad.id}>
+                            <h4>
+                                {ad.organization && ad.organization.username}
+                            </h4>
+                            <h5>
+                                {ad.organization && ad.organization.address}
+                            </h5>
+                            <p>{ad.description}</p>
+                        </div>
+                    )
+                })}
             </div>
-          );
-        })}
-      </div>
-    </>
-  );
-};
+        </>
+    )
+}
 
-export default Feed;
+export default Feed

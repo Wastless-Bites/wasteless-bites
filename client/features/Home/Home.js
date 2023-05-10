@@ -18,8 +18,12 @@ const Home = () => {
                         we're making a positive impact on the planet, one bite
                         at a time.
                     </p>
-                    <button>About Us</button>
-                    <button>Find Solutions</button>
+                    <button className="section-one-btn-about-food-waste">
+                        About Food Waste
+                    </button>
+                    <button className="section-one-btn-about-us">
+                        About Us
+                    </button>
                 </div>
                 <div className="home-section-one">
                     <video
@@ -41,13 +45,15 @@ const Home = () => {
                     </video>
 
                     <div className="navbar-container-landing-page">
-                        <img
-                            className="logo"
-                            src="somelogo"
-                            alt="Wasteless Bites"
-                        />
+                        <Link to="/">
+                            <img
+                                className="logo"
+                                src="/assets/logo-no-background.png"
+                                alt="Wasteless Bites"
+                            />
+                        </Link>
                         <div className="nav-right-container-landing-page">
-                            <Link to="/">Home</Link>
+                            <Link to="/feed">Feed</Link>
                             <Link to="/login">Login</Link>
                             <Link to="/signup">Sign Up</Link>
                         </div>
@@ -104,6 +110,32 @@ const Home = () => {
                             <img
                                 className="organization-box-image"
                                 src="https://st2.depositphotos.com/1037987/10278/i/450/depositphotos_102781232-stock-photo-supermarket-workers-standing-in-grocery.jpg"
+                            ></img>
+                        </div>
+                    </section>
+
+                    <section>
+                        <div className="individual-box">
+                            <h2>A </h2>
+                            <p>
+                                Uncover organizations in your area giving away
+                                free food or food for a very minimal price. Help
+                                our planet today.
+                            </p>
+                            <button
+                                type="submit"
+                                onClick={() =>
+                                    (window.location.href = '/learnindividual')
+                                }
+                            >
+                                Learn More
+                            </button>
+                        </div>
+
+                        <div className="individual-box-image-container">
+                            <img
+                                className="individual-box-image"
+                                src="https://www.contactspace.com/wp-content/uploads/happy-customer-on-the-phone-min-1024x723.jpg"
                             ></img>
                         </div>
                     </section>

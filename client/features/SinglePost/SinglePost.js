@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react'
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import Navbar from '../Navbar/Navbar'
 import L from 'leaflet'
 

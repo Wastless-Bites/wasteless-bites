@@ -13,13 +13,24 @@ body {
 
 a:visited,
 a:link {
-  color: #fff;
-  text-decoration: none;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 1px 1px 8px black;
 }
 
+/* =================== */
+/*        LOGO         */
+/* =================== */
+
 .logo {
-  height: 90px;
-  margin: 10px;
+    height: 95px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.logo:hover {
+    border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
 }
 
 /* =============================== */
@@ -27,17 +38,22 @@ a:link {
 /* =============================== */
 
 .navbar-container-landing-page {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .nav-right-container-landing-page {
-  margin: 0 15px 0 auto;
-  padding: 20px 0;
-  color: #fff;
+    margin: 0 15px 0 auto;
+}
+
+.nav-right-container-landing-page > a:visited,
+.nav-right-container-landing-page > a:link {
+    color: #fff;
+    text-shadow: 1px 1px 10px black;
 }
 
 /* ========================= */
@@ -45,9 +61,9 @@ a:link {
 /* ========================= */
 
 .navbar-container {
-  width: 100%;
-  padding: 20px 0;
-  background-color: transparent;
+    width: 100%;
+
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .nav-right-container {
@@ -72,25 +88,69 @@ a:link {
 }
 .nav-right-container > a:hover,
 .nav-right-container-landing-page > a:hover {
-  background-color: #a9ba9d;
-  transition: background-color 0.9s;
+    border: 1px solid #fff;
+    padding: 10px 22px;
 }
 
 /* ========================= */
 /*      HOME SECTION ONE     */
 /* ========================= */
 
+.home-section-one {
+    position: relative;
+}
+
+.section-one-text-container {
+    position: absolute;
+    width: 40%;
+    top: 35%;
+    left: 34%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.section-one-header-text {
+    color: #fff;
+    font-size: 2.75rem;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 10px black;
+}
+
+.section-one-text {
+    color: #fff;
+    font-size: 2rem;
+    text-shadow: 1px 1px 10px black;
+}
+
+.section-one-btn-about-food-waste,
+.section-one-btn-about-us {
+    cursor: pointer;
+    color: #fff;
+    padding: 25px 40px;
+    background-color: transparent;
+    border: solid 1px #fff;
+    font-size: 1.35rem;
+    margin: 10px 20px 0 0;
+    border-radius: 5px;
+    text-shadow: 1px 1px 10px black;
+}
+
+.section-one-btn-about-food-waste:hover,
+.section-one-btn-about-us:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
 /* ========================= */
 /*      HOME SECTION TWO     */
 /* ========================= */
 
 .home-section-two {
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  padding: 16rem;
-  background-color: #f8f8f8aa;
-  margin-top: -5px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    padding: 5rem;
+    background-color: #f8f8f8aa;
+    margin-top: -5px;
 }
 
 .individual-box,
@@ -119,14 +179,10 @@ a:link {
   left: 0;
 }
 
-.individual-box {
-  padding: 115px 135px;
-}
-
-.organization-box-image-container {
-  padding: 105px 135px;
-  height: 21%;
-}
+/* .organization-box-image-container {
+    padding: 105px 135px;
+    height: 21%;
+} */
 
 /* =========================== */
 /*      HOME SECTION THREE     */
@@ -161,10 +217,13 @@ a:link {
 /* ======================= */
 
 .section-footer {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  background-color: #c99e33;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background-color: darkgoldenrod;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }
 
 /* ========================== */

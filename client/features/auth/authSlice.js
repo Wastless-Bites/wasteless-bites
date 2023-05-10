@@ -33,20 +33,17 @@ export const me = createAsyncThunk("auth/me", async () => {
 
 export const authenticate = createAsyncThunk(
   "auth/authenticate",
-  async (
-    { username, password, email, address, userType, method },
-    thunkAPI
-  ) => {
+  async ({ username, password, email, method }, thunkAPI) => {
     try {
       const res = await axios.post(`/auth/${method}`, {
         username,
         password,
         email,
-        address,
-        userType,
       });
       window.localStorage.setItem(TOKEN, res.data.token);
-      thunkAPI.dispatch(me());
+      thunkAPI.dispatch(me()).then(() => {
+        thunkAPI.dispatch({ type: "loginSuccess" });
+      });
     } catch (err) {
       if (err.response || err.response.status === 401) {
         return alert("Incorrect username or password");

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createAd } from "../Feed/feedSlice";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
 
 const AdForm = () => {
   const dispatch = useDispatch();
@@ -30,25 +32,29 @@ const AdForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Description:
-        <input type="text" name="description" required />
-      </label>
-      <label>
-        Location:
-        <input type="text" name="location" required />
-      </label>
-      <label>
-        Available From:
-        <input type="datetime-local" name="availableFrom" required />
-      </label>
-      <label>
-        Available Until:
-        <input type="datetime-local" name="availableUntil" required />
-      </label>
-      <button type="submit">Create Ad</button>
-    </form>
+    <>
+      <Navbar />
+      <form onSubmit={handleSubmit}>
+        <label>
+          Description:
+          <input type="text" name="description" required />
+        </label>
+        <label>
+          Location:
+          <input type="text" name="location" required />
+        </label>
+        <label>
+          Available From:
+          <input type="datetime-local" name="availableFrom" required />
+        </label>
+        <label>
+          Available Until:
+          <input type="datetime-local" name="availableUntil" required />
+        </label>
+        <button type="submit">Create Ad</button>
+      </form>
+      <Footer />
+    </>
   );
 };
 

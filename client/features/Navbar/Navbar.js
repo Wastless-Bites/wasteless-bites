@@ -11,6 +11,8 @@ const Navbar = () => {
       />
       <div className="nav-right-container">
         <Link to="/">Home</Link>
+        <Link to="/feed">Feed</Link>
+        <Link to="/singlepost">Map</Link>
         <Link to="/login">Login</Link>
         <Link to="/signup">Sign Up</Link>
       </div>

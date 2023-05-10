@@ -10,6 +10,7 @@ import UserProfile from "../features/UserProfile/UserProfile.js";
 import Feed from "../features/Feed/Feed";
 import LearnIndividual from "../features/Home/LearnIndividual";
 import LearnOrg from "../features/Home/LearnOrg";
+import SinglePost from "../features/SinglePost/SinglePost.js";
 
 const AppRoutes = () => {
   return (
@@ -24,8 +25,9 @@ const AppRoutes = () => {
       <Route path="/feed" element={<Feed />}></Route>
       <Route path="/learnindividual" element={<LearnIndividual />}></Route>
       <Route path="/learnorg" element={<LearnOrg />}></Route>
+      <Route path="/singlepost" element={<SinglePost />}></Route>
     </Routes>
   );
 };
 
-export default AppRoutes
+export default AppRoutes;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../Navbar/Navbar.js";
 import { authenticate } from "../auth/authSlice.js";
 import { useDispatch } from "react-redux";
@@ -6,13 +6,26 @@ import Footer from "../Footer/Footer";
 
 const Login = () => {
   const dispatch = useDispatch();
+  const [loginSuccess, setLoginSuccess] = useState(false);
 
-  const handleLogin = async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     const username = e.target.name.value;
     const password = e.target.password.value;
-    await dispatch(authenticate({ username, password, method: "login" }));
+    dispatch(authenticate({ username, password, method: "login" })).then(
+      (response) => {
+        if (response && response.success) {
+          setLoginSuccess(true);
+        }
+      }
+    );
   };
+
+  useEffect(() => {
+    if (loginSuccess) {
+      window.location.href = "/profile";
+    }
+  }, [loginSuccess]);
 
   return (
     <>
@@ -29,7 +42,7 @@ const Login = () => {
 
         <p>New here? Sign up here!</p>
         <button
-          type="submit"
+          type="button"
           onClick={() => (window.location.href = "/signup")}
         >
           Sign Up

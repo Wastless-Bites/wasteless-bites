@@ -17,7 +17,7 @@ const Feed = () => {
   return (
     <>
       <Navbar />
-      <AdForm />
+      {userType === "organization" && <AdForm />}
       <div className="ad-container">
         {ads.map((ad) => {
           return (

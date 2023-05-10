@@ -6599,6 +6599,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var AdForm = function AdForm() {
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   var userId = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useSelector)(function (state) {
@@ -6634,6 +6635,7 @@ var AdForm = function AdForm() {
             _context.next = 4;
             return dispatch((0,_Feed_feedSlice__WEBPACK_IMPORTED_MODULE_2__.createAd)(formData));
           case 4:
+            dispatch((0,_Feed_feedSlice__WEBPACK_IMPORTED_MODULE_2__.fetchAds)());
             setFormData({
               description: "",
               location: "",
@@ -6641,7 +6643,7 @@ var AdForm = function AdForm() {
               availableUntil: "",
               organizationId: userId
             });
-          case 5:
+          case 6:
           case "end":
             return _context.stop();
         }
@@ -6761,7 +6763,7 @@ var Feed = function Feed() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     dispatch((0,_feedSlice__WEBPACK_IMPORTED_MODULE_2__.fetchAds)());
   }, [dispatch]);
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Navbar_Navbar__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_AdForm_AdForm__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Navbar_Navbar__WEBPACK_IMPORTED_MODULE_4__["default"], null), userType === "organization" && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_AdForm_AdForm__WEBPACK_IMPORTED_MODULE_3__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "ad-container"
   }, ads.map(function (ad) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
@@ -7212,15 +7214,15 @@ __webpack_require__.r(__webpack_exports__);
 var Navbar = function Navbar() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("nav", {
     className: "navbar-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: "/"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
     className: "logo",
     src: "/assets/logo-no-background.png",
     alt: "Wasteless Bites"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "nav-right-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    to: "/"
-  }, "Home"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: "/feed"
   }, "Feed"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: "/singlepost"
@@ -7385,8 +7387,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Navbar_Navbar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Navbar/Navbar */ "./client/features/Navbar/Navbar.js");
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
-/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Footer_Footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Footer/Footer */ "./client/features/Footer/Footer.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! leaflet */ "./node_modules/leaflet/dist/leaflet-src.js");
+/* harmony import */ var leaflet__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(leaflet__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
 
 
 
@@ -7394,10 +7401,19 @@ __webpack_require__.r(__webpack_exports__);
 var SinglePost = function SinglePost() {
   var mapRef = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)(null);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    var map = leaflet__WEBPACK_IMPORTED_MODULE_2___default().map(mapRef.current);
-    var marker = leaflet__WEBPACK_IMPORTED_MODULE_2___default().marker([51.5, -0.09]).addTo(map);
+    var map = leaflet__WEBPACK_IMPORTED_MODULE_3___default().map(mapRef.current);
     map.setView([51.505, -0.09], 13);
-    leaflet__WEBPACK_IMPORTED_MODULE_2___default().tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    var markers = [];
+    function onMapClick(e) {
+      leaflet__WEBPACK_IMPORTED_MODULE_3___default().popup().setLatLng(e.latlng).setContent('You clicked the map at ' + e.latlng.toString()).openOn(map);
+      markers.forEach(function (marker) {
+        return marker.removeFrom(map);
+      });
+      var newMarker = leaflet__WEBPACK_IMPORTED_MODULE_3___default().marker(e.latlng).addTo(map);
+      markers.push(newMarker);
+    }
+    map.on('click', onMapClick);
+    leaflet__WEBPACK_IMPORTED_MODULE_3___default().tileLayer('https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=ysdcETxJUSd2xVbgAjlY', {
       maxZoom: 19,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);

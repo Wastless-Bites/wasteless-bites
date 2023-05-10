@@ -7196,15 +7196,15 @@ __webpack_require__.r(__webpack_exports__);
 var Navbar = function Navbar() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("nav", {
     className: "navbar-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: "/"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
     className: "logo",
     src: "/assets/logo-no-background.png",
     alt: "Wasteless Bites"
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "nav-right-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    to: "/"
-  }, "Home"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: "/feed"
   }, "Feed"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
     to: "/singlepost"
@@ -7288,7 +7288,8 @@ var SignUp = function SignUp() {
             email = e.target.email.value;
             address = e.target.address.value;
             userType = e.target.userType.value;
-            _context.next = 8;
+            console.log(username, password, email, address, userType);
+            _context.next = 9;
             return dispatch((0,_auth_authSlice_js__WEBPACK_IMPORTED_MODULE_3__.authenticate)({
               username: username,
               password: password,
@@ -7297,9 +7298,9 @@ var SignUp = function SignUp() {
               userType: userType,
               method: "signup"
             }));
-          case 8:
-            window.location.href = "/createdaccount";
           case 9:
+            window.location.href = "/createdaccount";
+          case 10:
           case "end":
             return _context.stop();
         }

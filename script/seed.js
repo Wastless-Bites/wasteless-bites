@@ -49,7 +49,6 @@ const seed = async () => {
   // Create ad
   const organizationAd = await Ad.create({
     description: "Delicious food available",
-    location: "New York",
     availableFrom: new Date(),
     availableUntil: new Date(),
     isExpired: false,

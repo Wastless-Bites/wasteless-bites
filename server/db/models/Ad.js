@@ -10,14 +10,6 @@ const Ad = db.define("Ad", {
       notNull: true,
     },
   },
-  location: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true,
-      notNull: true,
-    },
-  },
   availableFrom: {
     type: Sequelize.DATE,
     allowNull: false,

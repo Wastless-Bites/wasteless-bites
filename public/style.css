@@ -7,8 +7,8 @@
 /* =========================== */
 
 body {
-    background-color: slategray;
-    margin: 0;
+  background-color: slategray;
+  margin: 0;
 }
 
 a:visited,
@@ -67,7 +67,7 @@ a:link {
 }
 
 .nav-right-container {
-    margin: 0 30px 0 auto;
+  margin: 0 30px 0 auto;
 }
 
 /* ============================ */
@@ -76,15 +76,15 @@ a:link {
 
 .navbar-container,
 .navbar-container-landing-page {
-    font-size: 1.75rem;
-    display: flex;
-    align-items: center;
+  font-size: 1.75rem;
+  display: flex;
+  align-items: center;
 }
 
 .nav-right-container > a,
 .nav-right-container-landing-page > a {
-    margin: 0 15px;
-    padding: 15px;
+  margin: 0 15px;
+  padding: 15px;
 }
 .nav-right-container > a:hover,
 .nav-right-container-landing-page > a:hover {
@@ -157,26 +157,26 @@ a:link {
 .organization-box,
 .individual-box-image-container,
 .organization-box-image-container {
-    width: 40%;
-    padding: 110px 135px;
-    margin: 0 20px 0 0;
-    background-color: whitesmoke;
+  width: 40%;
+  padding: 110px 135px;
+  margin: 0 20px 0 0;
+  background-color: whitesmoke;
 }
 
 .individual-box-image-container,
 .organization-box-image-container {
-    padding-bottom: 55%;
-    position: relative;
+  padding-bottom: 55%;
+  position: relative;
 }
 
 .individual-box-image,
 .organization-box-image {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 /* .organization-box-image-container {
@@ -189,9 +189,9 @@ a:link {
 /* =========================== */
 
 .home-section-three {
-    display: flex;
-    background-color: #fff;
-    padding: 300px;
+  display: flex;
+  background-color: #fff;
+  padding: 300px;
 }
 
 /* =========================== */
@@ -199,17 +199,17 @@ a:link {
 /* =========================== */
 
 .home-section-four {
-    background-color: salmon;
-    display: flex;
+  background-color: salmon;
+  display: flex;
 }
 
 .section-four-gif {
-    background-image: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzlkZjQ0OTkxYWM2YzFlNDM0MjRiZjI0MDQ1NTk2NTY3MzhjNTgyZCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/AauZyD5f2pnamJ3Zj0/giphy.gif');
-    background-repeat: no-repeat;
-    width: 750px;
-    height: 650px;
-    margin: 0;
-    background-size: contain;
+  background-image: url("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNzlkZjQ0OTkxYWM2YzFlNDM0MjRiZjI0MDQ1NTk2NTY3MzhjNTgyZCZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/AauZyD5f2pnamJ3Zj0/giphy.gif");
+  background-repeat: no-repeat;
+  width: 750px;
+  height: 650px;
+  margin: 0;
+  background-size: contain;
 }
 
 /* ======================= */
@@ -231,25 +231,25 @@ a:link {
 /* ========================== */
 
 form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  padding: 20px;
 }
 
 label {
-    margin: 5px 0;
+  margin: 5px 0;
 }
 
 input {
-    padding: 5px;
-    margin: 5px 0;
+  padding: 5px;
+  margin: 5px 0;
 }
 
 button {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 /* ========================== */
@@ -257,19 +257,19 @@ button {
 /* ========================== */
 
 .single-post-container {
-    display: flex;
+  display: flex;
 }
 
 .map-container {
-    height: 100vh;
-    width: 50%;
+  height: 100vh;
+  width: 50%;
 }
 
 .cards-containers {
-    background-color: #fff;
-    width: 20%;
-    height: 100px;
-    margin: 20px;
-    border-radius: 10px;
-    padding: 20px;
+  background-color: #fff;
+  width: 20%;
+  height: 100px;
+  margin: 20px;
+  border-radius: 10px;
+  padding: 20px;
 }

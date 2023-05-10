@@ -1,10 +1,10 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Home = () => {
-    return (
-        <>
-            {/* ---SECTION ONE--- */}
+  return (
+    <>
+      {/* ---SECTION ONE--- */}
 
             <div className="home-container">
                 <div className="section-one-text-container">
@@ -60,34 +60,32 @@ const Home = () => {
                     </div>
                 </div>
 
-                {/* --- SECTION TWO --- */}
+        {/* --- SECTION TWO --- */}
 
-                <div className="home-section-two">
-                    <section>
-                        <div className="individual-box">
-                            <h2>An individual</h2>
-                            <p>
-                                Uncover organizations in your area giving away
-                                free food or food for a very minimal price. Help
-                                our planet today.
-                            </p>
-                            <button
-                                type="submit"
-                                onClick={() =>
-                                    (window.location.href = '/learnindividual')
-                                }
-                            >
-                                Learn More
-                            </button>
-                        </div>
+        <div className="home-section-two">
+          <section>
+            <div className="individual-box">
+              <h2>An individual</h2>
+              <p>
+                Uncover organizations in your area giving away free food or food
+                for a very minimal price. Help our planet today.
+              </p>
+              <button
+                type="submit"
+                onClick={() => (window.location.href = "/learnindividual")}
+              >
+                Learn More
+              </button>
+            </div>
 
-                        <div className="individual-box-image-container">
-                            <img
-                                className="individual-box-image"
-                                src="https://www.contactspace.com/wp-content/uploads/happy-customer-on-the-phone-min-1024x723.jpg"
-                            ></img>
-                        </div>
-                    </section>
+            <div className="individual-box-image-container">
+              <img
+                className="individual-box-image"
+                src="https://www.contactspace.com/wp-content/uploads/happy-customer-on-the-phone-min-1024x723.jpg"
+              ></img>
+            </div>
+          </section>
+
 
                     <section>
                         <div className="organization-box">
@@ -141,44 +139,41 @@ const Home = () => {
                     </section>
                 </div>
 
-                {/* --- SECTION THREE --- */}
+        {/* --- SECTION THREE --- */}
 
-                <div className="home-section-three">
-                    <div className="home-section-three-left-container">
-                        testing
-                    </div>
-                    <div className="home-section-three-right-container">
-                        testing2
-                    </div>
-                </div>
+        <div className="home-section-three">
+          <div className="home-section-three-left-container">testing</div>
+          <div className="home-section-three-right-container">testing2</div>
+        </div>
 
-                {/* ---SECTION FOUR--- */}
+        {/* ---SECTION FOUR--- */}
 
-                <div className="home-section-four">
-                    <div className="section-four-left-container">
-                        <p className="section-four-gif"></p>
-                    </div>
-                    <div className="section-four-right-container">
-                        <h3>Our mission</h3>
-                        <h2>
-                            Seeking solutions to eliminate waste of any
-                            products.
-                        </h2>
-                        <p>
-                            We are committed to creating a sustainable world
-                            where no product goes to waste. Our mission is to
-                            find innovative solutions that ensure unsold items
-                            are repurposed, reused, or upcycled instead of
-                            ending up in landfills. We strive to make the most
-                            of every resource, including diverting waste towards
-                            animal food and other eco-friendly methods.
-                        </p>
-                        <button>I'm interested!</button>
-                    </div>
-                </div>
-            </div>
-        </>
-    )
-}
+        <div className="home-section-four">
+          <div className="section-four-left-container">
+            <p className="section-four-gif"></p>
+          </div>
+          <div className="section-four-right-container">
+            <h3>Our mission</h3>
+            <h2>Seeking solutions to eliminate waste of any products.</h2>
+            <p>
+              We are committed to creating a sustainable world where no product
+              goes to waste. Our mission is to find innovative solutions that
+              ensure unsold items are repurposed, reused, or upcycled instead of
+              ending up in landfills. We strive to make the most of every
+              resource, including diverting waste towards animal food and other
+              eco-friendly methods.
+            </p>
+            <button
+              type="submit"
+              onClick={() => (window.location.href = "/login")}
+            >
+              I'm interested!
+            </button>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
 
-export default Home
+export default Home;

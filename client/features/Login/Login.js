@@ -13,20 +13,19 @@ const Login = () => {
     e.preventDefault();
     const username = e.target.name.value;
     const password = e.target.password.value;
-    await dispatch(authenticate({ username, password, method: "login" })).then(
-      (response) => {
-        if (response && response.success) {
-          setLoginSuccess(true);
-        }
-      }
-    );
+    try {
+      await dispatch(authenticate({ username, password, method: "login" }));
+      setLoginSuccess(true);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   useEffect(() => {
     if (loginSuccess) {
       window.location.href = "/profile";
     }
-  }, [loginSuccess]);
+  }, [dispatch, loginSuccess]);
 
   return (
     <>

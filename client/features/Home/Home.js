@@ -43,7 +43,6 @@ const Home = () => {
                             type="video/ogg"
                         ></source>
                     </video>
-
                     <div className="navbar-container-landing-page">
                         <Link to="/">
                             <img

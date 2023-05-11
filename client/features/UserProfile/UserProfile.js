@@ -1,17 +1,11 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-import { logout } from "../auth/authSlice";
 
 const UserProfile = () => {
-  const user = useSelector((state) => state.auth.user);
-  const dispatch = useDispatch();
-
-  const handleLogout = () => {
-    dispatch(logout());
-    window.location.href = "/";
-  };
+  const user = useSelector((state) => state.auth.me.id);
+  console.log(user);
 
   return (
     <>
@@ -35,7 +29,6 @@ const UserProfile = () => {
         <p>
           <strong>Account Type: </strong> {user?.userType}
         </p>
-        <button onClick={handleLogout}>Logout</button>
       </>
       <Footer />
     </>

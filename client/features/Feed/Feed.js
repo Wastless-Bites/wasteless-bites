@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 const Feed = () => {
   const dispatch = useDispatch();
   const userType = useSelector((state) => state.auth.me.userType);
+  const userId = useSelector((state) => state.auth.me.id);
   const ads = useSelector((state) => state.ads);
 
   useEffect(() => {
@@ -32,12 +33,14 @@ const Feed = () => {
                 <h5>{ad.organization && ad.organization.address}</h5>
                 <p>{ad.description}</p>
               </Link>
-              <button
-                className="delete-ad-button"
-                onClick={() => handleDelete(ad.id)}
-              >
-                <i className="fa-solid fa-trash-can"></i>
-              </button>
+              {userId === ad.organization.id && (
+                <button
+                  className="delete-ad-button"
+                  onClick={() => handleDelete(ad.id)}
+                >
+                  <i className="fa-solid fa-trash-can"></i>
+                </button>
+              )}
             </div>
           );
         })}

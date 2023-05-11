@@ -3,25 +3,33 @@ import React from 'react'
 const Footer = () => {
     return (
         <footer className="section-footer">
-            <div className="footer-links">
-                <a href="/contact">Contact | </a>
-                <a href="/aboutus">About Us | </a>
-                <div>
-                    <a href="#">
+            <div className="contact-info">
+                <a href="/contact">Contact</a>
+                <a href="/aboutus">About Us</a>
+            </div>
+
+            <div className="social-media-links">
+                <a href="#">
+                    <span className="ig-link">
                         <i className="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="#">
+                    </span>
+                </a>
+                <a href="#">
+                    <span className="ig-link">
                         <i className="fa-brands fa-facebook"></i>
-                    </a>
+                    </span>
+                </a>
+                <span className="ig-link">
                     <a href="#">
                         <i className="fa-brands fa-twitter"></i>
                     </a>
+                </span>
+                <span className="ig-link">
                     <a href="#">
                         <i className="fa-brands fa-linkedin"></i>
                     </a>
-                </div>
+                </span>
             </div>
-            <p>WASTELESS BITES © 2023 · All Rights Reserved</p>
         </footer>
     )
 }

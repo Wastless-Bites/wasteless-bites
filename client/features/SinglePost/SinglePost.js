@@ -24,7 +24,7 @@ const SinglePost = () => {
     useEffect(() => {
         let map = L.map(mapRef.current)
 
-        map.setView([51.505, -0.09], 13)
+        map.setView([40.7128, -74.006], 13)
         let markers = []
 
         function onMapClick(e) {

@@ -1,8 +1,4 @@
-import {
-  createSlice,
-  createAsyncThunk,
-  createNextState,
-} from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchAds = createAsyncThunk("ads/fetch", async () => {
@@ -15,18 +11,6 @@ export const createAd = createAsyncThunk("ads/create", async (adData) => {
   return data;
 });
 
-export const deleteAd = createAsyncThunk(
-  "ads/deleteAd",
-  async (adId, { rejectWithValue }) => {
-    try {
-      await axios.delete(`/api/ads/${adId}`);
-      return adId;
-    } catch (err) {
-      return rejectWithValue(err.response.data);
-    }
-  }
-);
-
 const adsSlice = createSlice({
   name: "ads",
   initialState: [],
@@ -36,9 +20,6 @@ const adsSlice = createSlice({
     });
     builder.addCase(createAd.fulfilled, (state, action) => {
       state.push(action.payload);
-    });
-    builder.addCase(deleteAd.fulfilled, (state, action) => {
-      return state.filter((ad) => ad.id !== action.payload);
     });
   },
 });

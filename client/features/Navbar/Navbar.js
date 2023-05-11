@@ -24,9 +24,9 @@ const Navbar = () => {
       <div className="nav-right-container">
         {user ? (
           <>
-            <Link to="/profile">{user.username}</Link>
             <Link to="/feed">Feed</Link>
             <Link to="/singlepost">Map</Link>
+            <Link to="/profile">Profile</Link>
             <button type="button" onClick={logoutAndRedirectHome}>
               Logout
             </button>

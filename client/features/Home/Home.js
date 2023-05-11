@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Home = () => {
+  const user = useSelector((state) => state.auth.user);
+
   return (
     <>
       {/* ---SECTION ONE--- */}
@@ -49,9 +52,18 @@ const Home = () => {
               />
             </Link>
             <div className="nav-right-container-landing-page">
-              <Link to="/feed">Feed</Link>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Sign Up</Link>
+              {user ? (
+                <>
+                  <Link to="/feed">Feed</Link>
+                  <Link to="/singlepost">Map</Link>
+                  <Link to="/profile">{user.username}</Link>
+                </>
+              ) : (
+                <>
+                  <Link to="/login">Login</Link>
+                  <Link to="/signup">Sign Up</Link>
+                </>
+              )}
             </div>
           </div>
         </div>

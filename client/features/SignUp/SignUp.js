@@ -26,7 +26,7 @@ const SignUp = () => {
       })
     );
 
-    window.location.href = "/createdaccount";
+    window.location.href = "/feed";
   };
 
   return (

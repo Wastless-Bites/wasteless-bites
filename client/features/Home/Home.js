@@ -56,6 +56,7 @@ const Home = () => {
         </div>
 
         {/* --- SECTION TWO --- */}
+
         {/* <div className="navbar-container-landing-page">
           <Link to="/">
             <img

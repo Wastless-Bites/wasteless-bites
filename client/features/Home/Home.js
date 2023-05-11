@@ -56,7 +56,8 @@ const Home = () => {
         </div>
 
         {/* --- SECTION TWO --- */}
-        <div className="navbar-container-landing-page">
+
+        {/* <div className="navbar-container-landing-page">
           <Link to="/">
             <img
               className="logo"
@@ -65,21 +66,67 @@ const Home = () => {
             />
           </Link>
           <div className="nav-right-container-landing-page">
-            {user ? (
-              <>
-                <Link to="/profile">{user.username}</Link>
-                <Link to="/feed">Feed</Link>
-                <Link to="/singlepost">Map</Link>
-              </>
-            ) : (
-              <>
-                <Link to="/login">Login</Link>
-                <Link to="/signup">Sign Up</Link>
-              </>
-            )}
+            <>
+              <Link to="/feed">Feed</Link>
+              <Link to="/singlepost">Map</Link>
+            </>
           </div>
-        </div>
+        </div> */}
       </div>
+
+      {/* --- SECTION TWO --- */}
+      <div className="individual-box-image-container">
+        <img
+          className="individual-box-image"
+          src="https://media.istockphoto.com/id/1270195607/photo/black-man-smiling-and-texting-on-his-phone.jpg?s=612x612&w=0&k=20&c=gQkOC0t0njvUnPP7NPy3eByGm-5FFp0vTHnDUD8O_Ak="
+        ></img>
+      </div>
+      <section>
+        <div className="organization-box">
+          <h2 className="section-two-inside-box-header">An organization</h2>
+          <p className="section-two-inside-box-text">
+            Are you an organization facing waste problems and don't know what to
+            do with your surplus of food? Discover our solutions to help you
+          </p>
+          <button
+            className="section-two-inside-box-btn"
+            type="submit"
+            onClick={() => (window.location.href = "/learnorg")}
+          >
+            Learn more
+          </button>
+        </div>
+        <div className="organization-box-image-container">
+          <img
+            className="organization-box-image"
+            src="https://st2.depositphotos.com/1037987/10278/i/450/depositphotos_102781232-stock-photo-supermarket-workers-standing-in-grocery.jpg"
+          ></img>
+        </div>
+      </section>
+
+      <section>
+        <div className="donor-box">
+          <h2 className="section-two-inside-box-header">A Donor</h2>
+          <p className="section-two-inside-box-text">
+            Uncover organizations in your area giving away free food or food for
+            a very minimal price. Help our planet today.
+          </p>
+          <button
+            className="section-two-inside-box-btn"
+            type="submit"
+            onClick={() => (window.location.href = "/learnindividual")}
+          >
+            Learn More
+          </button>
+        </div>
+
+        <div className="donor-box-image-container">
+          <img
+            className="donor-box-image"
+            src="https://www.heart.org/-/media/Healthy-Living-Images/Healthy-Eating/happy_businesswoman_eating_salad_on_sunny_day.jpg?h=560&iar=0&mw=960&w=890&hash=F91B0192BD8620C6C5B6BBB6607148CD"
+          ></img>
+        </div>
+      </section>
 
       {/* --- SECTION THREE --- */}
 

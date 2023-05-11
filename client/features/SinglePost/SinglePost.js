@@ -3,12 +3,23 @@ import { MapContainer } from 'react-leaflet/MapContainer'
 import { TileLayer } from 'react-leaflet/TileLayer'
 import { useMap } from 'react-leaflet/hooks'
 import Navbar from '../Navbar/Navbar'
-import Foorer from '../Footer/Footer'
+import Footer from '../Footer/Footer'
 import { Marker, Popup } from 'react-leaflet'
 import L from 'leaflet'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchAds } from '../Feed/feedSlice'
+import { useParams } from 'react-router-dom'
 
 const SinglePost = () => {
+    const dispatch = useDispatch()
+    const { id } = useParams()
+    const ads = useSelector((state) => state.ads)
+
     const mapRef = useRef(null)
+
+    useEffect(() => {
+        dispatch(fetchAds())
+    }, [dispatch])
 
     useEffect(() => {
         let map = L.map(mapRef.current)
@@ -44,8 +55,21 @@ const SinglePost = () => {
             <Navbar />
             <div className="single-post-container">
                 <div className="map-container" ref={mapRef}></div>
-                <div className="cards-containers">future code/containers</div>
+                {ads.map(function (ad) {
+                    return (
+                        <div className="ads" key={ad.id}>
+                            <h4>
+                                {ad.organization && ad.organization.username}
+                            </h4>
+                            <h5>
+                                {ad.organization && ad.organization.address}
+                            </h5>
+                            <p>{ad.description}</p>
+                        </div>
+                    )
+                })}
             </div>
+            <Footer />
         </>
     )
 }

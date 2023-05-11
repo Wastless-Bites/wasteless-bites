@@ -1,9 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { logout } from "../auth/authSlice.js";
 
 const Navbar = () => {
-  const user = useSelector((state) => state.auth.user);
+  const user = useSelector((state) => !!state.auth.me.id);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const logoutAndRedirectHome = () => {
+    dispatch(logout());
+    navigate("/");
+  };
 
   return (
     <nav className="navbar-container">
@@ -17,9 +24,12 @@ const Navbar = () => {
       <div className="nav-right-container">
         {user ? (
           <>
+            <Link to="/profile">{user.username}</Link>
             <Link to="/feed">Feed</Link>
             <Link to="/singlepost">Map</Link>
-            <Link to="/profile">{user.username}</Link>
+            <button type="button" onClick={logoutAndRedirectHome}>
+              Logout
+            </button>
           </>
         ) : (
           <>

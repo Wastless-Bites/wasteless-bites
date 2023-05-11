@@ -46,9 +46,7 @@ export const authenticate = createAsyncThunk(
         userType,
       });
       window.localStorage.setItem(TOKEN, res.data.token);
-      thunkAPI.dispatch(me()).then(() => {
-        thunkAPI.dispatch({ type: "loginSuccess" });
-      });
+      thunkAPI.dispatch(me());
     } catch (err) {
       if (err.response || err.response.status === 401) {
         return alert("Incorrect username or password");

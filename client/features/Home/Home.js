@@ -1,7 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { logout } from "../auth/authSlice.js";
 
 const Home = () => {
+  const user = useSelector((state) => !!state.auth.me.id);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const logoutAndRedirectHome = () => {
+    dispatch(logout());
+    navigate("/");
+  };
   return (
     <>
       {/* ---SECTION ONE--- */}
@@ -39,42 +48,37 @@ const Home = () => {
               type="video/ogg"
             ></source>
           </video>
-          <div className="navbar-container-landing-page">
-            <Link to="/">
-              <img
-                className="logo"
-                src="/assets/logo-no-background.png"
-                alt="Wasteless Bites"
-              />
-            </Link>
-            <div className="nav-right-container-landing-page">
-              <Link to="/feed">Feed</Link>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Sign Up</Link>
-            </div>
-          </div>
         </div>
-
-        {/* --- SECTION TWO --- */}
-
-        {/* <div className="navbar-container-landing-page">
-          <Link to="/">
-            <img
-              className="logo"
-              src="/assets/logo-no-background.png"
-              alt="Wasteless Bites"
-            />
-          </Link>
-          <div className="nav-right-container-landing-page">
-            <>
-              <Link to="/feed">Feed</Link>
-              <Link to="/singlepost">Map</Link>
-            </>
-          </div>
-        </div> */}
       </div>
 
       {/* --- SECTION TWO --- */}
+
+      <div className="navbar-container-landing-page">
+        <Link to="/">
+          <img
+            className="logo"
+            src="/assets/logo-no-background.png"
+            alt="Wasteless Bites"
+          />
+        </Link>
+        <div className="nav-right-container-landing-page">
+          {user ? (
+            <>
+              <Link to="/feed">Feed</Link>
+              <Link to="/singlepost">Map</Link>
+              <Link to="/profile">Profile</Link>
+              <button type="button" onClick={logoutAndRedirectHome}>
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to="/login">Login</Link>
+              <Link to="/signup">Sign Up</Link>
+            </>
+          )}
+        </div>
+      </div>
       <div className="individual-box-image-container">
         <img
           className="individual-box-image"

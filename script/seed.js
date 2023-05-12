@@ -48,12 +48,15 @@ const seed = async () => {
 
   // Create ad
   const organizationAd = await Ad.create({
+    title: "Get Your Corn!!",
     description: "Delicious food available",
     availableFrom: new Date(),
     availableUntil: new Date(),
     isExpired: false,
     coming: 10,
     organizationId: organizationUser.id,
+    imageUrl:
+      "https://chefsmandala.com/wp-content/uploads/2018/03/corn-600x338.jpg",
   });
 
   console.log("Database seeded successfully");

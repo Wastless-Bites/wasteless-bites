@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../Navbar/Navbar.js";
 import { useDispatch } from "react-redux";
 import { authenticate } from "../auth/authSlice.js";
 import Footer from "../Footer/Footer";
+import { OpenStreetMapProvider } from "leaflet-geosearch";
+
+const provider = new OpenStreetMapProvider();
 
 const SignUp = () => {
   const dispatch = useDispatch();
+  const [address, setAddress] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
 
   const handleSignUp = async (e) => {
     e.preventDefault();
     const username = e.target.username.value;
     const password = e.target.password.value;
     const email = e.target.email.value;
-    const address = e.target.address.value;
     const userType = e.target.userType.value;
 
     await dispatch(
@@ -27,6 +31,13 @@ const SignUp = () => {
     );
 
     window.location.href = "/feed";
+  };
+
+  const handleAddressChange = async (e) => {
+    setAddress(e.target.value);
+    const results = await provider.search({ query: e.target.value });
+    setSuggestions(results);
+    console.log(results);
   };
 
   return (
@@ -44,7 +55,16 @@ const SignUp = () => {
         <input type="email" name="email" required />
 
         <label htmlFor="address">Address:</label>
-        <input type="address" name="address" required />
+        <input
+          type="text"
+          name="address"
+          value={address}
+          onChange={handleAddressChange}
+          required
+        />
+        {suggestions.map((suggestion) => (
+          <div key={suggestion.y}>{suggestion.label}</div>
+        ))}
 
         <label htmlFor="userType">Account Type:</label>
         <select type="userType" name="userType" required>

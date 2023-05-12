@@ -64,33 +64,6 @@ const Home = () => {
             <>
               <Link to="/feed">Feed</Link>
               <Link to="/singlepost">Map</Link>
-              <Link to="/profile">Profile</Link>
-              <button type="button" onClick={logoutAndRedirectHome}>
-                Logout
-              </button>
-            </>
-          ) : (
-            <>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Sign Up</Link>
-            </>
-          )}
-        </div>
-      </div>
-
-      <div className="navbar-container-landing-page">
-        <Link to="/">
-          <img
-            className="logo"
-            src="/assets/logo-no-background.png"
-            alt="Wasteless Bites"
-          />
-        </Link>
-        <div className="nav-right-container-landing-page">
-          {user ? (
-            <>
-              <Link to="/feed">Feed</Link>
-              <Link to="/singlepost">Map</Link>
               <Link to="/profile">My Page</Link>
               <button type="button" onClick={logoutAndRedirectHome}>
                 Logout

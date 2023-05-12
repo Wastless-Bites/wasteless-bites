@@ -84,8 +84,50 @@ const Home = () => {
                     )}
                 </div>
             </div>
-
             {/* --- SECTION TWO --- */}
+
+      <div className="navbar-container-landing-page">
+        <Link to="/">
+          <img
+            className="logo"
+            src="/assets/logo-no-background.png"
+            alt="Wasteless Bites"
+          />
+        </Link>
+        <div className="nav-right-container-landing-page">
+          {user ? (
+            <>
+              <Link to="/feed">Feed</Link>
+              <Link to="/singlepost">Map</Link>
+              <Link to="/profile">My Page</Link>
+              <button type="button" onClick={logoutAndRedirectHome}>
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to="/login">Login</Link>
+              <Link to="/signup">Sign Up</Link>
+            </>
+          )}
+        </div>
+      </div>
+      <div className="home-section-two">
+        <section>
+          <div className="individual-box">
+            <h2 className="section-two-inside-box-header">An individual</h2>
+            <p className="section-two-inside-box-text">
+              Uncover organizations in your area giving away free food or food
+              for a very minimal price. Help our planet today.
+            </p>
+            <button
+              className="section-two-inside-box-btn"
+              type="submit"
+              onClick={() => (window.location.href = "/learnindividual")}
+            >
+              Learn More
+            </button>
+          </div>
 
             <div className="home-section-two">
                 <section>

@@ -13,12 +13,11 @@ const Login = () => {
     e.preventDefault();
     const username = e.target.username.value;
     const password = e.target.password.value;
-    console.log("Logging in with:", username, password);
     try {
       await dispatch(authenticate({ username, password, method: "login" }));
       setLoginSuccess(true);
     } catch (err) {
-      console.log(err);
+      next(err);
     }
   };
 

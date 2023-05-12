@@ -10,16 +10,37 @@ export const fetchAds = createAsyncThunk("ads/fetch", async () => {
   return data;
 });
 
-export const createAd = createAsyncThunk("ads/create", async (adData) => {
-  const { data } = await axios.post("/api/ads", adData);
-  return data;
-});
+export const createAd = createAsyncThunk(
+  "ads/create",
+  async (adData, thunkAPI) => {
+    try {
+      const token = window.localStorage.getItem("token");
+      if (token) {
+        const { data } = await axios.post("/api/ads", adData, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        return data;
+      } else {
+        return thunkAPI.rejectWithValue("No token found");
+      }
+    } catch (err) {
+      return thunkAPI.rejectWithValue(err.response.data);
+    }
+  }
+);
 
 export const deleteAd = createAsyncThunk(
   "ads/deleteAd",
   async (adId, { rejectWithValue }) => {
     try {
-      await axios.delete(`/api/ads/${adId}`);
+      const token = window.localStorage.getItem("token");
+      await axios.delete(`/api/ads/${adId}`, {
+        headers: {
+          authorization: `Bearer ${token}`,
+        },
+      });
       return adId;
     } catch (err) {
       return rejectWithValue(err.response.data);

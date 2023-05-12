@@ -56,6 +56,10 @@ const requireAdOwner = async (req, res, next) => {
   const token = authHeader.split(" ")[1];
   try {
     const user = await User.findByToken(token);
+    if (user.isAdmin) {
+      next();
+      return;
+    }
     const ad = await Ad.findOne({ where: { id: req.params.id } });
     if (!ad) {
       return res.status(404).send("Ad not found");

@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar.js";
 import { useDispatch } from "react-redux";
 import { authenticate } from "../auth/authSlice.js";
 import Footer from "../Footer/Footer";
 import { OpenStreetMapProvider } from "leaflet-geosearch";
+import { useDebounce } from "use-debounce";
 
 const provider = new OpenStreetMapProvider();
 
@@ -11,6 +12,8 @@ const SignUp = () => {
   const dispatch = useDispatch();
   const [address, setAddress] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+
+  const [debouncedAddress] = useDebounce(address, 1000);
 
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -35,10 +38,18 @@ const SignUp = () => {
 
   const handleAddressChange = async (e) => {
     setAddress(e.target.value);
-    const results = await provider.search({ query: e.target.value });
-    setSuggestions(results);
-    console.log(results);
   };
+
+  useEffect(() => {
+    if (debouncedAddress) {
+      const fetchSuggestions = async () => {
+        console.log(debouncedAddress);
+        // const results = await provider.search({ query: debouncedAddress });
+        // setSuggestions(results);
+      };
+      fetchSuggestions();
+    }
+  }, [debouncedAddress]);
 
   return (
     <>
@@ -63,7 +74,13 @@ const SignUp = () => {
           required
         />
         {suggestions.map((suggestion) => (
-          <div key={suggestion.y}>{suggestion.label}</div>
+          <div className="ad-form-address-suggestions" key={suggestion.y}>
+            <i
+              className="fa-solid fa-location-dot"
+              style={{ color: "#c22929" }}
+            />
+            {suggestion.label}
+          </div>
         ))}
 
         <label htmlFor="userType">Account Type:</label>

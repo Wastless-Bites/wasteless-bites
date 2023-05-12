@@ -400,6 +400,14 @@ button {
   margin-top: 10px;
 }
 
+.ad-form-address-suggestions {
+  background-color: #fff;
+  border: black 1px solid;
+  width: 40%;
+  padding: 10px;
+  z-index: 9999;
+}
+
 /* ========================== */
 /*      SINGLEPOST PAGE       */
 /* ========================== */

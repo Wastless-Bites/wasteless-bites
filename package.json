@@ -29,11 +29,13 @@
     "jsonwebtoken": "^8.5.1",
     "leaflet": "^1.9.3",
     "leaflet-geosearch": "^3.8.0",
+    "lodash": "^4.17.21",
     "morgan": "^1.10.0",
     "pg": "^8.8.0",
     "prop-types": "^15.8.1",
     "react-leaflet": "^4.2.1",
-    "sequelize": "^6.25.3"
+    "sequelize": "^6.25.3",
+    "use-debounce": "^9.0.4"
   },
   "devDependencies": {
     "@babel/core": "^7.19.6",

@@ -11,6 +11,7 @@ const Feed = () => {
   const userType = useSelector((state) => state.auth.me.userType);
   const userId = useSelector((state) => state.auth.me.id);
   const ads = useSelector((state) => state.ads);
+  const isAdmin = useSelector((state) => state.auth.me.isAdmin);
 
   useEffect(() => {
     dispatch(fetchAds());
@@ -43,14 +44,15 @@ const Feed = () => {
                   {ad.organization && ad.organization.address}
                 </h5>{" "}
               </Link>
-              {userId === ad.organization?.id && (
-                <button
-                  className="delete-ad-button"
-                  onClick={() => handleDelete(ad.id)}
-                >
-                  <i className="fa-solid fa-trash-can"></i>
-                </button>
-              )}
+              {userId === ad.organization?.id ||
+                (isAdmin && (
+                  <button
+                    className="delete-ad-button"
+                    onClick={() => handleDelete(ad.id)}
+                  >
+                    <i className="fa-solid fa-trash-can"></i>
+                  </button>
+                ))}
             </div>
           );
         })}

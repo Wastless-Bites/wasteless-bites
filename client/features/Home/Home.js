@@ -63,8 +63,8 @@ const Home = () => {
           {user ? (
             <>
               <Link to="/feed">Feed</Link>
-              <Link to="/singlepost">Map</Link>
-              <Link to="/profile">My Page</Link>
+              <Link to="/map">Map</Link>
+              <Link to="/profile">Profile</Link>
               <button type="button" onClick={logoutAndRedirectHome}>
                 Logout
               </button>
@@ -77,6 +77,7 @@ const Home = () => {
           )}
         </div>
       </div>
+
       {/* --- SECTION TWO --- */}
 
       <div className="home-section-two">

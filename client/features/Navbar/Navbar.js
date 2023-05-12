@@ -25,7 +25,7 @@ const Navbar = () => {
         {user ? (
           <>
             <Link to="/feed">Feed</Link>
-            <Link to="/singlepost">Map</Link>
+            <Link to="/map">Map</Link>
             <Link to="/profile">My Page</Link>
             <button type="button" onClick={logoutAndRedirectHome}>
               Logout

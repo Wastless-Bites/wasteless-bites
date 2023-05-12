@@ -3,25 +3,33 @@ import React from 'react'
 const Footer = () => {
     return (
         <footer className="section-footer">
-            <div className="footer-links">
-                <a href="/contact">Contact | </a>
-                <a href="/aboutus">About Us | </a>
-                <div>
-                    <a href="#">
-                        <i className="fa-brands fa-instagram"></i>
-                    </a>
-                    <a href="#">
-                        <i className="fa-brands fa-facebook"></i>
-                    </a>
-                    <a href="#">
-                        <i className="fa-brands fa-twitter"></i>
-                    </a>
-                    <a href="#">
-                        <i className="fa-brands fa-linkedin"></i>
-                    </a>
-                </div>
+            <div className="contact-info">
+                <a href="/contact">Contact</a>
+                <a href="/aboutus">About Us</a>
             </div>
-            <p>WASTELESS BITES © 2023 · All Rights Reserved</p>
+
+            <div className="social-media-links">
+                <a href="https://www.instagram.com/">
+                    <span className="ig-link">
+                        <i className="fa-brands fa-instagram"></i>
+                    </span>
+                </a>
+                <a href="https://www.facebook.com">
+                    <span className="facebook-link">
+                        <i className="fa-brands fa-facebook"></i>
+                    </span>
+                </a>
+                <a href="https://www.twitter-link">
+                    <span className="twitter-link">
+                        <i className="fa-brands fa-twitter"></i>
+                    </span>
+                </a>
+                <a href="https://www.linkedin.com">
+                    <span className="linkedin-link">
+                        <i className="fa-brands fa-linkedin"></i>
+                    </span>
+                </a>
+            </div>
         </footer>
     )
 }

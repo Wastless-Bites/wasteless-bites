@@ -34,7 +34,7 @@ const AppRoutes = () => {
           <Route path="/feed" element={<Feed />}></Route>
           <Route path="/learnindividual" element={<LearnIndividual />}></Route>
           <Route path="/learnorg" element={<LearnOrg />}></Route>
-          <Route path="/singlepost" element={<SinglePost />}></Route>
+          <Route path="/map" element={<SinglePost />}></Route>
         </Routes>
       ) : (
         <Routes>
@@ -47,7 +47,7 @@ const AppRoutes = () => {
           <Route path="/feed" element={<Feed />}></Route>
           <Route path="/learnindividual" element={<LearnIndividual />}></Route>
           <Route path="/learnorg" element={<LearnOrg />}></Route>
-          <Route path="/singlepost" element={<SinglePost />}></Route>
+          <Route path="/map" element={<SinglePost />}></Route>
         </Routes>
       )}
     </div>

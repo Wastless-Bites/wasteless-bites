@@ -28,7 +28,7 @@ const Feed = () => {
         {ads.map((ad) => {
           return (
             <div className="ads" key={ad.id}>
-              <Link to={`/singlepost/${ad.id}`}>
+              <Link to={`/map/${ad.id}`}>
                 <h4>{ad.organization && ad.organization.username}</h4>
                 <h5>{ad.organization && ad.organization.address}</h5>
                 <p>{ad.description}</p>

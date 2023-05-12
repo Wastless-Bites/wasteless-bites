@@ -2,6 +2,10 @@ const Sequelize = require("sequelize");
 const db = require("../db");
 
 const Ad = db.define("Ad", {
+  title: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
   description: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -26,6 +30,11 @@ const Ad = db.define("Ad", {
   },
   coming: {
     type: Sequelize.INTEGER,
+  },
+  imageUrl: {
+    type: Sequelize.STRING,
+    defaultValue:
+      "https://www.coeliac.org.uk/public/images/medium_healthy-food.png",
   },
 });
 

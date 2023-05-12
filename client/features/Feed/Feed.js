@@ -28,12 +28,17 @@ const Feed = () => {
         {ads.map((ad) => {
           return (
             <div className="ads" key={ad.id}>
-              <Link to={`/singlepost/${ad.id}`}>
-                <h4>{ad.organization && ad.organization.username}</h4>
-                <h5>{ad.organization && ad.organization.address}</h5>
-                <p>{ad.description}</p>
+              <Link className="ad-link" to={`/singlepost/${ad.id}`}>
+                <img className="ad-image" src={`${ad.imageUrl}`}></img>
+                <h2 className="ad-title">{ad.title}</h2>
+                <h4 className="ad-org-name">
+                  {ad.organization && ad.organization.username}
+                </h4>
+                <h5 className="ad-org-address">
+                  {ad.organization && ad.organization.address}
+                </h5>
               </Link>
-              {userId === ad.organization.id && (
+              {userId === ad.organization?.id && (
                 <button
                   className="delete-ad-button"
                   onClick={() => handleDelete(ad.id)}

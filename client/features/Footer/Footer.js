@@ -9,26 +9,26 @@ const Footer = () => {
             </div>
 
             <div className="social-media-links">
-                <a href="#">
+                <a href="https://www.instagram.com/">
                     <span className="ig-link">
                         <i className="fa-brands fa-instagram"></i>
                     </span>
                 </a>
-                <a href="#">
-                    <span className="ig-link">
+                <a href="https://www.facebook.com">
+                    <span className="facebook-link">
                         <i className="fa-brands fa-facebook"></i>
                     </span>
                 </a>
-                <span className="ig-link">
-                    <a href="#">
+                <a href="https://www.twitter-link">
+                    <span className="twitter-link">
                         <i className="fa-brands fa-twitter"></i>
-                    </a>
-                </span>
-                <span className="ig-link">
-                    <a href="#">
+                    </span>
+                </a>
+                <a href="https://www.linkedin.com">
+                    <span className="linkedin-link">
                         <i className="fa-brands fa-linkedin"></i>
-                    </a>
-                </span>
+                    </span>
+                </a>
             </div>
         </footer>
     )

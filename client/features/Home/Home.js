@@ -55,8 +55,6 @@ const Home = () => {
                 </div>
             </div>
 
-            {/* --- SECTION TWO --- */}
-
             <div className="navbar-container-landing-page">
                 <Link to="/">
                     <img
@@ -86,19 +84,22 @@ const Home = () => {
                     )}
                 </div>
             </div>
+
+            {/* --- SECTION TWO --- */}
+
             <div className="home-section-two">
                 <section>
                     <div className="individual-box">
-                        <h2 className="section-two-inside-box-header">
+                        <h2 className="section-two-box-header">
                             An individual
                         </h2>
-                        <p className="section-two-inside-box-text">
+                        <p className="section-two-box-text">
                             Uncover organizations in your area giving away free
                             food or food for a very minimal price. Help our
                             planet today.
                         </p>
                         <button
-                            className="section-two-inside-box-btn"
+                            className="section-two-box-btn"
                             type="submit"
                             onClick={() =>
                                 (window.location.href = '/learnindividual')
@@ -118,16 +119,16 @@ const Home = () => {
 
                 <section>
                     <div className="organization-box">
-                        <h2 className="section-two-inside-box-header">
+                        <h2 className="section-two-box-header">
                             An organization
                         </h2>
-                        <p className="section-two-inside-box-text">
+                        <p className="section-two-box-text">
                             Are you an organization facing waste problems and
                             don't know what to do with your surplus of food?
                             Discover our solutions to help you
                         </p>
                         <button
-                            className="section-two-inside-box-btn"
+                            className="section-two-box-btn"
                             type="submit"
                             onClick={() => (window.location.href = '/learnorg')}
                         >
@@ -143,16 +144,14 @@ const Home = () => {
                 </section>
                 <section>
                     <div className="donor-box">
-                        <h2 className="section-two-inside-box-header">
-                            A Donor
-                        </h2>
-                        <p className="section-two-inside-box-text">
+                        <h2 className="section-two-box-header">A Donor</h2>
+                        <p className="section-two-box-text">
                             Uncover organizations in your area giving away free
                             food or food for a very minimal price. Help our
                             planet today.
                         </p>
                         <button
-                            className="section-two-inside-box-btn"
+                            className="section-two-box-btn"
                             type="submit"
                             onClick={() =>
                                 (window.location.href = '/learnindividual')
@@ -178,11 +177,13 @@ const Home = () => {
                     <p className="section-three-gif"></p>
                 </div>
                 <div className="section-three-right-container">
-                    <h3>Our mission</h3>
-                    <h2>
-                        Seeking solutions to eliminate waste of any products.
+                    <h3 className="section-three-our-mission">Our mission</h3>
+                    <h2 className="section-three-header-text">
+                        Seeking solutions to
+                        <span id="section-three-eliminate"> eliminate </span>
+                        waste of any products.
                     </h2>
-                    <p>
+                    <p className="section-three-text">
                         We are committed to creating a sustainable world where
                         no product goes to waste. Our mission is to find
                         innovative solutions that ensure unsold items are
@@ -192,6 +193,7 @@ const Home = () => {
                         eco-friendly methods.
                     </p>
                     <button
+                        className="section-three-interested-btn"
                         type="submit"
                         onClick={() => (window.location.href = '/signup')}
                     >

@@ -176,12 +176,7 @@ a:link {
     padding: 5rem;
     background-color: #f8f8f8aa;
     margin-top: -5px;
-    background: rgb(183, 217, 185);
-    background: linear-gradient(
-        0deg,
-        rgb(214, 214, 214) 24%,
-        rgba(255, 83, 83, 1) 100%
-    );
+    background: linear-gradient(0deg, #d6d6d6 24%, #ff5353 100%);
 }
 
 .individual-box,
@@ -192,8 +187,10 @@ a:link {
 .donor-box-image-container {
     width: 40%;
     padding: 35px 135px;
+    color: #3f3f3f;
     background-color: whitesmoke;
     box-shadow: 1px 1px 7px black;
+    border-radius: 4px;
 }
 
 .individual-box-image-container,
@@ -230,26 +227,23 @@ a:link {
     margin-left: 30px;
 }
 
-.section-two-inside-box-header {
-    font-size: 1.8rem;
-}
-
-.section-two-inside-box-text {
+.section-two-box-header {
     font-size: 1.4rem;
 }
 
-.section-two-inside-box-btn {
+.section-two-box-text {
+    font-size: 1.2rem;
+}
+
+.section-two-box-btn {
     padding: 13px 20px;
     font-size: 1.1rem;
     border-radius: 3px;
     cursor: pointer;
 }
 
-.section-two-inside-box-btn:hover {
+.section-two-box-btn:hover {
     border: rgba(255, 83, 83, 1) solid 1px;
-    font-size: 1.35rem;
-    animation: shake 1s;
-    animation-iteration-count: infinite;
 }
 
 .donor-box {
@@ -275,7 +269,12 @@ a:link {
 /* =========================== */
 
 .home-section-three {
-    background-color: salmon;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.5998993347338936) 7%,
+        rgba(214, 214, 214, 1) 100%
+    );
     display: flex;
 }
 
@@ -288,6 +287,46 @@ a:link {
     background-size: contain;
 }
 
+.section-three-our-mission {
+    color: rgba(60, 60, 60, 0.82);
+    text-shadow: 1px 1px 8px white;
+    font-size: 2rem;
+}
+
+#section-three-eliminate {
+    color: rgba(237, 53, 53, 0.82);
+    text-shadow: 1px 1px 5px white;
+}
+
+.section-three-header-text {
+    font-size: 3rem;
+    color: #fff;
+    text-shadow: 1px 1px 10px black;
+}
+
+.section-three-text {
+    color: #fff;
+    font-size: 1.45rem;
+    text-shadow: 1px 1px 10px black;
+}
+
+.section-three-interested-btn {
+    cursor: pointer;
+    color: #fff;
+    padding: 25px 40px;
+    background-color: transparent;
+    border: solid 1px #fff;
+    font-size: 1.25rem;
+    margin: 10px 20px 0 0;
+    border-radius: 5px;
+    text-shadow: 1px 1px 10px black;
+    text-align: center;
+}
+
+.section-three-interested-btn:hover {
+    border: rgb(0, 0, 0) solid 1px;
+}
+
 /* ======================= */
 /*         FOOTER          */
 /* ======================= */
@@ -296,41 +335,44 @@ a:link {
     text-align: center;
     display: flex;
     flex-direction: column;
-    background-color: darkgoldenrod;
+    background-color: #00000080;
     position: relative;
     bottom: 0;
     width: 100%;
-    padding: 30px;
+    padding: 19px 0 20px 0;
     font-size: 1.4rem;
 }
 
-.contact-info,
+.social-media-links {
+    font-size: 1.9rem;
+    margin: 20px 40px;
+}
+
 .social-media-links > a {
-    margin: 30px;
+    font-size: 1.9rem;
+    margin: 40px;
 }
 
 .contact-info > a {
-    margin: 0 20px;
+    margin: 30px;
     font-size: 1.4rem;
 }
 
-.ig-link:hover {
-    padding: 5px;
-    font-size: 1.8rem;
-    background: #d6249f;
-    background: radial-gradient(
-        circle at 30% 107%,
-        #fdf497 0%,
-        #fdf497 5%,
-        #fd5949 45%,
-        #d6249f 60%,
-        #285aeb 90%
-    );
-    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.25);
-    box-shadow: none;
+.ig-link {
+    color: #d6249f;
 }
 
+.facebook-link {
+    color: #1f5adb;
+}
 
+.twitter-link {
+    color: rgb(40, 148, 255);
+}
+
+.linkedin-link {
+    color: #0072b1;
+}
 
 /* ========================== */
 /*      LOGIN/SIGNUP PAGE     */
@@ -395,44 +437,4 @@ button {
     padding: 10px;
     margin: 20px;
     border: 1px solid black;
-}
-
-/* ========================== */
-/*         ANIMATION          */
-/* ========================== */
-
-@keyframes shake {
-    0% {
-        transform: translate(1px, 1px) rotate(0deg);
-    }
-    10% {
-        transform: translate(-1px, -2px) rotate(-1deg);
-    }
-    20% {
-        transform: translate(-3px, 0px) rotate(1deg);
-    }
-    30% {
-        transform: translate(3px, 2px) rotate(0deg);
-    }
-    40% {
-        transform: translate(1px, -1px) rotate(1deg);
-    }
-    50% {
-        transform: translate(-1px, 2px) rotate(-1deg);
-    }
-    60% {
-        transform: translate(-3px, 1px) rotate(0deg);
-    }
-    70% {
-        transform: translate(3px, 1px) rotate(-1deg);
-    }
-    80% {
-        transform: translate(-1px, -1px) rotate(1deg);
-    }
-    90% {
-        transform: translate(1px, 2px) rotate(0deg);
-    }
-    100% {
-        transform: translate(1px, -2px) rotate(-1deg);
-    }
 }

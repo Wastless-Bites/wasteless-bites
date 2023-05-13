@@ -42,6 +42,22 @@ const User = db.define("User", {
       notNull: true,
     },
   },
+  latitude: {
+    type: Sequelize.FLOAT,
+    allowNull: false,
+    validate: {
+      min: -180,
+      max: 180,
+    },
+  },
+  longitude: {
+    type: Sequelize.FLOAT,
+    allowNull: false,
+    validate: {
+      min: -90,
+      max: 90,
+    },
+  },
   description: {
     type: Sequelize.TEXT,
     validate: {

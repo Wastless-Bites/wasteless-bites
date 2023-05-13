@@ -12,6 +12,8 @@ const SignUp = () => {
   const dispatch = useDispatch();
   const [address, setAddress] = useState("");
   const [suggestions, setSuggestions] = useState([]);
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
 
   const [debouncedAddress] = useDebounce(address, 1000);
 
@@ -29,6 +31,8 @@ const SignUp = () => {
         email,
         address,
         userType,
+        latitude,
+        longitude,
         method: "signup",
       })
     );
@@ -40,12 +44,18 @@ const SignUp = () => {
     setAddress(e.target.value);
   };
 
+  const handleSuggestionClick = (suggestion) => {
+    setAddress(suggestion.label);
+    setLatitude(suggestion.y);
+    setLongitude(suggestion.x);
+  };
+
   useEffect(() => {
     if (debouncedAddress) {
       const fetchSuggestions = async () => {
         console.log(debouncedAddress);
-        // const results = await provider.search({ query: debouncedAddress });
-        // setSuggestions(results);
+        const results = await provider.search({ query: debouncedAddress });
+        setSuggestions(results);
       };
       fetchSuggestions();
     }
@@ -74,7 +84,11 @@ const SignUp = () => {
           required
         />
         {suggestions.map((suggestion) => (
-          <div className="ad-form-address-suggestions" key={suggestion.y}>
+          <div
+            className="ad-form-address-suggestions"
+            key={suggestion.y}
+            onClick={() => handleSuggestionClick(suggestion)}
+          >
             <i
               className="fa-solid fa-location-dot"
               style={{ color: "#c22929" }}

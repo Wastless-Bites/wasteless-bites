@@ -10,7 +10,7 @@ import UserProfile from "../features/UserProfile/UserProfile.js";
 import Feed from "../features/Feed/Feed";
 import LearnIndividual from "../features/Home/LearnIndividual";
 import LearnOrg from "../features/Home/LearnOrg";
-import SinglePost from "../features/SinglePost/SinglePost.js";
+import Map from "../features/Map/Map";
 import { me } from "./store";
 
 const AppRoutes = () => {
@@ -34,7 +34,7 @@ const AppRoutes = () => {
           <Route path="/feed" element={<Feed />}></Route>
           <Route path="/learnindividual" element={<LearnIndividual />}></Route>
           <Route path="/learnorg" element={<LearnOrg />}></Route>
-          <Route path="/map" element={<SinglePost />}></Route>
+          <Route path="/map" element={<Map />}></Route>
         </Routes>
       ) : (
         <Routes>
@@ -47,7 +47,7 @@ const AppRoutes = () => {
           <Route path="/feed" element={<Feed />}></Route>
           <Route path="/learnindividual" element={<LearnIndividual />}></Route>
           <Route path="/learnorg" element={<LearnOrg />}></Route>
-          <Route path="/map" element={<SinglePost />}></Route>
+          <Route path="/map" element={<Map />}></Route>
         </Routes>
       )}
     </div>

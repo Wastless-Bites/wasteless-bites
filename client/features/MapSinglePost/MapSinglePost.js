@@ -6,10 +6,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchAds } from "../Feed/feedSlice";
 import { useParams } from "react-router-dom";
 
-const Map = () => {
+const MapSinglePost = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const ads = useSelector((state) => state.ads);
+  const singleAd = ads.find((ad) => ad.id === Number(id));
 
   const mapRef = useRef(null);
   const leafletMap = useRef(null);
@@ -21,7 +22,13 @@ const Map = () => {
   useEffect(() => {
     if (!leafletMap.current) {
       leafletMap.current = L.map(mapRef.current);
-      leafletMap.current.setView([37.5407, -77.436], 14);
+    }
+
+    if (singleAd) {
+      leafletMap.current.setView(
+        [singleAd.organization.latitude, singleAd.organization.longitude],
+        14
+      );
       L.tileLayer(
         "https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=ysdcETxJUSd2xVbgAjlY",
         {
@@ -30,6 +37,16 @@ const Map = () => {
             '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
         }
       ).addTo(leafletMap.current);
+
+      let marker = L.marker([
+        singleAd.organization.latitude,
+        singleAd.organization.longitude,
+      ]).addTo(leafletMap.current);
+      marker.bindPopup(`
+        <b>${singleAd.title}</b><br>
+        ${singleAd.description}<br>
+        <a href="/map/${singleAd.id}">View Details</a>
+      `);
     }
 
     ads.forEach((ad) => {
@@ -38,20 +55,31 @@ const Map = () => {
         ad.organization.longitude,
       ]).addTo(leafletMap.current);
       marker.bindPopup(`
-      <b>${ad.title}</b><br>
-      ${ad.description}<br>
-      <a href="/map/${ad.id}">View Details</a>
-    `);
+        <b>${ad.title}</b><br>
+        ${ad.description}<br>
+        <a href="/map/${ad.id}">View Details</a>
+      `);
     });
-  }, [ads]);
+  }, [ads, singleAd]);
 
   return (
     <>
       <Navbar />
-      <div className="map-container" ref={mapRef}></div>
+      <div className="map-single-post-container">
+        <div className="single-map-container" ref={mapRef}></div>
+        {singleAd && (
+          <div className="ad-details">
+            <img className="single-ad-image" src={singleAd.imageUrl}></img>
+            <h2>{singleAd.title}</h2>
+            <p>{singleAd.organization.name}</p>
+            <p>{singleAd.organization.address}</p>
+            <p>{singleAd.description}</p>
+          </div>
+        )}
+      </div>
       <Footer />
     </>
   );
 };
 
-export default Map;
+export default MapSinglePost;

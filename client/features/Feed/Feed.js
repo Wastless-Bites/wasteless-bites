@@ -12,7 +12,6 @@ const Feed = () => {
   const userId = useSelector((state) => state.auth.me.id);
   const ads = useSelector((state) => state.ads);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
-  console.log(ads);
 
   useEffect(() => {
     dispatch(fetchAds());
@@ -30,7 +29,7 @@ const Feed = () => {
         {ads.map((ad) => {
           return (
             <div className="ads" key={ad.id}>
-              <Link className="ad-link" to={`/singlepost/${ad.id}`}>
+              <Link className="ad-link" to={`/map/${ad.id}`}>
                 <img className="ad-image" src={ad.imageUrl}></img>
                 <h2 className="ad-title">{ad.title}</h2>
                 <h4 className="ad-org-name">

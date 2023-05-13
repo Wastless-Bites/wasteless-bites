@@ -34,7 +34,16 @@ export const me = createAsyncThunk("auth/me", async () => {
 export const authenticate = createAsyncThunk(
   "auth/authenticate",
   async (
-    { username, password, email, address, userType, method },
+    {
+      username,
+      password,
+      email,
+      address,
+      userType,
+      latitude,
+      longitude,
+      method,
+    },
     thunkAPI
   ) => {
     try {
@@ -44,6 +53,8 @@ export const authenticate = createAsyncThunk(
         email,
         address,
         userType,
+        latitude,
+        longitude,
       });
       window.localStorage.setItem(TOKEN, res.data.token);
       thunkAPI.dispatch(me());

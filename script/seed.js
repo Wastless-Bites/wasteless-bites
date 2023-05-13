@@ -13,6 +13,8 @@ const seed = async () => {
     description: "I am the admin user",
     userType: "individual",
     isAdmin: true,
+    latitude: 90,
+    longitude: 90,
   });
 
   const individualUser = await User.create({
@@ -22,6 +24,8 @@ const seed = async () => {
     address: "456 Individual St",
     description: "I am the individual user",
     userType: "individual",
+    latitude: 90,
+    longitude: 90,
   });
 
   const organizationUser = await User.create({
@@ -31,6 +35,8 @@ const seed = async () => {
     address: "789 Organization St",
     description: "I am the organization user",
     userType: "organization",
+    latitude: 90,
+    longitude: 90,
   });
 
   // Create reviews

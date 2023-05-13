@@ -10,8 +10,9 @@ import UserProfile from "../features/UserProfile/UserProfile.js";
 import Feed from "../features/Feed/Feed";
 import LearnIndividual from "../features/Home/LearnIndividual";
 import LearnOrg from "../features/Home/LearnOrg";
-import SinglePost from "../features/SinglePost/SinglePost.js";
+import Map from "../features/Map/Map";
 import { me } from "./store";
+import MapSinglePost from "../features/MapSinglePost/MapSinglePost";
 
 const AppRoutes = () => {
   const user = useSelector((state) => !!state.auth.me);
@@ -34,7 +35,8 @@ const AppRoutes = () => {
           <Route path="/feed" element={<Feed />}></Route>
           <Route path="/learnindividual" element={<LearnIndividual />}></Route>
           <Route path="/learnorg" element={<LearnOrg />}></Route>
-          <Route path="/map" element={<SinglePost />}></Route>
+          <Route path="/map" element={<Map />}></Route>
+          <Route path="/map/:id" element={<MapSinglePost />}></Route>
         </Routes>
       ) : (
         <Routes>
@@ -47,7 +49,8 @@ const AppRoutes = () => {
           <Route path="/feed" element={<Feed />}></Route>
           <Route path="/learnindividual" element={<LearnIndividual />}></Route>
           <Route path="/learnorg" element={<LearnOrg />}></Route>
-          <Route path="/map" element={<SinglePost />}></Route>
+          <Route path="/map" element={<Map />}></Route>
+          <Route path="/map/:id" element={<MapSinglePost />}></Route>
         </Routes>
       )}
     </div>

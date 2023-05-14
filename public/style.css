@@ -46,6 +46,20 @@ a:link {
     margin: 0 15px 0 auto;
 }
 
+.logout-btn-home {
+    font-size: 1.65rem;
+    color: #fff;
+    text-shadow: 1px 1px 10px black;
+    cursor: pointer;
+    background-color: transparent;
+    padding: 10px;
+    border: none;
+}
+
+.logout-btn-home:hover {
+    border: 1px solid #fff;
+}
+
 .nav-right-container-landing-page > a:visited,
 .nav-right-container-landing-page > a:link {
     color: #fff;

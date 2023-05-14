@@ -414,6 +414,39 @@ button {
     z-index: 9999;
 }
 
+.pop-up-container {
+    position: fixed;
+    display: none;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 500px;
+    width: 470px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 6px 2px #666;
+    background-color: #212529;
+    color: whitesmoke;
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 20px;
+}
+
+.pop-up-container-content {
+    margin: 30% 0;
+}
+
+.pop-up-container-content > button {
+    padding: 12px;
+    width: 20%;
+    font-size: 1.3rem;
+}
+
+.pop-up-container.show {
+    display: block;
+}
+
 /* ========================== */
 /*      SINGLEPOST PAGE       */
 /* ========================== */

@@ -24,7 +24,9 @@ const AboutUs = () => {
                 customers who value social and environmental responsibility.
             </p>
 
-            <Footer />
+            <div className="footer-container">
+                <Footer />
+            </div>
         </>
     )
 }

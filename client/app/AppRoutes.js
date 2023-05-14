@@ -13,6 +13,7 @@ import LearnOrg from "../features/Home/LearnOrg";
 import Map from "../features/Map/Map";
 import { me } from "./store";
 import MapSinglePost from "../features/MapSinglePost/MapSinglePost";
+import FoodWaste from "../features/Home/FoodWaste";
 
 const AppRoutes = () => {
   const user = useSelector((state) => !!state.auth.me);
@@ -37,6 +38,7 @@ const AppRoutes = () => {
           <Route path="/learnorg" element={<LearnOrg />}></Route>
           <Route path="/map" element={<Map />}></Route>
           <Route path="/map/:id" element={<MapSinglePost />}></Route>
+          <Route path="/foodwaste" element={<FoodWaste />}></Route>
         </Routes>
       ) : (
         <Routes>
@@ -51,6 +53,7 @@ const AppRoutes = () => {
           <Route path="/learnorg" element={<LearnOrg />}></Route>
           <Route path="/map" element={<Map />}></Route>
           <Route path="/map/:id" element={<MapSinglePost />}></Route>
+          <Route path="/foodwaste" element={<FoodWaste />}></Route>
         </Routes>
       )}
     </div>

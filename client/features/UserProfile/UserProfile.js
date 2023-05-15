@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import Navbar from '../Navbar/Navbar'
@@ -33,35 +33,99 @@ export const fetchAllUsers = () => {
 const UserProfile = () => {
     const dispatch = useDispatch()
     const user = useSelector((state) => state.auth.me)
+    const [image, setImage] = useState(null)
+    const [bioText, setBioText] = useState('')
+    const [submit, setSubmit] = useState(false)
 
     useEffect(() => {
         dispatch(fetchAllUsers())
     }, [dispatch])
 
+    const handleImageUpload = (event) => {
+        const file = event.target.files[0]
+        const reader = new FileReader()
+
+        reader.onload = () => {
+            setImage(reader.result)
+        }
+
+        reader.readAsDataURL(file)
+    }
+
+    const handleBioChange = (event) => {
+        setBioText(event.target.value)
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+    }
+
+    const submitBtn = () => {
+        setSubmit(true)
+    }
+
     return (
         <>
             <Navbar />
+            <div className="user-profile-container">
+                <div className="user-profile-image-container">
+                    {image ? (
+                        <>
+                            <img className="user-profile-image" src={image} />
+                        </>
+                    ) : (
+                        <>
+                            <img
+                                className="user-profile-image"
+                                src={user.imageUrl}
+                            />
+                            <input type="file" onChange={handleImageUpload} />
+                        </>
+                    )}
+                </div>
 
-            <h1>
-                Welcome <span>{user.username}</span>
-            </h1>
-            <>
-                <p>
-                    <strong>Username: </strong> {user.username}
-                </p>
-                <p>
-                    <strong>Email: </strong> {user.email}
-                </p>
-                <p>
-                    <strong>Bio:</strong> {user.bio}
-                </p>
-                <p>
-                    <strong>Address: </strong> {user.address}
-                </p>
-                <p>
-                    <strong>Account Type: </strong> {user.userType}
-                </p>
-            </>
+                <div className="user-profile-text-container">
+                    <h1>
+                        Welcome <span>{user.username}!</span>
+                    </h1>
+                    <p>
+                        <strong>Email: </strong> {user.email}
+                    </p>
+                    <p>
+                        <strong>Address: </strong> {user.address}
+                    </p>
+                    <p>
+                        <strong>Account Type: </strong> {user.userType}
+                    </p>
+
+                    {submit ? (
+                        <div className="user-profile-form">
+                            <form
+                                onSubmit={handleSubmit}
+                                className="user-profile-bio-form"
+                            >
+                                <label>Bio:</label>
+                                <h5>{bioText}</h5>
+                            </form>
+                        </div>
+                    ) : (
+                        <div className="user-profile-form">
+                            <form
+                                onSubmit={handleSubmit}
+                                className="user-profile-bio-form"
+                            >
+                                <label>Bio:</label>
+                                <textarea
+                                    onChange={handleBioChange}
+                                    placeholder="Write a fun fact!"
+                                ></textarea>
+                                <button onClick={submitBtn}>Submit</button>
+                            </form>
+                        </div>
+                    )}
+                </div>
+            </div>
+
             <div className="footer-container">
                 <Footer />
             </div>

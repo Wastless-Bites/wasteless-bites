@@ -3,7 +3,7 @@ import Navbar from '../Navbar/Navbar.js'
 import Footer from '../Footer/Footer'
 import LoginPopUp from '../LoginPopUp/LoginPopUp.js'
 import { authenticate } from '../auth/authSlice.js'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
 
@@ -11,6 +11,8 @@ const Login = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [loginSuccess, setLoginSuccess] = useState(false)
+
+    const userId = useSelector((state) => state.auth.me.id)
 
     const handleLogin = async (e) => {
         e.preventDefault()
@@ -20,7 +22,9 @@ const Login = () => {
             await dispatch(
                 authenticate({ username, password, method: 'login' })
             )
-            setLoginSuccess(true)
+            if (userId) {
+                setLoginSuccess(true)
+            }
         } catch (err) {
             console.error(err)
         }

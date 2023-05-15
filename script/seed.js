@@ -39,6 +39,18 @@ const seed = async () => {
     longitude: 90,
   });
 
+  const dinosaurBarbBQue = await User.create({
+    username: "Dinosaur Bar-B-Q",
+    password: "123",
+    email: "dinosaur@example.com",
+    address: "604 Union St, Brooklyn, NY 11215",
+    description:
+      "Barbecue chain serving Southern-style meats & draft brews in a retro setting with live music.",
+    userType: "organization",
+    latitude: "40.677685",
+    longitude: "-73.98401",
+  });
+
   // Create reviews
   const adminReview = await Review.create({
     comment: "This is a review by admin user.",
@@ -63,6 +75,19 @@ const seed = async () => {
     organizationId: organizationUser.id,
     imageUrl:
       "https://chefsmandala.com/wp-content/uploads/2018/03/corn-600x338.jpg",
+  });
+
+  const dinosaurAd = await Ad.create({
+    title: "Come and get your steaks!",
+    description:
+      "We accidentally ordered too many steaks and we won't be able to use them all.. come and get them!",
+    availableFrom: new Date(),
+    availableUntil: new Date(),
+    isExpired: false,
+    coming: 10,
+    organizationId: dinosaurBarbBQue.id,
+    imageUrl:
+      "https://embed.widencdn.net/img/beef/ng96sbyljl/800x600px/Ribeye%20Steak_Lip-on.psd?keep=c&u=7fueml",
   });
 
   console.log("Database seeded successfully");

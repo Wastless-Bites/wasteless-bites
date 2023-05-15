@@ -21,7 +21,7 @@ const Map = () => {
   useEffect(() => {
     if (!leafletMap.current) {
       leafletMap.current = L.map(mapRef.current);
-      leafletMap.current.setView([37.5407, -77.436], 14);
+      leafletMap.current.setView([40.677685, -73.98401], 14);
       L.tileLayer(
         "https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=ysdcETxJUSd2xVbgAjlY",
         {

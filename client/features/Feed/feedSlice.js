@@ -65,6 +65,27 @@ export const incrementComing = createAsyncThunk(
   }
 );
 
+export const decrementComing = createAsyncThunk(
+  "ads/decrementComing",
+  async (adId) => {
+    try {
+      const token = window.localStorage.getItem("token");
+      const { data } = await axios.patch(
+        `/api/ads/${adId}/notComing`,
+        {},
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return data;
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
 const adsSlice = createSlice({
   name: "ads",
   initialState: [],
@@ -82,6 +103,12 @@ const adsSlice = createSlice({
       console.log("payload:", action.payload);
       let adIndex = state.findIndex((ad) => ad.id === action.payload.id);
       console.log("adIndex:", adIndex);
+      if (adIndex !== -1) {
+        state[adIndex] = action.payload;
+      }
+    });
+    builder.addCase(decrementComing.fulfilled, (state, action) => {
+      let adIndex = state.findIndex((ad) => ad.id === action.payload.id);
       if (adIndex !== -1) {
         state[adIndex] = action.payload;
       }

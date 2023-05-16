@@ -31,6 +31,10 @@ const Ad = db.define("Ad", {
   coming: {
     type: Sequelize.INTEGER,
   },
+  comingUserIds: {
+    type: Sequelize.ARRAY(Sequelize.INTEGER),
+    defaultValue: [],
+  },
   imageUrl: {
     type: Sequelize.STRING,
     defaultValue:

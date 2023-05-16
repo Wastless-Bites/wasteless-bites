@@ -51,6 +51,18 @@ const seed = async () => {
     longitude: "-73.98401",
   });
 
+  const daClaudio = await User.create({
+    username: "Da Claudio",
+    password: "123",
+    email: "daclaudio@example.com",
+    address: "21 Ann St, New York, NY 10038",
+    description:
+      "This white-tiled Italian bar offers small plates & higher-end entrees to go with wine & cocktails.",
+    userType: "organization",
+    latitude: "40.71075",
+    longitude: "-74.00768",
+  });
+
   // Create reviews
   const adminReview = await Review.create({
     comment: "This is a review by admin user.",
@@ -78,16 +90,28 @@ const seed = async () => {
   });
 
   const dinosaurAd = await Ad.create({
-    title: "Come and get your steaks!",
-    description:
-      "We accidentally ordered too many steaks and we won't be able to use them all.. come and get them!",
+    title: "Come and get some ribs!",
+    description: "Extra ribs from tonight's dinner service!",
     availableFrom: new Date(),
     availableUntil: new Date(),
     isExpired: false,
     coming: 10,
     organizationId: dinosaurBarbBQue.id,
     imageUrl:
-      "https://embed.widencdn.net/img/beef/ng96sbyljl/800x600px/Ribeye%20Steak_Lip-on.psd?keep=c&u=7fueml",
+      "https://media-cdn2.greatbritishchefs.com/media/vd0i3v43/26-april-selects-6.whqc_1426x713q90.jpg",
+  });
+
+  const daClaudioAd = await Ad.create({
+    title: "Extra tomatoes waiting for you!",
+    description:
+      "We got a new tomato supplier who accidentally doubled our order. Free tomatoes!",
+    availableFrom: new Date(),
+    availableUntil: new Date(),
+    isExpired: false,
+    coming: 10,
+    organizationId: daClaudio.id,
+    imageUrl:
+      "https://post.healthline.com/wp-content/uploads/2020/09/AN313-Tomatoes-732x549-Thumb.jpg",
   });
 
   console.log("Database seeded successfully");

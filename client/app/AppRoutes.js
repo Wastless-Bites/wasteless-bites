@@ -14,6 +14,7 @@ import Map from "../features/Map/Map";
 import { me } from "./store";
 import MapSinglePost from "../features/MapSinglePost/MapSinglePost";
 import FoodWaste from "../features/Home/FoodWaste";
+import UserProfile from "../features/UserProfile/UserProfile";
 
 const AppRoutes = () => {
   const user = useSelector((state) => !!state.auth.me);
@@ -32,7 +33,7 @@ const AppRoutes = () => {
           <Route path="/aboutus" element={<AboutUs />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
-          <Route path="/profile" element={<SingleUserProfile />}></Route>
+          <Route path="/profile" element={<UserProfile />}></Route>
           <Route path="/feed" element={<Feed />}></Route>
           <Route path="/learnindividual" element={<LearnIndividual />}></Route>
           <Route path="/learnorg" element={<LearnOrg />}></Route>
@@ -48,7 +49,7 @@ const AppRoutes = () => {
           <Route path="/aboutus" element={<AboutUs />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
-          <Route path="/profile" element={<SingleUserProfile />}></Route>
+          <Route path="/profile" element={<UserProfile />}></Route>
           <Route path="/feed" element={<Feed />}></Route>
           <Route path="/learnindividual" element={<LearnIndividual />}></Route>
           <Route path="/learnorg" element={<LearnOrg />}></Route>

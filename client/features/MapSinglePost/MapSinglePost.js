@@ -12,8 +12,6 @@ const MapSinglePost = () => {
   const ads = useSelector((state) => state.ads);
   const userId = useSelector((state) => state.auth.me.id);
   const singleAd = ads.find((ad) => ad.id === Number(id));
-  console.log("userId:", userId);
-  console.log(singleAd);
   const isComing = singleAd ? singleAd.comingUserIds.includes(userId) : false;
 
   const mapRef = useRef(null);

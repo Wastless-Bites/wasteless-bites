@@ -423,17 +423,89 @@ form {
     padding: 20px;
 }
 
+.login-header {
+    text-align: center;
+    font-size: 2.3rem;
+}
+
+.login-form {
+    width: 90%;
+    height: 610px;
+    background-color: white;
+}
+
+.login-page {
+    background-image: url('https://images.unsplash.com/photo-1553025934-296397db4010?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8ZGFyayUyMGZvb2QlMjBwaG90b2dyYXBoeXxlbnwwfHwwfHw%3D&w=1000&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    padding: 200px;
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 800px;
+    border-radius: 10px;
+}
+
+.login-image {
+    width: 95%;
+    object-fit: cover;
+    height: 81.5%;
+}
+
+.login-container {
+    flex: 1;
+}
+
 label {
     margin: 5px 0;
 }
 
 input {
-    padding: 5px;
+    padding: 5px 10px;
     margin: 5px 0;
+    box-shadow: 0.5px 0.5px black;
+    font-size: 1.3rem;
+}
+
+.login-labels {
+    font-size: 1.3rem;
 }
 
 button {
     margin-top: 10px;
+}
+
+.login-sign-up-btn {
+    padding: 12px 20px;
+    background-color: green;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.login-sign-up-btn:hover {
+    border: black 2px solid;
+}
+
+.login-btn:hover {
+    border: black 2px solid;
+}
+
+.login-btn {
+    padding: 12px 25px;
+    background-color: rgb(215, 108, 31);
+    border-radius: 10px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
 }
 
 .ad-form-address-suggestions {

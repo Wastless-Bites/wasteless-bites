@@ -44,15 +44,45 @@ const Login = () => {
         <>
             <Navbar />
             {loginSuccess && <LoginPopUp handleOk={handleOk} />}
-            <h1>Login</h1>
-            <form onSubmit={handleLogin}>
-                <label htmlFor="username">Username:</label>
-                <input type="text" id="username" name="username" required />
-                <label htmlFor="password">Password:</label>
-                <input type="password" id="password" name="password" required />
-                <button type="submit">Login</button>
-                <p>Don't have an account?</p> <Link to="/signup">Sign up</Link>
-            </form>
+            <div className="login-page">
+                <div className="image-container">
+                    <img
+                        className="login-image"
+                        src="https://www.foodbymaria.com/wp-content/uploads/2023/04/FBM-Savoury-Egg-Breakfast-Plate-4-1440x1800.jpg"
+                        alt="Food"
+                    />
+                </div>
+                <div className="login-container">
+                    <form className="login-form" onSubmit={handleLogin}>
+                        <h1 className="login-header">Login</h1>
+                        <label className="login-labels" htmlFor="username">
+                            Username:
+                        </label>
+                        <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            required
+                        />
+                        <label className="login-labels" htmlFor="password">
+                            Password:
+                        </label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            required
+                        />
+                        <button className="login-btn" type="submit">
+                            Login
+                        </button>
+                        <p>Don't have an account?</p>{' '}
+                        <Link className="login-sign-up-btn" to="/signup">
+                            Sign up
+                        </Link>
+                    </form>
+                </div>
+            </div>
             <Footer />
         </>
     )

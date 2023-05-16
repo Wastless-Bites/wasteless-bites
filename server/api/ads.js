@@ -40,7 +40,6 @@ const requireOrganization = async (req, res, next) => {
 
 router.post("/", requireOrganization, async (req, res, next) => {
   try {
-    console.log(req.body);
     const newAd = await Ad.create(req.body);
     res.json(newAd);
   } catch (error) {
@@ -81,6 +80,66 @@ router.delete("/:id", requireAdOwner, async (req, res, next) => {
       res.status(204).send();
     } else {
       res.status(404).send("Ad not found");
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.patch("/:id/coming", async (req, res, next) => {
+  const authHeader = req.headers.authorization;
+  const token = authHeader.split(" ")[1];
+  try {
+    const user = await User.findByToken(token);
+    const ad = await Ad.findByPk(req.params.id, {
+      include: [{ model: User, as: "organization" }],
+    });
+    if (ad) {
+      if (ad.comingUserIds.includes(user.id)) {
+        const error = new Error("User is already coming!");
+        error.status = 400;
+        throw error;
+      }
+      ad.coming = ad.coming + 1;
+      ad.comingUserIds.push(user.id);
+      await ad.save({
+        fields: ["coming", "comingUserIds"],
+      });
+      res.json(ad);
+    } else {
+      const error = new Error("Ad not found");
+      error.status = 404;
+      throw error;
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.patch("/:id/notComing", async (req, res, next) => {
+  const authHeader = req.headers.authorization;
+  const token = authHeader.split(" ")[1];
+  try {
+    const user = await User.findByToken(token);
+    const ad = await Ad.findByPk(req.params.id, {
+      include: [{ model: User, as: "organization" }],
+    });
+    if (ad) {
+      if (!ad.comingUserIds.includes(user.id)) {
+        const error = new Error("User is not coming yet!");
+        error.status = 400;
+        throw error;
+      }
+      ad.coming = ad.coming - 1;
+      ad.comingUserIds = ad.comingUserIds.filter((id) => id !== user.id);
+      await ad.save({
+        fields: ["coming", "comingUserIds"],
+      });
+      res.json(ad);
+    } else {
+      const error = new Error("Ad not found");
+      error.status = 404;
+      throw error;
     }
   } catch (error) {
     next(error);

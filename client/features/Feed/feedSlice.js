@@ -1,8 +1,4 @@
-import {
-  createSlice,
-  createAsyncThunk,
-  createNextState,
-} from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchAds = createAsyncThunk("ads/fetch", async () => {
@@ -48,6 +44,48 @@ export const deleteAd = createAsyncThunk(
   }
 );
 
+export const incrementComing = createAsyncThunk(
+  "ads/incrementComing",
+  async (adId) => {
+    try {
+      const token = window.localStorage.getItem("token");
+      const { data } = await axios.patch(
+        `/api/ads/${adId}/coming`,
+        {},
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return data;
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
+export const decrementComing = createAsyncThunk(
+  "ads/decrementComing",
+  async (adId) => {
+    try {
+      const token = window.localStorage.getItem("token");
+      const { data } = await axios.patch(
+        `/api/ads/${adId}/notComing`,
+        {},
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return data;
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
 const adsSlice = createSlice({
   name: "ads",
   initialState: [],
@@ -60,6 +98,18 @@ const adsSlice = createSlice({
     });
     builder.addCase(deleteAd.fulfilled, (state, action) => {
       return state.filter((ad) => ad.id !== action.payload);
+    });
+    builder.addCase(incrementComing.fulfilled, (state, action) => {
+      let adIndex = state.findIndex((ad) => ad.id === action.payload.id);
+      if (adIndex !== -1) {
+        state[adIndex] = action.payload;
+      }
+    });
+    builder.addCase(decrementComing.fulfilled, (state, action) => {
+      let adIndex = state.findIndex((ad) => ad.id === action.payload.id);
+      if (adIndex !== -1) {
+        state[adIndex] = action.payload;
+      }
     });
   },
 });

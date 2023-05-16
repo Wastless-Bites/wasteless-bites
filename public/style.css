@@ -163,7 +163,7 @@ a:link {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1299px) {
     .section-one-text-container {
         width: 60%;
         left: 31%;
@@ -187,7 +187,7 @@ a:link {
     }
 }
 
-@media (min-width: 961px) {
+@media (min-width: 1300px) {
     .section-one-text-container {
         top: 46%;
     }
@@ -250,7 +250,7 @@ a:link {
 }
 
 .organization-box-image-container {
-    padding-bottom: 46%;
+    padding-bottom: 51%;
     width: 38%;
     margin-left: 30px;
 }
@@ -280,14 +280,16 @@ a:link {
 
 @media (min-width: 961px) {
     .organization-box,
-    .donor-box {
-        height: 38%;
+    .donor-box,
+    .individual-box {
+        height: 44%;
     }
 }
 
 @media (max-width: 1600px) {
     .organization-box,
-    .donor-box {
+    .donor-box,
+    .individual-box {
         height: 54.5%;
     }
 }
@@ -360,7 +362,7 @@ a:link {
 /* ======================= */
 
 .footer-container {
-    position: absolute;
+    position: fixed;
     width: 100%;
     bottom: 0;
 }
@@ -409,7 +411,7 @@ a:link {
 }
 
 /* ========================== */
-/*      LOGIN/SIGNUP PAGE     */
+/*          LOGIN PAGE        */
 /* ========================== */
 
 form {
@@ -421,17 +423,89 @@ form {
     padding: 20px;
 }
 
+.login-header {
+    text-align: center;
+    font-size: 2.3rem;
+}
+
+.login-form {
+    width: 90%;
+    height: 610px;
+    background-color: white;
+}
+
+.login-page {
+    background-image: url('https://images.unsplash.com/photo-1553025934-296397db4010?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8ZGFyayUyMGZvb2QlMjBwaG90b2dyYXBoeXxlbnwwfHwwfHw%3D&w=1000&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    padding: 200px;
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 800px;
+    border-radius: 10px;
+}
+
+.login-image {
+    width: 95%;
+    object-fit: cover;
+    height: 81.5%;
+}
+
+.login-container {
+    flex: 1;
+}
+
 label {
     margin: 5px 0;
 }
 
 input {
-    padding: 5px;
+    padding: 5px 10px;
     margin: 5px 0;
+    box-shadow: 0.5px 0.5px black;
+    font-size: 1.3rem;
+}
+
+.login-labels {
+    font-size: 1.3rem;
 }
 
 button {
     margin-top: 10px;
+}
+
+.login-sign-up-btn {
+    padding: 12px 20px;
+    background-color: green;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.login-sign-up-btn:hover {
+    border: black 2px solid;
+}
+
+.login-btn:hover {
+    border: black 2px solid;
+}
+
+.login-btn {
+    padding: 12px 25px;
+    background-color: rgb(215, 108, 31);
+    border-radius: 10px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
 }
 
 .ad-form-address-suggestions {
@@ -473,6 +547,138 @@ button {
 
 .pop-up-container.show {
     display: block;
+}
+
+/* ========================== */
+/*          SIGN UP           */
+/* ========================== */
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    padding: 20px;
+}
+
+.signup-header {
+    text-align: center;
+    font-size: 2.3rem;
+}
+
+.signup-form {
+    width: 90%;
+    height: 610px;
+    background-color: white;
+}
+
+.signup-page {
+    background-image: url('https://images.unsplash.com/photo-1553025934-296397db4010?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8ZGFyayUyMGZvb2QlMjBwaG90b2dyYXBoeXxlbnwwfHwwfHw%3D&w=1000&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    padding: 200px;
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 800px;
+    border-radius: 10px;
+}
+
+.signup-image {
+    width: 95%;
+    object-fit: cover;
+    height: 81.5%;
+}
+
+.signup-container {
+    flex: 1;
+}
+
+label {
+    margin: 5px 0;
+}
+
+input {
+    padding: 5px 10px;
+    margin: 5px 0;
+    box-shadow: 0.5px 0.5px black;
+    font-size: 1.3rem;
+}
+
+.signup-labels {
+    font-size: 1.3rem;
+}
+
+button {
+    margin-top: 10px;
+}
+
+.login-sign-up-btn {
+    padding: 12px 20px;
+    background-color: green;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.login-sign-up-btn:hover {
+    border: black 2px solid;
+}
+
+.signup-btn:hover {
+    border: black 2px solid;
+}
+
+.signup-btn {
+    padding: 12px 25px;
+    background-color: rgb(215, 108, 31);
+    border-radius: 10px;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+/* ========================== */
+/*      USER PROFILE PAGE     */
+/* ========================== */
+
+.user-profile-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    font-size: 1.5rem;
+}
+
+.user-profile-image-container {
+    width: 40%;
+    height: 40%;
+}
+
+.user-profile-image {
+    width: 40%;
+    height: 80%;
+    border-radius: 100px;
+}
+
+.user-profile-bio-form {
+    height: 121px;
+}
+
+.user-profile-bio-form > textarea {
+    resize: none;
+    width: 400px;
+    height: 150px;
+    font-size: 1.2rem;
 }
 
 /* ========================== */
@@ -623,4 +829,95 @@ button {
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+}
+
+/* ========================== */
+/*      FOOD WASTE PAGE       */
+/* ========================== */
+
+.food-waste-container {
+    display: flex;
+    background: rgb(154, 174, 173);
+    background: linear-gradient(
+        90deg,
+        rgba(154, 174, 173, 1) 53%,
+        rgba(205, 237, 235, 1) 100%
+    );
+}
+
+.food-waste-img {
+    width: 50%;
+}
+
+.food-waste-text-section-one {
+    display: flex;
+    font-size: 2rem;
+    text-shadow: 1px 1px 10px whitesmoke;
+    align-items: center;
+}
+
+/* ========================== */
+/*       ABOUT US PAGE        */
+/* ========================== */
+
+.about-us-container {
+    background-image: url('https://images.unsplash.com/photo-1517178313064-9447953f46e8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8ZGFyayUyMGZvb2R8ZW58MHx8MHx8&w=1000&q=80');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+}
+
+.about-us-container-section-one {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: none;
+    padding: 100px;
+    height: 100px;
+}
+
+.about-us-image {
+    width: 100%;
+    height: 200px;
+    border-radius: 100px;
+}
+
+.about-us-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about-us-image:hover {
+    height: 220px;
+}
+
+.about-us-image-container:hover {
+    cursor: pointer;
+    font-size: 1.4rem;
+}
+
+.about-us-name {
+    margin: 10px 0 40px 0;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.about-us-container-section-two {
+    background-color: #95acc4;
+    width: 60%;
+    margin: auto;
+    padding: 80px;
+    box-shadow: 1px 1px 10px black;
+    margin: 90px auto 240px;
+}
+
+.about-us-container-section-two > h1 {
+    text-align: center;
+}
+
+.about-us-text {
+    font-size: 1.4rem;
+    text-align: center;
 }

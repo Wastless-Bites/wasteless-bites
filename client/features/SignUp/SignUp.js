@@ -53,8 +53,9 @@ const SignUp = () => {
   useEffect(() => {
     if (debouncedAddress) {
       const fetchSuggestions = async () => {
-        console.log(debouncedAddress);
-        const results = await provider.search({ query: debouncedAddress });
+        const results = await provider.search({
+          query: debouncedAddress,
+        });
         setSuggestions(results);
       };
       fetchSuggestions();
@@ -64,48 +65,71 @@ const SignUp = () => {
   return (
     <>
       <Navbar />
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSignUp}>
-        <label htmlFor="username">Username:</label>
-        <input type="text" name="username" required />
+      <div className="login-page">
+        <div className="image-container">
+          <img
+            className="login-image"
+            src="https://www.foodbymaria.com/wp-content/uploads/2023/04/FBM-Savoury-Egg-Breakfast-Plate-4-1440x1800.jpg"
+            alt="Food"
+          />
+        </div>
+        <div className="login-container">
+          <form className="login-form" onSubmit={handleSignUp}>
+            <h1 className="login-header">Sign Up</h1>
+            <label className="login-labels" htmlFor="username">
+              Username:
+            </label>
+            <input type="text" name="username" required />
 
-        <label htmlFor="password">Password:</label>
-        <input type="password" name="password" required />
+            <label className="login-labels" htmlFor="password">
+              Password:
+            </label>
+            <input type="password" name="password" required />
 
-        <label htmlFor="email">E-Mail:</label>
-        <input type="email" name="email" required />
+            <label className="login-labels" htmlFor="email">
+              E-Mail:
+            </label>
+            <input type="email" name="email" required />
 
-        <label htmlFor="address">Address:</label>
-        <input
-          type="text"
-          name="address"
-          value={address}
-          onChange={handleAddressChange}
-          required
-        />
-        {suggestions.map((suggestion) => (
-          <div
-            className="ad-form-address-suggestions"
-            key={suggestion.y}
-            onClick={() => handleSuggestionClick(suggestion)}
-          >
-            <i
-              className="fa-solid fa-location-dot"
-              style={{ color: "#c22929" }}
+            <label className="login-labels" htmlFor="address">
+              Address:
+            </label>
+            <input
+              type="text"
+              name="address"
+              value={address}
+              onChange={handleAddressChange}
+              required
             />
-            {suggestion.label}
-          </div>
-        ))}
+            {suggestions.map((suggestion) => (
+              <div
+                className="ad-form-address-suggestions"
+                key={suggestion.y}
+                onClick={() => handleSuggestionClick(suggestion)}
+              >
+                <i
+                  className="fa-solid fa-location-dot"
+                  style={{ color: "#c22929" }}
+                />
+                {suggestion.label}
+              </div>
+            ))}
 
-        <label htmlFor="userType">Account Type:</label>
-        <select type="userType" name="userType" required>
-          <option value="">Select an option</option>
-          <option value="individual">Individual</option>
-          <option value="organization">Organization</option>
-        </select>
+            <label className="login-labels" htmlFor="userType">
+              Account Type:
+            </label>
+            <select type="userType" name="userType" required>
+              <option value="">Select an option</option>
+              <option value="individual">Individual</option>
+              <option value="organization">Organization</option>
+            </select>
 
-        <button type="submit">Sign Up</button>
-      </form>
+            <button className="login-btn" type="submit">
+              Sign Up
+            </button>
+          </form>
+        </div>
+      </div>
       <Footer />
     </>
   );

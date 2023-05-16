@@ -1,8 +1,4 @@
-import {
-  createSlice,
-  createAsyncThunk,
-  createNextState,
-} from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchAds = createAsyncThunk("ads/fetch", async () => {
@@ -48,6 +44,27 @@ export const deleteAd = createAsyncThunk(
   }
 );
 
+export const incrementComing = createAsyncThunk(
+  "ads/incrementComing",
+  async (adId) => {
+    try {
+      const token = window.localStorage.getItem("token");
+      const { data } = await axios.patch(
+        `/api/ads/${adId}/coming`,
+        {},
+        {
+          headers: {
+            authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return data;
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
 const adsSlice = createSlice({
   name: "ads",
   initialState: [],
@@ -60,6 +77,14 @@ const adsSlice = createSlice({
     });
     builder.addCase(deleteAd.fulfilled, (state, action) => {
       return state.filter((ad) => ad.id !== action.payload);
+    });
+    builder.addCase(incrementComing.fulfilled, (state, action) => {
+      console.log("payload:", action.payload);
+      let adIndex = state.findIndex((ad) => ad.id === action.payload.id);
+      console.log("adIndex:", adIndex);
+      if (adIndex !== -1) {
+        state[adIndex] = action.payload;
+      }
     });
   },
 });

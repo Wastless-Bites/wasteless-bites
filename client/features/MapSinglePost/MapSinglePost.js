@@ -3,7 +3,7 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import L from "leaflet";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAds } from "../Feed/feedSlice";
+import { fetchAds, incrementComing } from "../Feed/feedSlice";
 import { useParams } from "react-router-dom";
 
 const MapSinglePost = () => {
@@ -62,6 +62,11 @@ const MapSinglePost = () => {
     });
   }, [ads, singleAd]);
 
+  const handleComingClick = () => {
+    dispatch(incrementComing(singleAd.id));
+    fetchAds();
+  };
+
   return (
     <>
       <Navbar />
@@ -70,10 +75,12 @@ const MapSinglePost = () => {
         {singleAd && (
           <div className="ad-details">
             <img className="single-ad-image" src={singleAd.imageUrl}></img>
-            <h2>{singleAd.title}</h2>
-            <p>{singleAd.organization.name}</p>
+            <h1>{singleAd.title}</h1>
+            <h2>{singleAd.organization.username}</h2>
             <p>{singleAd.organization.address}</p>
             <p>{singleAd.description}</p>
+            <button onClick={handleComingClick}>I'm Coming!</button>
+            <p>{singleAd.coming} people are coming!</p>
           </div>
         )}
       </div>

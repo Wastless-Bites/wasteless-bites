@@ -2,31 +2,63 @@ import React from 'react'
 import Footer from '../Footer/Footer.js'
 import Navbar from '../Navbar/Navbar.js'
 
+const aboutUsData = [
+    {
+        name: 'Richard Gasparini',
+        imgUrl: 'https://s3.amazonaws.com/37assets/svn/765-default-avatar.png',
+        linkedin: 'https://www.linkedin.com/in/richardgasparini/',
+    },
+    {
+        name: 'Noel Diaz',
+        imgUrl: 'https://s3.amazonaws.com/37assets/svn/765-default-avatar.png',
+        linkedin: 'https://www.linkedin.com/in/noel-diaz/',
+    },
+    {
+        name: 'Steven Lee',
+        imgUrl: 'https://s3.amazonaws.com/37assets/svn/765-default-avatar.png',
+        linkedin: 'https://www.linkedin.com/in/steven-sehyun-lee/',
+    },
+]
+
 const AboutUs = () => {
     return (
         <>
             <Navbar />
-            <h1>About Us</h1>
-            <p>
-                Food waste is an ever-increasing problem that contributes
-                significantly to environmental degradation and greenhouse gas
-                emissions. Restaurants are one of the main contributors to this
-                problem, which is why we are encouraging them to take a
-                proactive approach. One solution is to introduce a special hour
-                or end-of-day call to offer a reduced-price meal or hand out
-                surplus food for free. This approach can help reduce food waste
-                and promote the restaurant's image as a socially responsible and
-                eco-friendly business. It also raises awareness among customers
-                about the issue of food waste and promotes the idea of reusing
-                and recycling surplus food supplies. By taking such steps,
-                restaurants can make a significant contribution to reducing food
-                waste while also promoting their business and attracting
-                customers who value social and environmental responsibility.
-            </p>
 
-            <div className="footer-container">
-                <Footer />
+            <div className="about-us-container-section-one">
+                {aboutUsData.map((data) => (
+                    <div className="about-us-image-container">
+                        <a href={data.linkedin} target="_blank">
+                            <img
+                                className="about-us-image"
+                                src={data.imgUrl}
+                                alt={data.name}
+                            />
+                        </a>
+                        <p className="about-us-name">{data.name}</p>
+                    </div>
+                ))}
             </div>
+
+            <div className="about-us-container-section-two">
+                <h1>About Us</h1>
+                <p className="about-us-text">
+                    As a non-profit organization committed to promoting
+                    sustainability and reducing food waste, we know firsthand
+                    how important it is to get restaurants involved in this
+                    effort. By working together with restaurants, we can create
+                    a more eco-friendly and socially responsible food system
+                    that benefits everyone. Our approach involves encouraging
+                    restaurants to introduce special offers, like reduced-price
+                    meals or donating surplus food, which helps to reduce waste
+                    and promote a positive image for the restaurant as a
+                    socially responsible business. With your support, we can
+                    continue to raise awareness about food waste and create a
+                    more sustainable future for us all.
+                </p>
+            </div>
+
+            <Footer />
         </>
     )
 }

@@ -100,9 +100,7 @@ const adsSlice = createSlice({
       return state.filter((ad) => ad.id !== action.payload);
     });
     builder.addCase(incrementComing.fulfilled, (state, action) => {
-      console.log("payload:", action.payload);
       let adIndex = state.findIndex((ad) => ad.id === action.payload.id);
-      console.log("adIndex:", adIndex);
       if (adIndex !== -1) {
         state[adIndex] = action.payload;
       }

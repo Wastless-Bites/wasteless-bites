@@ -40,7 +40,6 @@ const requireOrganization = async (req, res, next) => {
 
 router.post("/", requireOrganization, async (req, res, next) => {
   try {
-    console.log(req.body);
     const newAd = await Ad.create(req.body);
     res.json(newAd);
   } catch (error) {

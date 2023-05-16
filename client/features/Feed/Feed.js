@@ -11,6 +11,7 @@ const Feed = () => {
   const userType = useSelector((state) => state.auth.me.userType);
   const ads = useSelector((state) => state.ads);
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
+  const userId = useSelector((state) => state.auth.me.id);
 
   useEffect(() => {
     dispatch(fetchAds());

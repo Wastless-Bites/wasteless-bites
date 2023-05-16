@@ -33,8 +33,6 @@ const AdForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    console.log(formData.organizationId);
     await dispatch(createAd(formData));
 
     dispatch(fetchAds());

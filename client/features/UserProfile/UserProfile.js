@@ -39,6 +39,11 @@ const UserProfile = () => {
 
     useEffect(() => {
         dispatch(fetchAllUsers())
+        const storedBioText = localStorage.getItem('bioText')
+        if (storedBioText) {
+            setBioText(storedBioText)
+            setSubmit(true)
+        }
     }, [dispatch])
 
     const handleImageUpload = (event) => {
@@ -58,9 +63,7 @@ const UserProfile = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-    }
-
-    const submitBtn = () => {
+        localStorage.setItem('bioText', bioText)
         setSubmit(true)
     }
 
@@ -119,7 +122,7 @@ const UserProfile = () => {
                                     onChange={handleBioChange}
                                     placeholder="Write a fun fact!"
                                 ></textarea>
-                                <button onClick={submitBtn}>Submit</button>
+                                <button onClick={handleSubmit}>Submit</button>
                             </form>
                         </div>
                     )}

@@ -18,7 +18,14 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.id, {
-      attributes: ["id", "username", "email"],
+      attributes: [
+        "id",
+        "username",
+        "email",
+        "description",
+        "address",
+        "userType",
+      ],
     });
     if (!user) {
       res.sendStatus(404);

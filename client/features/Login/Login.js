@@ -48,7 +48,7 @@ const Login = () => {
                 <div className="image-container">
                     <img
                         className="login-image"
-                        src="https://www.foodbymaria.com/wp-content/uploads/2023/04/FBM-Savoury-Egg-Breakfast-Plate-4-1440x1800.jpg"
+                        src="https://www.realsimple.com/thmb/fMh6cWLYxsddO3BuSJXanCk1gpI=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/easy-dinner-recipes-f768402675e04452b1531360736da8b5.jpg"
                         alt="Food"
                     />
                 </div>

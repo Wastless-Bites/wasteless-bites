@@ -3,14 +3,18 @@ import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
 import L from "leaflet";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchAds, incrementComing } from "../Feed/feedSlice";
+import { fetchAds, incrementComing, decrementComing } from "../Feed/feedSlice";
 import { useParams } from "react-router-dom";
 
 const MapSinglePost = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const ads = useSelector((state) => state.ads);
+  const userId = useSelector((state) => state.auth.me.id);
   const singleAd = ads.find((ad) => ad.id === Number(id));
+  console.log("userId:", userId);
+  console.log(singleAd);
+  const isComing = singleAd ? singleAd.comingUserIds.includes(userId) : false;
 
   const mapRef = useRef(null);
   const leafletMap = useRef(null);
@@ -67,6 +71,11 @@ const MapSinglePost = () => {
     fetchAds();
   };
 
+  const handleNotComingClick = () => {
+    dispatch(decrementComing(singleAd.id));
+    fetchAds();
+  };
+
   return (
     <>
       <Navbar />
@@ -79,7 +88,11 @@ const MapSinglePost = () => {
             <h2>{singleAd.organization.username}</h2>
             <p>{singleAd.organization.address}</p>
             <p>{singleAd.description}</p>
-            <button onClick={handleComingClick}>I'm Coming!</button>
+            <button
+              onClick={isComing ? handleNotComingClick : handleComingClick}
+            >
+              {isComing ? "Not Coming!" : "I'm Coming!"}
+            </button>
             <p>{singleAd.coming} people are coming!</p>
           </div>
         )}

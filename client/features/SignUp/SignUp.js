@@ -84,7 +84,6 @@ const SignUp = () => {
               Username:
             </label>
             <input type="text" name="username" required />
-
             <label className="login-labels" htmlFor="password">
               Password:
             </label>
@@ -105,19 +104,21 @@ const SignUp = () => {
               onChange={handleAddressChange}
               required
             />
-            {suggestions.map((suggestion) => (
-              <div
-                className="ad-form-address-suggestions"
-                key={suggestion.y}
-                onClick={() => handleSuggestionClick(suggestion)}
-              >
-                <i
-                  className="fa-solid fa-location-dot"
-                  style={{ color: "#c22929" }}
-                />
-                {suggestion.label}
-              </div>
-            ))}
+            <div className="suggestions-container">
+              {suggestions.map((suggestion) => (
+                <div
+                  className="ad-form-address-suggestions"
+                  key={suggestion.y}
+                  onClick={() => handleSuggestionClick(suggestion)}
+                >
+                  <i
+                    className="fa-solid fa-location-dot"
+                    style={{ color: "#c22929" }}
+                  />
+                  {suggestion.label}
+                </div>
+              ))}
+            </div>
 
             <label className="login-labels" htmlFor="userType">
               Account Type:

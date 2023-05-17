@@ -14,6 +14,7 @@ const SignUp = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
+  const [isSuggestionSelected, setIsSuggestionSelected] = useState(false);
 
   const [debouncedAddress] = useDebounce(address, 1000);
 
@@ -42,16 +43,19 @@ const SignUp = () => {
 
   const handleAddressChange = async (e) => {
     setAddress(e.target.value);
+    setIsSuggestionSelected(false);
   };
 
   const handleSuggestionClick = (suggestion) => {
     setAddress(suggestion.label);
     setLatitude(suggestion.y);
     setLongitude(suggestion.x);
+    setSuggestions([]);
+    setIsSuggestionSelected(true);
   };
 
   useEffect(() => {
-    if (debouncedAddress) {
+    if (debouncedAddress && !isSuggestionSelected) {
       const fetchSuggestions = async () => {
         const results = await provider.search({
           query: debouncedAddress,
@@ -60,7 +64,7 @@ const SignUp = () => {
       };
       fetchSuggestions();
     }
-  }, [debouncedAddress]);
+  }, [debouncedAddress, isSuggestionSelected]);
 
   return (
     <>

@@ -6,24 +6,34 @@ const LearnIndividual = () => {
     return (
         <>
             <Navbar />
-            <h1>What we can do to help</h1>
-            <p>
-                Reducing food waste is an important step individuals can take to
-                help combat climate change and promote sustainability. There are
-                many simple ways that individuals can reduce their food waste,
-                including buying only what they need, using leftovers
-                creatively, and composting food scraps. Another great way to
-                reduce food waste is to buy surplus food from restaurants or
-                grocery stores. Many restaurants and grocery stores have surplus
-                food that they can't sell, but is still perfectly good to eat.
-                By purchasing this surplus food, individuals can save money and
-                prevent it from going to waste. Additionally, individuals can
-                also donate excess food to food banks or shelters, which helps
-                to provide nutritious meals for those in need.
-            </p>
-
-            <div className="footer-container">
-                <Footer />
+            <div className="learn-individual-container">
+                <img
+                    className="learn-individual-image"
+                    src="https://thumbs.dreamstime.com/b/wooden-table-food-top-view-cafe-102532611.jpg"
+                    alt="Food"
+                />
+                <h1 className="learn-individual-image-header">
+                    What Individuals can do to help
+                </h1>
+            </div>
+            <div className="learn-individual-content">
+                <p>
+                    Reducing food waste is crucial for combating climate change
+                    and promoting sustainability. Individuals can play a
+                    significant role by adopting simple habits like buying only
+                    what they need, getting creative with leftovers, and
+                    composting food scraps. Another effective strategy is
+                    purchasing surplus food from restaurants or grocery stores,
+                    as they often have perfectly good food that would otherwise
+                    go to waste. By doing so, individuals can save money while
+                    preventing food waste. Additionally, donating excess food to
+                    food banks or shelters helps provide nutritious meals to
+                    those in need. Let's work together to make a positive impact
+                    on our planet and communities.
+                </p>
+                <div className="footer-container">
+                    <Footer />
+                </div>
             </div>
         </>
     )

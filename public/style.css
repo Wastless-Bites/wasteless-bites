@@ -652,6 +652,7 @@ button {
   top: 850px;
   margin: 0;
   z-index: 1;
+  cursor: pointer;
 }
 
 .ad-form-address-suggestions {

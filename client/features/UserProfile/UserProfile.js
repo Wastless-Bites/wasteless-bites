@@ -19,7 +19,7 @@ export const fetchAllUsers = () => {
     try {
       const token = window.localStorage.getItem(TOKEN);
       if (token) {
-        const { data } = await axios.get("/api/users", {
+        const { data } = await axios.get("/api/profile", {
           headers: {
             Authorization: token,
           },

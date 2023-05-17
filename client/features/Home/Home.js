@@ -154,9 +154,7 @@ const Home = () => {
                         <button
                             className="section-two-box-btn"
                             type="submit"
-                            onClick={() =>
-                                (window.location.href = '/learnindividual')
-                            }
+                            onClick={() => (window.location.href = '/donor')}
                         >
                             Learn More
                         </button>

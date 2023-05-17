@@ -660,6 +660,11 @@ button {
   width: 266px;
 }
 
+.ad-form-address-suggestions:hover {
+  background-color: #3f3f3f;
+  color: white;
+}
+
 /* ========================== */
 /*      USER PROFILE PAGE     */
 /* ========================== */

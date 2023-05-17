@@ -14,11 +14,18 @@ const SignUp = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
+  const [isSuggestionSelected, setIsSuggestionSelected] = useState(false);
 
   const [debouncedAddress] = useDebounce(address, 1000);
 
   const handleSignUp = async (e) => {
     e.preventDefault();
+
+    if (!latitude || !longitude) {
+      alert("Please select a suggested address");
+      return;
+    }
+
     const username = e.target.username.value;
     const password = e.target.password.value;
     const email = e.target.email.value;
@@ -42,25 +49,28 @@ const SignUp = () => {
 
   const handleAddressChange = async (e) => {
     setAddress(e.target.value);
+    setIsSuggestionSelected(false);
   };
 
   const handleSuggestionClick = (suggestion) => {
     setAddress(suggestion.label);
     setLatitude(suggestion.y);
     setLongitude(suggestion.x);
+    setSuggestions([]);
+    setIsSuggestionSelected(true);
   };
 
   useEffect(() => {
-    if (debouncedAddress) {
+    if (debouncedAddress && !isSuggestionSelected) {
       const fetchSuggestions = async () => {
         const results = await provider.search({
           query: debouncedAddress,
         });
-        setSuggestions(results);
+        setSuggestions(results.slice(0, 5));
       };
       fetchSuggestions();
     }
-  }, [debouncedAddress]);
+  }, [debouncedAddress, isSuggestionSelected]);
 
   return (
     <>
@@ -80,7 +90,6 @@ const SignUp = () => {
               Username:
             </label>
             <input type="text" name="username" required />
-
             <label className="login-labels" htmlFor="password">
               Password:
             </label>
@@ -101,19 +110,21 @@ const SignUp = () => {
               onChange={handleAddressChange}
               required
             />
-            {suggestions.map((suggestion) => (
-              <div
-                className="ad-form-address-suggestions"
-                key={suggestion.y}
-                onClick={() => handleSuggestionClick(suggestion)}
-              >
-                <i
-                  className="fa-solid fa-location-dot"
-                  style={{ color: "#c22929" }}
-                />
-                {suggestion.label}
-              </div>
-            ))}
+            <div className="suggestions-container">
+              {suggestions.map((suggestion) => (
+                <div
+                  className="ad-form-address-suggestions"
+                  key={suggestion.y}
+                  onClick={() => handleSuggestionClick(suggestion)}
+                >
+                  <i
+                    className="fa-solid fa-location-dot"
+                    style={{ color: "#c22929" }}
+                  />
+                  {suggestion.label}
+                </div>
+              ))}
+            </div>
 
             <label className="login-labels" htmlFor="userType">
               Account Type:

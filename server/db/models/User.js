@@ -46,16 +46,16 @@ const User = db.define("User", {
     type: Sequelize.FLOAT,
     allowNull: false,
     validate: {
-      min: -180,
-      max: 180,
+      min: -90,
+      max: 90,
     },
   },
   longitude: {
     type: Sequelize.FLOAT,
     allowNull: false,
     validate: {
-      min: -90,
-      max: 90,
+      min: -180,
+      max: 180,
     },
   },
   description: {

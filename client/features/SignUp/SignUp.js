@@ -20,6 +20,12 @@ const SignUp = () => {
 
   const handleSignUp = async (e) => {
     e.preventDefault();
+
+    if (!latitude || !longitude) {
+      alert("Please select a suggested address");
+      return;
+    }
+
     const username = e.target.username.value;
     const password = e.target.password.value;
     const email = e.target.email.value;
@@ -60,7 +66,7 @@ const SignUp = () => {
         const results = await provider.search({
           query: debouncedAddress,
         });
-        setSuggestions(results);
+        setSuggestions(results.slice(0, 5));
       };
       fetchSuggestions();
     }

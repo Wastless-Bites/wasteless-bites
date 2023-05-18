@@ -3,34 +3,27 @@ import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
-import { fetchSingleUserThunk } from "./userSlice";
+import {
+  fetchSingleUserThunk,
+  updateUserImageThunk,
+  updateUserDescriptionThunk,
+} from "./userSlice";
 
 const SingleUserProfile = () => {
   const dispatch = useDispatch();
   const { id } = useParams();
   const user = useSelector((state) => state.user);
-  const [image, setImage] = useState(null);
-  const [bioText, setBioText] = useState("");
-  const [submit, setSubmit] = useState(false);
+  const [bioText, setBioText] = useState(user.description || "");
+  const [showBioForm, setShowBioForm] = useState(false);
+  const loggedInUserId = useSelector((state) => state.auth.me.id);
 
   useEffect(() => {
     dispatch(fetchSingleUserThunk(id));
-    const storedBioText = localStorage.getItem("bioText");
-    if (storedBioText) {
-      setBioText(storedBioText);
-      setSubmit(true);
-    }
   }, [dispatch, id]);
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
-    const reader = new FileReader();
-
-    reader.onload = () => {
-      setImage(reader.result);
-    };
-
-    reader.readAsDataURL(file);
+    dispatch(updateUserImageThunk({ id, imageFile: file }));
   };
 
   const handleBioChange = (event) => {
@@ -39,8 +32,8 @@ const SingleUserProfile = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    localStorage.setItem("bioText", bioText);
-    setSubmit(true);
+    dispatch(updateUserDescriptionThunk({ id, description: bioText }));
+    setShowBioForm(false);
   };
 
   return (
@@ -48,15 +41,9 @@ const SingleUserProfile = () => {
       <Navbar />
       <div className="user-profile-container">
         <div className="user-profile-image-container">
-          {image ? (
-            <>
-              <img className="user-profile-image" src={image} />
-            </>
-          ) : (
-            <>
-              <img className="user-profile-image" src={user.imageUrl} />
-              <input type="file" onChange={handleImageUpload} />
-            </>
+          <img className="user-profile-image" src={user.imageUrl} />
+          {loggedInUserId === Number(id) && (
+            <input type="file" onChange={handleImageUpload} />
           )}
         </div>
 
@@ -72,25 +59,37 @@ const SingleUserProfile = () => {
             <strong>Account Type: </strong> {user.userType}
           </p>
 
-          {submit ? (
-            <div className="user-profile-form">
-              <form onSubmit={handleSubmit} className="user-profile-bio-form">
+          <div className="user-profile-form">
+            {user.description && (
+              <div>
                 <label>Bio:</label>
-                <h5>{bioText}</h5>
-              </form>
-            </div>
-          ) : (
-            <div className="user-profile-form">
-              <form onSubmit={handleSubmit} className="user-profile-bio-form">
-                <label>Bio:</label>
-                <textarea
-                  onChange={handleBioChange}
-                  placeholder="Write a fun fact!"
-                ></textarea>
-                <button onClick={handleSubmit}>Submit</button>
-              </form>
-            </div>
-          )}
+                <h5>{user.description}</h5>
+              </div>
+            )}
+
+            {loggedInUserId === Number(id) && (
+              <>
+                <button onClick={() => setShowBioForm(!showBioForm)}>
+                  {showBioForm ? "Cancel" : "Edit Bio"}
+                </button>
+
+                {showBioForm && (
+                  <form
+                    onSubmit={handleSubmit}
+                    className="user-profile-bio-form"
+                  >
+                    <label>Update Bio:</label>
+                    <textarea
+                      onChange={handleBioChange}
+                      placeholder="Write a fun fact!"
+                      value={bioText}
+                    ></textarea>
+                    <button type="submit">Submit</button>
+                  </form>
+                )}
+              </>
+            )}
+          </div>
         </div>
       </div>
 

@@ -953,34 +953,34 @@ button {
 .learn-individual-container,
 .learn-org-container,
 .donors-container {
-    position: relative;
+  position: relative;
 }
 
 .learn-individual-image,
 .learn-org-image,
 .donors-image {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    background-size: cover;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  background-size: cover;
 }
 
 .learn-individual-image-header,
 .learn-org-header,
 .donors-header {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-    text-align: center;
-    width: 100%;
-    font-size: 2.3rem;
-    font-weight: bold;
-    margin: 0 auto;
-    color: #fff;
-    text-shadow: 1px 1px 10px black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  font-size: 2.3rem;
+  font-weight: bold;
+  margin: 0 auto;
+  color: #fff;
+  text-shadow: 1px 1px 10px black;
 }
 
 .learn-individual-content,

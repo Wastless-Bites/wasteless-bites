@@ -10,7 +10,7 @@ const aboutUsData = [
     },
     {
         name: 'Noel Diaz',
-        imgUrl: 'https://s3.amazonaws.com/37assets/svn/765-default-avatar.png',
+        imgUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv4A2HMrV-6pnTb6c9Cilt8Paq70FD1SE-gpMI6CTG3mKb-JhyO0sNTzpdlGjg3jNdp-E&usqp=CAU',
         linkedin: 'https://www.linkedin.com/in/noel-diaz/',
     },
     {
@@ -49,6 +49,8 @@ const AboutUs = () => {
                         involved in this effort. By working together with
                         restaurants, we can create a more eco-friendly and
                         socially responsible food system that benefits everyone.
+                        <br></br>
+                        <br></br>
                         Our approach involves encouraging restaurants to
                         introduce special offers, like reduced-price meals or
                         donating surplus food, which helps to reduce waste and
@@ -59,7 +61,9 @@ const AboutUs = () => {
                     </p>
                 </div>
             </div>
-            <Footer />
+            <div className="footer-container">
+                <Footer />
+            </div>
         </>
     )
 }

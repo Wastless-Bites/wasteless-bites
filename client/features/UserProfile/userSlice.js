@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import { fromPairs } from "lodash";
 
 const initialState = {
   username: "",
@@ -7,8 +8,7 @@ const initialState = {
   description: "",
   address: "",
   userType: "",
-  imageUrl:
-    "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png",
+  imageUrl: "",
 };
 
 export const fetchSingleUserThunk = createAsyncThunk(
@@ -16,10 +16,36 @@ export const fetchSingleUserThunk = createAsyncThunk(
   async (id) => {
     try {
       const { data } = await axios.get(`/api/profile/${id}`);
+      console.log(data);
       return data;
     } catch (err) {
       next(err);
     }
+  }
+);
+
+export const updateUserImageThunk = createAsyncThunk(
+  "singleuser/updateImage",
+  async ({ id, imageFile }) => {
+    const formData = new FormData();
+    formData.append("image", imageFile);
+
+    const { data } = await axios.put(`/api/profile/${id}/image`, formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    return data;
+  }
+);
+
+export const updateUserDescriptionThunk = createAsyncThunk(
+  "singleuser/updateDescription",
+  async ({ id, description }) => {
+    const { data } = await axios.put(`/api/profile/${id}/description`, {
+      description,
+    });
+    return data;
   }
 );
 
@@ -34,6 +60,13 @@ const SingleUserSlice = createSlice({
       state.description = action.payload.description;
       state.address = action.payload.address;
       state.userType = action.payload.userType;
+      state.imageUrl = action.payload.imageUrl;
+    });
+    builder.addCase(updateUserImageThunk.fulfilled, (state, action) => {
+      state.imageUrl = action.payload.imageUrl;
+    });
+    builder.addCase(updateUserDescriptionThunk.fulfilled, (state, action) => {
+      state.description = action.payload.description;
     });
   },
 });

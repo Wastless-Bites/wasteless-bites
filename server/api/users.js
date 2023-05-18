@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { models } = require("../db");
-const { User } = models;
+const { User, Review } = models;
 const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
 const cloudinary = require("cloudinary").v2;
@@ -32,6 +32,10 @@ router.get("/:id", async (req, res, next) => {
         "address",
         "userType",
         "imageUrl",
+      ],
+      include: [
+        { model: Review, as: "organizationReviews" },
+        { model: Review, as: "userReviews" },
       ],
     });
     if (!user) {

@@ -8,6 +8,8 @@ const initialState = {
   address: "",
   userType: "",
   imageUrl: "",
+  organizationReviews: [],
+  userReviews: [],
 };
 
 export const fetchSingleUserThunk = createAsyncThunk(
@@ -48,6 +50,18 @@ export const updateUserDescriptionThunk = createAsyncThunk(
   }
 );
 
+export const createReviewThunk = createAsyncThunk(
+  "singleuser/addReview",
+  async (reviewData) => {
+    try {
+      const { data } = await axios.post("/api/reviews", reviewData);
+      return data;
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
 const SingleUserSlice = createSlice({
   name: "singleuser",
   initialState,
@@ -60,12 +74,17 @@ const SingleUserSlice = createSlice({
       state.address = action.payload.address;
       state.userType = action.payload.userType;
       state.imageUrl = action.payload.imageUrl;
+      state.organizationReviews = action.payload.organizationReviews;
+      state.userReviews = action.payload.userReviews;
     });
     builder.addCase(updateUserImageThunk.fulfilled, (state, action) => {
       state.imageUrl = action.payload.imageUrl;
     });
     builder.addCase(updateUserDescriptionThunk.fulfilled, (state, action) => {
       state.description = action.payload.description;
+    });
+    builder.addCase(createReviewThunk.fulfilled, (state, action) => {
+      state.organizationReviews.push(action.payload);
     });
   },
 });

@@ -48,6 +48,18 @@ export const updateUserDescriptionThunk = createAsyncThunk(
   }
 );
 
+export const createReviewThunk = createAsyncThunk(
+  "singleuser/addReview",
+  async (reviewData) => {
+    try {
+      const { data } = await axios.post("/api/reviews", reviewData);
+      return data;
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
 const SingleUserSlice = createSlice({
   name: "singleuser",
   initialState,

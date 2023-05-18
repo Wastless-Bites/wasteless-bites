@@ -678,9 +678,9 @@ button {
 }
 
 .user-profile-image-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 40%;
   height: 40%;
 }
@@ -700,6 +700,28 @@ button {
   width: 400px;
   height: 150px;
   font-size: 1.2rem;
+}
+
+.review-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-review-form {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.user-review-form form {
+  padding: 0;
+  margin: 0;
+  height: fit-content;
+}
+
+.user-review-form form textarea {
+  width: 40vw;
 }
 
 /* ========================== */

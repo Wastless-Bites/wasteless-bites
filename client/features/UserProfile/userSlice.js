@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { fromPairs } from "lodash";
 
 const initialState = {
   username: "",

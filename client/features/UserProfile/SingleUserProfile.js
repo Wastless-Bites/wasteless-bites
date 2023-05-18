@@ -14,6 +14,8 @@ const SingleUserProfile = () => {
   const { id } = useParams();
   const user = useSelector((state) => state.user);
   const [bioText, setBioText] = useState(user.description || "");
+  const [showBioForm, setShowBioForm] = useState(false);
+  const loggedInUserId = useSelector((state) => state.auth.me.id);
 
   useEffect(() => {
     dispatch(fetchSingleUserThunk(id));
@@ -31,6 +33,7 @@ const SingleUserProfile = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(updateUserDescriptionThunk({ id, description: bioText }));
+    setShowBioForm(false);
   };
 
   return (
@@ -39,7 +42,9 @@ const SingleUserProfile = () => {
       <div className="user-profile-container">
         <div className="user-profile-image-container">
           <img className="user-profile-image" src={user.imageUrl} />
-          <input type="file" onChange={handleImageUpload} />
+          {loggedInUserId === Number(id) && (
+            <input type="file" onChange={handleImageUpload} />
+          )}
         </div>
 
         <div className="user-profile-text-container">
@@ -62,15 +67,28 @@ const SingleUserProfile = () => {
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="user-profile-bio-form">
-              <label>Update Bio:</label>
-              <textarea
-                onChange={handleBioChange}
-                placeholder="Write a fun fact!"
-                value={bioText}
-              ></textarea>
-              <button type="submit">Submit</button>
-            </form>
+            {loggedInUserId === Number(id) && (
+              <>
+                <button onClick={() => setShowBioForm(!showBioForm)}>
+                  {showBioForm ? "Cancel" : "Edit Bio"}
+                </button>
+
+                {showBioForm && (
+                  <form
+                    onSubmit={handleSubmit}
+                    className="user-profile-bio-form"
+                  >
+                    <label>Update Bio:</label>
+                    <textarea
+                      onChange={handleBioChange}
+                      placeholder="Write a fun fact!"
+                      value={bioText}
+                    ></textarea>
+                    <button type="submit">Submit</button>
+                  </form>
+                )}
+              </>
+            )}
           </div>
         </div>
       </div>

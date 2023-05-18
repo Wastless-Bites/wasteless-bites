@@ -8,6 +8,7 @@ const initialState = {
   address: "",
   userType: "",
   imageUrl: "",
+  organizationReviews: [],
 };
 
 export const fetchSingleUserThunk = createAsyncThunk(
@@ -72,12 +73,16 @@ const SingleUserSlice = createSlice({
       state.address = action.payload.address;
       state.userType = action.payload.userType;
       state.imageUrl = action.payload.imageUrl;
+      state.organizationReviews = action.payload.organizationReviews;
     });
     builder.addCase(updateUserImageThunk.fulfilled, (state, action) => {
       state.imageUrl = action.payload.imageUrl;
     });
     builder.addCase(updateUserDescriptionThunk.fulfilled, (state, action) => {
       state.description = action.payload.description;
+    });
+    builder.addCase(createReviewThunk.fulfilled, (state, action) => {
+      state.organizationReviews.push(action.payload);
     });
   },
 });

@@ -134,11 +134,31 @@ const SingleUserProfile = () => {
               )}
             </div>
           )}
-      </div>
+        <div className="user-reviews-container">
+          {user.userType === "individual" && user.userReviews && (
+            <>
+              <h2>User Reviews:</h2>
+              {user.userReviews.map((review) => (
+                <div key={review.id}>
+                  <p>{review.comment}</p>
+                </div>
+              ))}
+            </>
+          )}
 
-      <div className="footer-container">
-        <Footer />
+          {user.userType === "organization" && user.organizationReviews && (
+            <>
+              <h2>Organization Reviews:</h2>
+              {user.organizationReviews.map((review) => (
+                <div key={review.id}>
+                  <p>{review.comment}</p>
+                </div>
+              ))}
+            </>
+          )}
+        </div>
       </div>
+      <Footer />
     </>
   );
 };

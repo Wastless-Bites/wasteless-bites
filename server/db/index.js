@@ -5,14 +5,14 @@ const Review = require("./models/Review");
 const Ad = require("./models/Ad");
 
 // associations
-User.hasMany(Review, { foreignKey: "userId", as: "reviews" });
 User.hasMany(Ad, { foreignKey: "organizationId", as: "ads" });
 
-Review.belongsTo(User, { foreignKey: "userId", as: "user" });
+User.hasMany(Review, { foreignKey: "userId", as: "userReviews" });
 User.hasMany(Review, {
   foreignKey: "organizationId",
   as: "organizationReviews",
 });
+Review.belongsTo(User, { foreignKey: "userId", as: "user" });
 
 Ad.belongsTo(User, { foreignKey: "organizationId", as: "organization" });
 

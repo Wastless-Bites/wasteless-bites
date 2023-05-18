@@ -33,7 +33,10 @@ router.get("/:id", async (req, res, next) => {
         "userType",
         "imageUrl",
       ],
-      include: [{ model: Review, as: "organizationReviews" }],
+      include: [
+        { model: Review, as: "organizationReviews" },
+        { model: Review, as: "userReviews" },
+      ],
     });
     if (!user) {
       res.sendStatus(404);

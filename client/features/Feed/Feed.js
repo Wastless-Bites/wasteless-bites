@@ -13,8 +13,6 @@ const Feed = () => {
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
   const userId = useSelector((state) => state.auth.me.id);
 
-  const [showAdForm, setShowAdForm] = useState(false);
-
   useEffect(() => {
     dispatch(fetchAds());
   }, [dispatch]);
@@ -23,21 +21,10 @@ const Feed = () => {
     dispatch(deleteAd(adId));
   };
 
-  const toggleAdForm = () => {
-    setShowAdForm(!showAdForm);
-  };
-
   return (
     <>
       <Navbar />
-      <div className="button-container">
-        {userType === "organization" && !showAdForm && (
-          <button className="create-post-button" onClick={toggleAdForm}>
-            Create a Post
-          </button>
-        )}
-        {userType === "organization" && showAdForm && <AdForm />}
-      </div>
+      {userType === "organization" && <AdForm />}
       <div className="ad-container">
         {ads.map((ad) => {
           return (

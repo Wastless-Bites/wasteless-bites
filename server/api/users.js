@@ -34,8 +34,16 @@ router.get("/:id", async (req, res, next) => {
         "imageUrl",
       ],
       include: [
-        { model: Review, as: "organizationReviews" },
-        { model: Review, as: "userReviews" },
+        {
+          model: Review,
+          as: "organizationReviews",
+          include: [{ model: User, as: "user" }],
+        },
+        {
+          model: Review,
+          as: "userReviews",
+          include: [{ model: User, as: "reviewedOrganization" }],
+        },
       ],
     });
     if (!user) {

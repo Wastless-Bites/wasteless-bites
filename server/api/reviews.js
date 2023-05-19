@@ -7,7 +7,10 @@ const {
 router.post("/", async (req, res, next) => {
   try {
     const newReview = await Review.create(req.body);
-    res.json(newReview);
+    const newReviewWithUser = await Review.findByPk(newReview.id, {
+      include: [{ model: User, as: "user" }],
+    });
+    res.json(newReviewWithUser);
   } catch (err) {
     next(err);
   }

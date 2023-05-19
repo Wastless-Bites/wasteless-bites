@@ -60,9 +60,6 @@ const User = db.define("User", {
   },
   description: {
     type: Sequelize.TEXT,
-    validate: {
-      max: 100,
-    },
   },
   userType: {
     type: Sequelize.ENUM("organization", "individual"),

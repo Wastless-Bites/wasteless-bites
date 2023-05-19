@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteAd, fetchAds } from "./feedSlice";
 import AdForm from "../AdForm/AdForm";
@@ -13,6 +13,8 @@ const Feed = () => {
   const isAdmin = useSelector((state) => state.auth.me.isAdmin);
   const userId = useSelector((state) => state.auth.me.id);
 
+  const [showAdForm, setShowAdForm] = useState(false);
+
   useEffect(() => {
     dispatch(fetchAds());
   }, [dispatch]);
@@ -21,16 +23,27 @@ const Feed = () => {
     dispatch(deleteAd(adId));
   };
 
+  const toggleAdForm = () => {
+    setShowAdForm(!showAdForm);
+  };
+
   return (
     <>
       <Navbar />
-      {userType === "organization" && <AdForm />}
+      <div className="button-container">
+        {userType === "organization" && !showAdForm && (
+          <button className="create-post-button" onClick={toggleAdForm}>
+            Create a Post
+          </button>
+        )}
+        {userType === "organization" && showAdForm && <AdForm />}
+      </div>
       <div className="ad-container">
         {ads.map((ad) => {
           return (
             <div className="ads" key={ad.id}>
               <Link className="ad-link" to={`/map/${ad.id}`}>
-                <img className="ad-image" src={ad.imageUrl}></img>
+                <img className="ad-image" src={ad.imageUrl} alt={ad.title} />
                 <h2 className="ad-title">{ad.title}</h2>
                 <h4 className="ad-org-name">
                   {ad.organization && ad.organization.username}
@@ -39,20 +52,18 @@ const Feed = () => {
                   {ad.organization && ad.organization.address}
                 </h5>{" "}
               </Link>
-              {userId === ad.organization?.id ||
-                (isAdmin && (
-                  <button
-                    className="delete-ad-button"
-                    onClick={() => handleDelete(ad.id)}
-                  >
-                    <i className="fa-solid fa-trash-can"></i>
-                  </button>
-                ))}
+              {(userId === ad.organization?.id || isAdmin) && (
+                <button
+                  className="delete-ad-button"
+                  onClick={() => handleDelete(ad.id)}
+                >
+                  <i className="fa-solid fa-trash-can"></i>
+                </button>
+              )}
             </div>
           );
         })}
       </div>
-
       <Footer />
     </>
   );

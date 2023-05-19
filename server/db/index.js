@@ -13,6 +13,10 @@ User.hasMany(Review, {
   as: "organizationReviews",
 });
 Review.belongsTo(User, { foreignKey: "userId", as: "user" });
+Review.belongsTo(User, {
+  foreignKey: "organizationId",
+  as: "reviewedOrganization",
+});
 
 Ad.belongsTo(User, { foreignKey: "organizationId", as: "organization" });
 

@@ -135,27 +135,42 @@ const SingleUserProfile = () => {
             </div>
           )}
         <div className="user-reviews-container">
-          {user.userType === "individual" && user.userReviews && (
-            <>
-              <h2>User Reviews:</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Review</th>
+              </tr>
+            </thead>
+            <tbody>
               {user.userReviews.map((review) => (
-                <div key={review.id}>
-                  <p>{review.comment}</p>
-                </div>
+                <tr key={review.id}>
+                  <td className="review-user">
+                    <img
+                      className="review-image"
+                      src={review.reviewedOrganization.imageUrl}
+                    />
+                    <p>{review.reviewedOrganization.username}</p>
+                  </td>
+                  <td className="review-text">
+                    <p>{review.comment}</p>
+                  </td>
+                </tr>
               ))}
-            </>
-          )}
 
-          {user.userType === "organization" && user.organizationReviews && (
-            <>
-              <h2>Organization Reviews:</h2>
               {user.organizationReviews.map((review) => (
-                <div key={review.id}>
-                  <p>{review.comment}</p>
-                </div>
+                <tr key={review.id}>
+                  <td className="review-user">
+                    <img className="review-image" src={review.user.imageUrl} />
+                    <p>{review.user.username}</p>
+                  </td>
+                  <td className="review-text">
+                    <p>{review.comment}</p>
+                  </td>
+                </tr>
               ))}
-            </>
-          )}
+            </tbody>
+          </table>
         </div>
       </div>
       <Footer />

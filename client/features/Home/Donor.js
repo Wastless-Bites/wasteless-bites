@@ -43,15 +43,12 @@ const Donor = () => {
                                         (window.location.href = '/contact')
                                     }
                                 >
-                                    I'm interested!
+                                    Contact
                                 </button>
                             </div>
                         </p>
                     </div>
                 </div>
-            </div>
-            <div className="footer-container">
-                <Footer />
             </div>
         </>
     )

@@ -36,6 +36,16 @@ const Donor = () => {
                             <br></br>
                             <br></br>
                             Please reach out to us on our contact page.
+                            <div>
+                                <button
+                                    className="donor-page-btn"
+                                    onClick={() =>
+                                        (window.location.href = '/contact')
+                                    }
+                                >
+                                    I'm interested!
+                                </button>
+                            </div>
                         </p>
                     </div>
                 </div>

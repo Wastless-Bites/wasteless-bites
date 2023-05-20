@@ -34,6 +34,16 @@ const LearnIndividual = () => {
                         banks or shelters helps provide nutritious meals to
                         those in need. Let's work together to make a positive
                         impact on our planet and communities.
+                        <div>
+                            <button
+                                className="individual-page-btn"
+                                onClick={() =>
+                                    (window.location.href = '/signup')
+                                }
+                            >
+                                I'm interested!
+                            </button>
+                        </div>
                     </p>
                 </div>
             </div>

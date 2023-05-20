@@ -34,6 +34,16 @@ const LearnOrg = () => {
                         food waste and how they can contribute by taking home
                         leftovers or ordering smaller portions. Together, we can
                         create a greener future.
+                        <div>
+                            <button
+                                className="organization-page-btn"
+                                onClick={() =>
+                                    (window.location.href = '/signup')
+                                }
+                            >
+                                I'm interested!
+                            </button>
+                        </div>
                     </p>
                 </div>
             </div>

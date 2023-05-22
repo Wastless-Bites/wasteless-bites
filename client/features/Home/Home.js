@@ -110,49 +110,45 @@ const Home = () => {
             ></img>
           </div>
         </section>
-        
-                <section>
-                    <div className="organization-box">
-                        <h2 className="section-two-box-header">
-                            An organization
-                        </h2>
-                        <p className="section-two-box-text">
-                            Are you an organization facing waste problems and
-                            don't know what to do with your surplus of food?
-                            Discover our solutions to help you
-                        </p>
-                        <button
-                            className="section-two-box-btn"
-                            type="submit"
-                            onClick={() => (window.location.href = '/learnorg')}
-                        >
-                            Learn more
-                        </button>
-                    </div>
-                    <div className="organization-box-image-container">
-                        <img
-                            className="organization-box-image"
-                            src="https://st2.depositphotos.com/1037987/10278/i/450/depositphotos_102781232-stock-photo-supermarket-workers-standing-in-grocery.jpg"
-                        ></img>
-                    </div>
-                </section>
-                <section>
-                    <div className="donor-box">
-                        <h2 className="section-two-box-header">A Donor</h2>
-                        <p className="section-two-box-text">
-                            Want to help the planet and our cause? We are a
-                            non-profit and could use all the helping hands we
-                            can. Click here to learn how!
-                        </p>
-                        <button
-                            className="section-two-box-btn"
-                            type="submit"
-                            onClick={() => (window.location.href = '/donor')}
-                        >
-                            Learn More
-                        </button>
-                    </div>
 
+        <section>
+          <div className="organization-box">
+            <h2 className="section-two-box-header">An organization</h2>
+            <p className="section-two-box-text">
+              Are you an organization facing waste problems and don't know what
+              to do with your surplus of food? Discover our solutions to help
+              you
+            </p>
+            <button
+              className="section-two-box-btn"
+              type="submit"
+              onClick={() => (window.location.href = "/learnorg")}
+            >
+              Learn more
+            </button>
+          </div>
+          <div className="organization-box-image-container">
+            <img
+              className="organization-box-image"
+              src="https://st2.depositphotos.com/1037987/10278/i/450/depositphotos_102781232-stock-photo-supermarket-workers-standing-in-grocery.jpg"
+            ></img>
+          </div>
+        </section>
+        <section>
+          <div className="donor-box">
+            <h2 className="section-two-box-header">A Donor</h2>
+            <p className="section-two-box-text">
+              Want to help the planet and our cause? We are a non-profit and
+              could use all the helping hands we can. Click here to learn how!
+            </p>
+            <button
+              className="section-two-box-btn"
+              type="submit"
+              onClick={() => (window.location.href = "/donor")}
+            >
+              Learn More
+            </button>
+          </div>
 
           <div className="donor-box-image-container">
             <img

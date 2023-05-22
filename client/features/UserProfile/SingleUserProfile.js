@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
@@ -58,16 +58,19 @@ const SingleUserProfile = () => {
   };
 
   return (
-    <>
+    <div className="single-profile-page">
       <Navbar />
       <div className="user-profile-container">
         <div className="user-profile-image-container">
           <img className="user-profile-image" src={user.imageUrl} />
           {loggedInUserId === Number(id) && (
-            <input type="file" onChange={handleImageUpload} />
+            <input
+              className="image-upload-profile"
+              type="file"
+              onChange={handleImageUpload}
+            />
           )}
         </div>
-
         <div className="user-profile-text-container">
           <h1>{user.username}</h1>
           <p>
@@ -82,17 +85,22 @@ const SingleUserProfile = () => {
 
           <div className="user-profile-form">
             {user.description && (
-              <div>
-                <label>Bio:</label>
+              <div className="user-bio">
+                <strong>Bio:</strong>
                 <h5>{user.description}</h5>
               </div>
             )}
 
             {loggedInUserId === Number(id) && (
               <>
-                <button onClick={() => setShowBioForm(!showBioForm)}>
-                  {showBioForm ? "Cancel" : "Edit Bio"}
-                </button>
+                {!showBioForm && (
+                  <button
+                    className="create-post-button"
+                    onClick={() => setShowBioForm(true)}
+                  >
+                    Edit Bio
+                  </button>
+                )}
 
                 {showBioForm && (
                   <form
@@ -105,7 +113,9 @@ const SingleUserProfile = () => {
                       placeholder="Write a fun fact!"
                       value={bioText}
                     ></textarea>
-                    <button type="submit">Submit</button>
+                    <button className="create-post-button" type="submit">
+                      Submit
+                    </button>
                   </form>
                 )}
               </>
@@ -138,7 +148,7 @@ const SingleUserProfile = () => {
           <table>
             <thead>
               <tr>
-                <th>User</th>
+                <th className="review-user">User</th>
                 <th>Review</th>
               </tr>
             </thead>
@@ -150,7 +160,11 @@ const SingleUserProfile = () => {
                       className="review-image"
                       src={review.reviewedOrganization.imageUrl}
                     />
-                    <p>{review.reviewedOrganization.username}</p>
+                    <p>
+                      <Link to={`/profile/${review.reviewedOrganization.id}`}>
+                        {review.reviewedOrganization.username}
+                      </Link>
+                    </p>
                   </td>
                   <td className="review-text">
                     <p>{review.comment}</p>
@@ -162,7 +176,11 @@ const SingleUserProfile = () => {
                 <tr key={review.id}>
                   <td className="review-user">
                     <img className="review-image" src={review.user.imageUrl} />
-                    <p>{review.user.username}</p>
+                    <p>
+                      <Link to={`/profile/${review.user.id}`}>
+                        {review.user.username}
+                      </Link>
+                    </p>
                   </td>
                   <td className="review-text">
                     <p>{review.comment}</p>
@@ -173,8 +191,7 @@ const SingleUserProfile = () => {
           </table>
         </div>
       </div>
-      <Footer />
-    </>
+    </div>
   );
 };
 

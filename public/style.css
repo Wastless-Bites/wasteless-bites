@@ -318,7 +318,7 @@ a:link {
 }
 
 .section-three-our-mission {
-    color: rgba(60, 60, 60, 0.82);
+    color: rgba(21, 21, 21, 0.82);
     text-shadow: 1px 1px 8px white;
     font-size: 2rem;
 }
@@ -754,7 +754,7 @@ tr {
 }
 
 /* ========================== */
-/*      SINGLEPOST PAGE       */
+/*          MAP PAGE          */
 /* ========================== */
 
 .single-post-container {
@@ -931,15 +931,19 @@ tr {
 .map-single-post-container {
     display: flex;
     width: 100%;
+    background-image: url('https://www.pixelstalk.net/wp-content/uploads/2016/10/Best-Dark-Gray-Backgrounds.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .single-map-container {
-    height: 100vh;
+    height: 133vh;
     width: 50%;
 }
 
 .single-ad-image {
     height: 50vh;
+    border-radius: 15px;
 }
 
 .ad-details {
@@ -948,6 +952,70 @@ tr {
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+    padding: 0;
+    text-shadow: 1px 1px 10px black;
+}
+
+.ad-details h1,
+.ad-details h2,
+.ad-details p {
+    color: #fff;
+    margin: 0;
+}
+
+.ad-details h1 {
+    font-size: 2.3rem;
+    margin: 10px 0;
+}
+
+.ad-details h2 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    font-style: italic;
+}
+
+.ad-details p {
+    margin: 15px 0;
+    letter-spacing: 0.7px;
+}
+
+.green-btn,
+.red-btn {
+    padding: 15px;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 10px black;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 15px black;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.green-btn:hover,
+.red-btn:hover {
+    font-size: 1.35rem;
+}
+
+.green-btn {
+    background-color: green;
+    color: white;
+}
+
+.red-btn {
+    background-color: red;
+    color: white;
+}
+
+#single-ad-coming-numbers {
+    font-style: italic;
+}
+
+#testing {
+    background-color: black;
+}
+
+.testing {
+    background-color: black;
 }
 
 /* ========================== */
@@ -1141,6 +1209,8 @@ tr {
 .donor-page-btn {
     background-color: rgb(86, 7, 7);
     text-shadow: 1px 1px 5px black;
+    display: flex;
+    justify-content: center;
 }
 
 .organization-background {

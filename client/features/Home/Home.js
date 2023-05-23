@@ -19,7 +19,12 @@ const Home = () => {
       );
     };
 
-    showAlert();
+    const hasShownAlert = localStorage.getItem("hasShownAlert");
+
+    if (!hasShownAlert) {
+      showAlert();
+      localStorage.setItem("hasShownAlert", "true");
+    }
   }, []);
 
   return (

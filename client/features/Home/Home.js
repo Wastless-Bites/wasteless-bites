@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { logout } from "../auth/authSlice.js";
@@ -11,6 +11,17 @@ const Home = () => {
     dispatch(logout());
     navigate("/");
   };
+
+  useEffect(() => {
+    const showAlert = () => {
+      alert(
+        "Please turn any ad blocker off to see the full functionality of this website. Thank you!"
+      );
+    };
+
+    showAlert();
+  }, []);
+
   return (
     <>
       {/* ---SECTION ONE--- */}

@@ -4,7 +4,7 @@ import Footer from '../Footer/Footer'
 import L from 'leaflet'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchAds, incrementComing, decrementComing } from '../Feed/feedSlice'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 
 const MapSinglePost = () => {
     const dispatch = useDispatch()
@@ -89,7 +89,9 @@ const MapSinglePost = () => {
                             src={singleAd.imageUrl}
                         ></img>
                         <h1>{singleAd.title}</h1>
-                        <h2>{singleAd.organization.username}</h2>
+                        <Link to={`/profile/${singleAd.organization.id}`}>
+                            <h2>{singleAd.organization.username}</h2>
+                        </Link>
                         <p>{singleAd.organization.address}</p>
                         <p>{singleAd.description}</p>
                         <button

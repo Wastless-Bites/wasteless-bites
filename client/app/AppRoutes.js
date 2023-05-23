@@ -14,7 +14,6 @@ import Map from '../features/Map/Map'
 import { me } from './store'
 import MapSinglePost from '../features/MapSinglePost/MapSinglePost'
 import FoodWaste from '../features/Home/FoodWaste'
-import UserProfile from '../features/UserProfile/UserProfile'
 import Donor from '../features/Home/Donor'
 
 const AppRoutes = () => {
@@ -34,7 +33,6 @@ const AppRoutes = () => {
                     <Route path="/aboutus" element={<AboutUs />}></Route>
                     <Route path="/login" element={<Login />}></Route>
                     <Route path="/signup" element={<SignUp />}></Route>
-                    <Route path="/profile" element={<UserProfile />}></Route>
                     <Route path="/feed" element={<Feed />}></Route>
                     <Route
                         path="/learnindividual"
@@ -57,7 +55,6 @@ const AppRoutes = () => {
                     <Route path="/aboutus" element={<AboutUs />}></Route>
                     <Route path="/login" element={<Login />}></Route>
                     <Route path="/signup" element={<SignUp />}></Route>
-                    <Route path="/profile" element={<UserProfile />}></Route>
                     <Route path="/feed" element={<Feed />}></Route>
                     <Route
                         path="/learnindividual"

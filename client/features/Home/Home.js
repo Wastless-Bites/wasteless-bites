@@ -89,7 +89,7 @@ const Home = () => {
       <div className="home-section-two">
         <section>
           <div className="individual-box">
-            <h2 className="section-two-box-header">An individual</h2>
+            <h2 className="section-two-box-header">An Individual</h2>
             <p className="section-two-box-text">
               Uncover organizations in your area giving away free food! Lets
               help you and help others reduce waste and keep your bellies full.
@@ -113,7 +113,7 @@ const Home = () => {
 
         <section>
           <div className="organization-box">
-            <h2 className="section-two-box-header">An organization</h2>
+            <h2 className="section-two-box-header">An Organization</h2>
             <p className="section-two-box-text">
               Are you an organization facing waste problems and don't know what
               to do with your surplus of food? Discover our solutions to help

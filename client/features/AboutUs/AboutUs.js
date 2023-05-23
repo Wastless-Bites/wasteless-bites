@@ -17,7 +17,7 @@ const aboutUsData = [
   },
   {
     name: "Steven Lee",
-    imgUrl: "https://s3.amazonaws.com/37assets/svn/765-default-avatar.png",
+    imgUrl: "https://i.gyazo.com/c9ae62211404179d924fedde91037416.png",
     linkedin: "https://www.linkedin.com/in/steven-sehyun-lee/",
   },
 ];
